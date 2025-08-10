@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>جزئیات پروژه - اپلیکیشن مدیریت پروژه</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="index.html" class="logo text-xl">FARZAD</a>
+    </div>
+    <nav>
+      <a href="index.html#projects" class="cta"><span class="mono">بازگشت به پروژه‌ها</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-12 mb-20">
+    <section class="project-detail-card">
+      <!-- عنوان پروژه -->
+      <h1 class="text-4xl font-extrabold bg-gradient-to-r from-red-500 via-red-400 to-red-600 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_10px_rgba(255,0,0,0.7)]">
+        اپلیکیشن مدیریت پروژه شبکه
+      </h1>
+      <div class="text-lg text-neutral-400 mb-8">Flutter • Django • CRM</div>
+
+      <!-- پیش‌نمایش گیف -->
+      <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-red-500 mb-10">
+        <img src="p3.png" alt="پیش‌نمایش اپ مدیریت پروژه" class="w-full object-cover">
+      </div>
+
+      <!-- توضیحات کامل -->
+      <div class="prose prose-invert max-w-none text-neutral-300 leading-8">
+        <p>
+          این اپلیکیشن یک راهکار جامع برای مدیریت پروژه‌ها در زمینه فیبر نوری، شبکه و تلفن‌های IP است. این سیستم که با فلاتر برای فرانت‌اند و جنگو برای بک‌اند توسعه داده شده، کل چرخه عمر پروژه را پوشش می‌دهد:
+        </p>
+        <ul>
+          <li>
+            <strong>بازاریابی و فرصت‌ها:</strong> ثبت و پیگیری فرصت‌های جدید فروش و بازاریابی.
+          </li>
+          <li>
+            <strong>هماهنگی و اجرا:</strong> مدیریت وظایف، تخصیص منابع و هماهنگی تیم‌های اجرایی در طول پروژه.
+          </li>
+          <li>
+            <strong>تکمیل و تحویل:</strong> پیگیری مراحل نهایی، کنترل کیفیت و تحویل پروژه به مشتری.
+          </li>
+        </ul>
+        <p>
+          این اپلیکیشن به عنوان یک CRM و ابزار مدیریت پروژه تخصصی، به شرکت‌ها کمک می‌کند تا فرآیندهای خود را بهینه‌سازی کرده و بهره‌وری را افزایش دهند.
+        </p>
+      </div>
+
+      <!-- گالری تصاویر -->
+      <div class="mt-12">
+        <h3 class="text-2xl font-bold text-white mb-6">گالری تصاویر پروژه</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden border border-neutral-800">
+            <img src="parse1.png" alt="تصویر ۱ از پروژه" class="w-full h-auto object-cover">
+          </div>
+          <div class="bg-gray-900 rounded-lg overflow-hidden border border-neutral-800">
+            <img src="p2.png" alt="تصویر ۲ از پروژه" class="w-full h-auto object-cover">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400 text-sm text-center">
+    © 2025 فرزاد — همه حقوق محفوظ است
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+</body>
+</html>

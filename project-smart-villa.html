@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>جزئیات پروژه - امنیت هوشمند ویلا</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="index.html" class="logo text-xl">FARZAD</a>
+    </div>
+    <nav>
+      <a href="index.html#projects" class="cta"><span class="mono">بازگشت به پروژه‌ها</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-12 mb-20">
+    <section class="project-detail-card">
+      <!-- عنوان پروژه -->
+      <h1 class="text-4xl font-extrabold bg-gradient-to-r from-red-500 via-red-400 to-red-600 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_10px_rgba(255,0,0,0.7)]">
+        سیستم امنیت هوشمند ویلا
+      </h1>
+      <div class="text-lg text-neutral-400 mb-8">Drone Surveillance • IoT Sensors • Automated Security</div>
+
+      <!-- پیش‌نمایش گیف -->
+      <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-red-500 mb-10">
+        <img src="/assets/project-demo-villa.gif" alt="پیش‌نمایش سیستم امنیتی ویلا" class="w-full object-cover">
+      </div>
+
+      <!-- توضیحات کامل -->
+      <div class="prose prose-invert max-w-none text-neutral-300 leading-8">
+        <p>
+          این سیستم امنیتی پیشرفته، نظارت ۲۴ ساعته بر ویلا را بدون نیاز به نگهبان انسانی فراهم می‌کند و امنیت را به سطح جدیدی از اتوماسیون می‌رساند.
+        </p>
+        <ul>
+          <li>
+            <strong>پهپاد نگهبان خودکار:</strong> یک پهپاد به صورت برنامه‌ریزی شده یا پس از تحریک سنسورها، در اطراف ویلا گشت‌زنی کرده و پس از اتمام ماموریت، به صورت خودکار به ایستگاه شارژ خود بازمی‌گردد.
+          </li>
+          <li>
+            <strong>یکپارچه‌سازی با سنسورهای IoT:</strong> سیستم به انواع سنسورهای هوشمند (حرکتی، در و پنجره، حرارتی) متصل است. هرگونه ناهنجاری شناسایی‌شده، باعث ارسال هشدار و اعزام پهپاد به محل می‌شود.
+          </li>
+          <li>
+            <strong>کنترل و نظارت از راه دور:</strong> مالک ویلا می‌تواند از طریق یک اپلیکیشن موبایل، تصاویر زنده دوربین‌ها و پهپاد را مشاهده کرده، سیستم را کنترل کند و هشدارهای فوری دریافت نماید.
+          </li>
+        </ul>
+      </div>
+
+      <!-- گالری تصاویر -->
+      <div class="mt-12">
+        <h3 class="text-2xl font-bold text-white mb-6">گالری تصاویر پروژه</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden border border-neutral-800">
+            <img src="/assets/placeholder-villa-1.jpg" alt="تصویر ۱ از پروژه" class="w-full h-auto object-cover">
+          </div>
+          <div class="bg-gray-900 rounded-lg overflow-hidden border border-neutral-800">
+            <img src="/assets/placeholder-villa-2.jpg" alt="تصویر ۲ از پروژه" class="w-full h-auto object-cover">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400 text-sm text-center">
+    © 2025 فرزاد — همه حقوق محفوظ است
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+</body>
+</html>

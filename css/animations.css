@@ -1,0 +1,17 @@
+/* Fade-In انیمیشن */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Glow Effect */
+  .glow-red {
+    text-shadow: 0 0 5px #ff1a1a, 0 0 10px #ff3333, 0 0 20px #ff4d4d;
+  }
+  

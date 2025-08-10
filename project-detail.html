@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>جزئیات پروژه — الهه</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      <a href="index.html#about">درباره</a>
+      <a href="index.html#skills">مهارت‌ها</a>
+      <a href="index.html#projects">پروژه‌ها</a>
+      <a href="index.html#contact">تماس</a>
+      <a href="#cv" class="cta ml-4"><span class="mono">دانلود رزومه</span></a>
+    </nav>
+
+    <!-- mobile menu -->
+    <div class="md:hidden">
+      <button id="menuBtn" class="text-neutral-300">☰</button>
+    </div>
+  </header>
+
+  <main class="container-max mt-8 mb-14">
+    <section class="text-center">
+      <h1 class="hero-title"><span class="neo">نام پروژه</span></h1>
+      <p class="text-lg text-neutral-300 mt-4">توضیح کوتاهی در مورد این پروژه و تکنولوژی‌های استفاده شده.</p>
+    </section>
+
+    <section class="mt-12">
+        <div class="card">
+            <img src="https://placehold.co/1200x600/0f0f10/ff2d2d?text=Project+GIF" alt="Project GIF" class="w-full rounded-lg">
+        </div>
+    </section>
+
+    <section class="mt-12">
+        <h2 class="text-2xl font-bold text-center text-white mb-8">گالری تصاویر</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="card">
+                <img src="https://placehold.co/600x400/0f0f10/ff2d2d?text=Screenshot+1" alt="Screenshot 1" class="w-full rounded-lg">
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/600x400/0f0f10/ff2d2d?text=Screenshot+2" alt="Screenshot 2" class="w-full rounded-lg">
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/600x400/0f0f10/ff2d2d?text=Screenshot+3" alt="Screenshot 3" class="w-full rounded-lg">
+            </div>
+        </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 الهه — همه حقوق محفوظ است</div>
+      <div class="text-sm">طراحی: تم مشکی-قرمز • سفارشی‌سازی با React/Next.js در دسترس است</div>
+    </div>
+  </footer>
+
+  <!-- small mobile menu panel -->
+  <div id="mobileMenu" class="fixed inset-x-4 bottom-6 z-50 md:hidden hidden">
+    <div class="bg-neutral-900/80 border border-neutral-800 rounded-xl p-4 flex justify-around">
+      <a href="index.html#about" class="text-sm text-neutral-200">درباره</a>
+      <a href="index.html#skills" class="text-sm text-neutral-200">مهارت‌ها</a>
+      <a href="index.html#projects" class="text-sm text-neutral-200">پروژه‌ها</a>
+      <a href="index.html#contact" class="text-sm text-neutral-200">تماس</a>
+    </div>
+  </div>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

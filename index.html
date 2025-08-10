@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elahe — AI & Computer Vision</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl">FARZAD</div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+
+    <nav class="hidden md:flex gap-6 items-center text-sm text-neutral-300">
+      <a href="#about" class="hover:text-white transition">درباره</a>
+      <a href="#skills" class="hover:text-white transition">مهارت‌ها</a>
+      <a href="#projects" class="hover:text-white transition">پروژه‌ها</a>
+      <a href="#contact" class="hover:text-white transition">تماس</a>
+      <a href="#cv" class="cta ml-4"><span class="mono">دانلود رزومه</span></a>
+    </nav>
+
+    <!-- mobile menu -->
+    <div class="md:hidden">
+      <button id="menuBtn" class="text-neutral-300">☰</button>
+    </div>
+  </header>
+
+  <!-- hero -->
+  <main class="container-max mt-8 mb-14">
+    <section class="grid lg:grid-cols-2 gap-10 items-center">
+      <div class="space-y-6">
+        <h1 class="hero-title">
+          <span class="neo">farzad</span>
+          <div style="font-size:0.38em; margin-top:6px; letter-spacing:4px;" class="text-neutral-400 font-semibold">AI & COMPUTER VISION DEVELOPER</div>
+        </h1>
+
+        <p class="text-lg text-neutral-300 leading-8 max-w-2xl">
+          علاقه‌مند به حل چالش‌های پیچیده در نقطه تلاقی دنیای دیجیتال و فیزیکی هستم. از توسعه سیستم‌های هوشمند مبتنی بر بینایی ماشین تا کار با سخت‌افزارهای IoT و رباتیک، همواره در تلاشم تا با استفاده از تکنولوژی، راهکارهای خلاقانه و کارآمد برای مسائل واقعی ارائه دهم. هر پروژه برای من فرصتی برای یادگیری و رشد است.
+        </p>
+
+        <div class="flex gap-4 items-center">
+          <a href="#projects" class="cta inline-flex items-center gap-3">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="opacity-90">
+              <path d="M5 12h14" stroke="rgba(255,45,45,0.95)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 5l7 7-7 7" stroke="rgba(255,45,45,0.95)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            مشاهده پروژه‌ها
+          </a>
+
+          <a href="#contact" class="text-sm text-neutral-300 hover:text-white transition">تماس • همکاری</a>
+        </div>
+
+        <div class="mt-4 text-sm text-neutral-400">
+          <span class="mono">مهارت‌های کلیدی:</span>
+          <span class="ml-3">بینایی ماشین • PyQt6 • Python & C++ • Raspberry Pi • پردازش بلادرنگ</span>
+        </div>
+      </div>
+
+      <!-- hero right: mock laptop / card -->
+      <div class="relative">
+        <div class="card">
+          <div class="h-56 md:h-64 rounded-md overflow-hidden bg-black/60 flex items-center justify-center">
+            <!-- simulated terminal style screenshot -->
+            <div class="w-full h-full p-6 flex flex-col justify-center">
+              <div class="text-xs mono text-neutral-400 mb-3">~ /portfolio/FARZAD</div>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-3 h-3 rounded-full bg-red-500/90 shadow-[0_0_8px_rgba(255,0,0,0.12)]"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-400/70"></div>
+                <div class="w-3 h-3 rounded-full bg-green-400/70"></div>
+              </div>
+              <div class="mono text-sm text-neutral-300">
+                <div>
+                  <span class="text-red-400">$</span>
+                  <span class="text-neutral-400">cat</span>
+                  <span class="text-green-400">about.txt</span>
+                </div>
+                <div class="mt-2">
+                  <span class="text-neutral-200">Connecting the physical and digital worlds through intelligent systems.</span>
+                </div>
+                <div class="mt-6">
+                  <span class="inline-block px-3 py-2 rounded-md border border-red-600 text-xs mono">View My Work ➜</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 flex gap-3">
+            <div class="flex-1">
+              <div class="text-xs text-neutral-400">Live Streams</div>
+              <div class="text-sm font-semibold">6 Cameras • RTSP</div>
+            </div>
+            <div class="flex-1">
+              <div class="text-xs text-neutral-400">Realtime</div>
+              <div class="text-sm font-semibold">WebSocket / Local IPC</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- small badge -->
+        <div class="absolute -bottom-4 left-6 hidden md:block">
+          <div class="bg-neutral-900/50 border border-neutral-800 px-3 py-2 rounded-full text-sm mono text-neutral-300">Open for freelance</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- skills -->
+  <section id="skills" class="container-max mb-12">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-white">مهارت‌ها و تخصص‌ها</h2>
+      <p class="text-neutral-400 mt-2 max-w-2xl mx-auto">مجموعه‌ای از ابزارها و تکنولوژی‌هایی که برای ساخت سیستم‌های هوشمند و کارآمد استفاده می‌کنم.</p>
+    </div>
+    <div class="space-y-10">
+
+      <!-- Languages -->
+      <div>
+        <h3 class="text-xl font-bold text-red-500/90 mb-4 pb-2 border-b border-neutral-800">زبان‌های برنامه‌نویسی</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="tag">Python</span>
+          <span class="tag">C++</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+
+      <!-- Frameworks & Libraries -->
+      <div>
+        <h3 class="text-xl font-bold text-red-500/90 mb-4 pb-2 border-b border-neutral-800">کتابخانه‌ها و فریم‌ورک‌ها</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="tag">OpenCV</span>
+          <span class="tag">TensorFlow</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">MediaPipe</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">PyQt6</span>
+          <span class="tag">Tkinter</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Tailwind CSS</span>
+        </div>
+      </div>
+
+      <!-- Tools & Technologies -->
+      <div>
+        <h3 class="text-xl font-bold text-red-500/90 mb-4 pb-2 border-b border-neutral-800">ابزارها و تکنولوژی‌ها</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="tag">Git & GitHub</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Raspberry Pi</span>
+          <span class="tag">Arduino</span>
+          <span class="tag">Jetson Nano</span>
+          <span class="tag">IoT</span>
+          <span class="tag">Linux</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- projects -->
+  <section id="projects" class="container-max mb-16">
+    <h3 class="text-xl font-bold text-white mb-6">پروژه‌های منتخب</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- پروژه ۱: پلتفرم دانشگاه -->
+      <a href="project-university-ai.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" /></svg></div>
+            <div>
+              <div class="font-semibold text-white">پلتفرم هوشمند دانشگاه</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">Face Recognition</span><span class="tag">Attendance System</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">سیستم حضور و غیاب هوشمند و مدیریت کلاس‌ها با تشخیص چهره.</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- پروژه ۲: سیستم تردد -->
+      <a href="project-traffic-control.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-5.571 3m0 0L12 15l-5.571-3m11.142 0L12 15m-5.571-3 5.571-3L12 15m6.75-3-5.571 3-5.571-3M12 21.75l-5.571-3 5.571-3 5.571 3-5.571 3Z" /></svg></div>
+            <div>
+              <div class="font-semibold text-white">کنترل هوشمند تردد</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">LPR</span><span class="tag">PyQt6</span><span class="tag">Real-time</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">شناسایی و ثبت پلاک خودروها برای مدیریت پارکینگ و کنترل دسترسی.</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- پروژه ۳: آنالیز ورزشکاران -->
+      <a href="project-exercise-correction.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.63 2.25a14.98 14.98 0 0 0-5.84 7.38m5.84 2.58a14.98 14.98 0 0 1 7.48 2.25m-7.48-2.25a14.98 14.98 0 0 0-7.48 2.25M12 19.5a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v12a3 3 0 0 1-3 3Z" /></svg></div>
+            <div>
+              <div class="font-semibold text-white">اصلاح حرکات ورزشی</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">Pose Estimation</span><span class="tag">MediaPipe</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">تحلیل و تصحیح حرکات ورزشی با استفاده از تخمین اسکلت بدن.</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- پروژه ۴: سیستم بیمارستان -->
+      <a href="project-hospital-system.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" /></svg></div>
+            <div>
+              <div class="font-semibold text-white">هوشمندسازی بخش بیمارستان</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">IoT</span><span class="tag">Patient Monitoring</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">نظارت بر وضعیت بیماران و ارسال هشدارها به پرستاران از طریق یکپارچه‌سازی سنسورها.</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- پروژه ۵: کتابخانه هوشمند -->
+      <a href="project-library-access.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg></div>
+            <div>
+              <div class="font-semibold text-white">ورود و خروج با اثر انگشت</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">Biometric</span><span class="tag">Access Control</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">مدیریت تردد در کتابخانه با استفاده از سنسور اثر انگشت و رابط کاربری PyQt6.</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- پروژه ۶: مربی هوشمند باشگاه -->
+      <a href="project-smart-gym.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" /></svg></div>
+            <div>
+              <div class="font-semibold text-white">مربی هوشمند باشگاه</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">AI Coach</span><span class="tag">Workout Analysis</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">شمارش حرکات ورزشی و تحلیل فرم بدن برای بهبود عملکرد و جلوگیری از آسیب.</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- پروژه ۷: سیستم بیمارستان (تشخیص صوتی) -->
+      <a href="project-hospital-voice.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg></div>
+            <div>
+              <div class="font-semibold text-white">پردازش صوت در بیمارستان</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">Raspberry Pi</span><span class="tag">Voice Recognition</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">جمع‌آوری داده، پردازش صوتی دستورات پزشک و زمان‌بندی هوشمند دارو.</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- پروژه ۱۰: دامداری هوشمند -->
+      <a href="project-ai-farming.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9.75a4.5 4.5 0 0 1-4.5 4.5H8.25a4.5 4.5 0 0 1-4.5-4.5V5.25A2.25 2.25 0 0 1 6 3h12a2.25 2.25 0 0 1 2.25 2.25v4.5Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9.75 9 11.25l-2.625 2.625c-.828.828-1.223 1.938-1.06 3.038.162 1.1.896 2.057 1.843 2.625c.947.568 2.083.748 3.18.517l2.83-1.09a1.5 1.5 0 0 0 .963-.517l2.625-2.625m-8.25-4.5 2.625 2.625m0 0L12 15.75m-1.125-1.125L9.75 12.375" /></svg></div>
+            <div>
+              <div class="font-semibold text-white">هوشمندسازی دامداری</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">AI Monitoring</span><span class="tag">Animal Health</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">بررسی تغذیه، سلامت و رفتار دام‌ها با دوربین‌های مجهز به هوش مصنوعی.</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- پروژه ۱۱: ویلای هوشمند -->
+      <a href="project-smart-villa.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m-3-1L11.25 3l-1.5.545m9.454 5.454L12 11.25l-1.5-1.5m3 3-3-3m-3 3-3-3m-3 3h18" /></svg></div>
+            <div>
+              <div class="font-semibold text-white">سیستم امنیت هوشمند ویلا</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">Drone Surveillance</span><span class="tag">IoT</span><span class="tag">Smart Home</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">نظارت کامل بر ویلا با استفاده از پهپاد شناسایی و سنسورهای هوشمند، بدون نیاز به نگهبان.</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section id="contact" class="container-max mb-20">
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="card">
+        <h4 class="font-semibold text-white">تماس با من</h4>
+        <p class="text-neutral-400 text-sm mt-2">برای همکاری پروژه‌ای، مشاوره یا فرصت‌های شغلی خوشحال می‌شوم صحبت کنیم.</p>
+
+        <ul class="mt-4 text-sm text-neutral-300 space-y-2">
+          <li><span class="mono text-neutral-400">ایمیل:</span> <a href="mailto:your-email@example.com" class="text-red-300 hover:underline">your-email@example.com</a></li>
+          <li><span class="mono text-neutral-400">گیت‌هاب:</span> <a href="https://github.com/your-username" class="text-red-300 hover:underline">github.com/your-username</a></li>
+          <li><span class="mono text-neutral-400">لینکدین:</span> <a href="https://linkedin.com/in/your-profile" class="text-red-300 hover:underline">linkedin.com/in/your-profile</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4 class="font-semibold text-white">در یک نگاه</h4>
+        <div class="mt-3 text-sm text-neutral-400 space-y-2">
+          <div><span class="mono text-neutral-400">تخصص:</span> سیستم‌های بینایی ماشین و اتوماسیون</div>
+          <div><span class="mono text-neutral-400">ابزارها:</span> Python, C++, PyQt6, OpenCV, TensorFlow/PyTorch</div>
+          <div><span class="mono text-neutral-400">در دسترس برای:</span> پروژه‌های مشاوره‌ای و همکاری بلندمدت</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+      <div class="text-sm">طراحی: تم مشکی-قرمز • سفارشی‌سازی با React/Next.js در دسترس است</div>
+    </div>
+  </footer>
+
+  <!-- small mobile menu panel -->
+  <div id="mobileMenu" class="fixed inset-x-4 bottom-6 z-50 md:hidden hidden">
+    <div class="bg-neutral-900/80 border border-neutral-800 rounded-xl p-4 flex justify-around">
+      <a href="#about" class="text-sm text-neutral-200">درباره</a>
+      <a href="#skills" class="text-sm text-neutral-200">مهارت‌ها</a>
+      <a href="#projects" class="text-sm text-neutral-200">پروژه‌ها</a>
+      <a href="#contact" class="text-sm text-neutral-200">تماس</a>
+    </div>
+  </div>
+
+  <!-- scripts -->
+  <script src="js/fadein.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
