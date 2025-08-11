@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>پروژه کنترل هوشمند تردد — فرزاد</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font (Vazirmatn) -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- decorative layers -->
+    <div class="grid-bg"></div>
+    <canvas id="particles"></canvas>
+
+    <!-- header -->
+    <header class="container-max py-6 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+            <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+            <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+        </div>
+        <nav>
+            <a href="index.html#projects" class="cta"><span class="mono">بازگشت به پروژه‌ها</span></a>
+        </nav>
+    </header>
+
+    <!-- main content -->
+    <main class="container-max mt-8 mb-14">
+        <section class="text-center">
+            <h1 class="hero-title"><span class="neo">سیستم کنترل هوشمند تردد</span></h1>
+            <p class="text-lg text-neutral-300 mt-4 max-w-3xl mx-auto">سیستم جامع شناسایی و ثبت پلاک خودروها برای مدیریت
+                پارکینگ و کنترل دسترسی با استفاده از تکنولوژی‌های پیشرفته بینایی ماشین.</p>
+            <div class="text-md text-neutral-400 mt-2">LPR • PyQt6 • Real-time Processing • Access Control</div>
+        </section>
+
+        <section class="mt-12">
+            <div class="card">
+                <img src="assets/p2.png" alt="Traffic Control System"
+                    class="w-full rounded-lg shadow-lg border border-red-500/50">
+                <p class="text-center mt-3 text-sm text-neutral-400">نمایش عملکرد سیستم شناسایی پلاک در حین کار</p>
+            </div>
+        </section>
+
+        <!-- Article Section -->
+        <section class="mt-16 prose prose-invert max-w-none text-neutral-300 leading-8">
+
+            <h2 class="text-3xl font-bold text-white mb-4">مقاله پروژه: از شناسایی تا مدیریت هوشمند</h2>
+
+            <h3>۱. کشف مشکل: چالش‌های مدیریت تردد در عصر دیجیتال</h3>
+            <p>مدیریت تردد خودروها در پارکینگ‌های بزرگ، مجتمع‌های تجاری و مناطق امنیتی همواره یکی از چالش‌های اساسی بوده
+                است. روش‌های سنتی مانند کارت‌های مغناطیسی یا کنترل دستی، علاوه بر هزینه‌بر بودن، مستعد خطا و سوءاستفاده
+                هستند. نیاز به یک سیستم خودکار، دقیق و قابل اعتماد که بتواند بدون دخالت انسان، هویت خودروها را تشخیص
+                داده و دسترسی آن‌ها را مدیریت کند، کاملاً محسوس بود.</p>
+
+            <h3>۲. راه حل: سیستم یکپارچه LPR با رابط کاربری پیشرفته</h3>
+            <p>برای حل این مشکل، یک سیستم جامع شناسایی پلاک (License Plate Recognition) توسعه داده شد که قادر است در
+                شرایط مختلف نوری و جوی، پلاک خودروها را با دقت بالا شناسایی کند. این سیستم شامل یک رابط کاربری گرافیکی
+                قدرتمند با PyQt6 است که امکان مدیریت کامل پایگاه داده خودروها، تنظیمات سیستم و مشاهده گزارش‌های تردد را
+                فراهم می‌کند.</p>
+
+            <h3>۳. ویژگی‌های کلیدی و مراحل پیاده‌سازی</h3>
+            <ul>
+                <li><strong>شناسایی پلاک با دقت بالا:</strong> استفاده از الگوریتم‌های پیشرفته بینایی ماشین برای شناسایی
+                    پلاک‌های ایرانی در شرایط مختلف نوری. سیستم قادر است حتی پلاک‌های کثیف، خراشیده یا در زوایای مختلف را
+                    تشخیص دهد.</li>
+                <li><strong>پردازش بلادرنگ:</strong> سیستم با سرعت بالا عمل کرده و در کمتر از یک ثانیه، پلاک خودرو را
+                    شناسایی و تصمیم‌گیری در مورد دسترسی می‌کند. این سرعت برای جلوگیری از ایجاد صف در ورودی‌ها بسیار
+                    حیاتی است.</li>
+                <li><strong>رابط کاربری PyQt6:</strong> یک رابط کاربری مدرن و کاربرپسند که امکان مدیریت لیست سفید/سیاه
+                    خودروها، مشاهده تصاویر ثبت شده، تنظیم پارامترهای سیستم و دریافت گزارش‌های تفصیلی را فراهم می‌کند.
+                </li>
+                <li><strong>سیستم لاگ و گزارش‌گیری:</strong> تمام تردد‌ها به همراه تصویر، زمان دقیق و وضعیت دسترسی در
+                    پایگاه داده ثبت می‌شوند. این اطلاعات برای بررسی‌های امنیتی و تحلیل الگوهای تردد بسیار مفید است.</li>
+                <li><strong>قابلیت یکپارچگی:</strong> سیستم قابلیت اتصال به سیستم‌های کنترل دسترسی، راهبندها و سیستم‌های
+                    هشدار را دارد تا یک راهکار کامل امنیتی ارائه دهد.</li>
+            </ul>
+
+        </section>
+
+        <section class="mt-12">
+            <h2 class="text-2xl font-bold text-center text-white mb-8">گالری تصاویر پروژه</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card">
+                    <img src="assets/p2.png" alt="LPR Detection Interface" class="w-full rounded-lg">
+                    <p class="text-center mt-2 text-sm text-neutral-400">رابط شناسایی پلاک در لحظه</p>
+                </div>
+                <div class="card">
+                    <img src="assets/p3.png" alt="Management Dashboard" class="w-full rounded-lg">
+                    <p class="text-center mt-2 text-sm text-neutral-400">داشبورد مدیریت و گزارش‌گیری</p>
+                </div>
+            </div>
+        </section>
+
+    <!-- Technical Implementation Section -->
+    <section class="mt-16">
+        <h2 class="text-2xl font-bold text-center text-white mb-8">جزئیات فنی پیاده‌سازی</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card">
+                <h3 class="text-xl font-bold text-red-400 mb-4">تکنولوژی‌های استفاده شده</h3>
+                <ul class="text-sm text-neutral-300 space-y-2">
+                    <li>• <strong>OpenCV:</strong> پردازش تصویر و شناسایی پلاک</li>
+                    <li>• <strong>PyQt6:</strong> رابط کاربری گرافیکی</li>
+                    <li>• <strong>Python:</strong> زبان اصلی برنامه‌نویسی</li>
+                    <li>• <strong>SQLite:</strong> پایگاه داده محلی</li>
+                    <li>• <strong>Tesseract OCR:</strong> تشخیص متن پلاک</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 class="text-xl font-bold text-red-400 mb-4">ویژگی‌های کلیدی</h3>
+                <ul class="text-sm text-neutral-300 space-y-2">
+                    <li>• شناسایی پلاک با دقت بالا</li>
+                    <li>• پردازش بلادرنگ</li>
+                    <li>• رابط کاربری PyQt6</li>
+                    <li>• سیستم لاگ و گزارش‌گیری</li>
+                    <li>• قابلیت یکپارچگی</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results and Impact Section -->
+    <section class="mt-16">
+        <h2 class="text-2xl font-bold text-center text-white mb-8">نتایج و تأثیرات</h2>
+        <div class="card">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div>
+                    <div class="text-3xl font-bold text-red-400 mb-2">94%</div>
+                    <div class="text-sm text-neutral-400">دقت شناسایی پلاک</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-red-400 mb-2">85%</div>
+                    <div class="text-sm text-neutral-400">کاهش زمان ورود</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-red-400 mb-2">100%</div>
+                    <div class="text-sm text-neutral-400">خودکارسازی فرآیند</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- footer -->
+    <footer class="container-max py-8 text-neutral-400">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+        </div>
+    </footer>
+
+    <!-- scripts -->
+    <script src="js/particles.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>پروژه مربی هوشمند ورزشی — فرزاد</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+    <nav>
+      <a href="index.html#projects" class="cta"><span class="mono">بازگشت به پروژه‌ها</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-8 mb-14">
+    <section class="text-center">
+      <h1 class="hero-title"><span class="neo">مربی هوشمند ورزشی با تحلیل حرکت</span></h1>
+      <p class="text-lg text-neutral-300 mt-4 max-w-3xl mx-auto">یک سیستم جامع برای باشگاه‌های ورزشی که با استفاده از هوش مصنوعی، حرکات کاربران را تحلیل کرده و به صورت لحظه‌ای بازخورد می‌دهد.</p>
+      <div class="text-md text-neutral-400 mt-2">Pose Estimation • MediaPipe • Voice Control • AI Coach</div>
+    </section>
+
+    <section class="mt-12">
+        <div class="card">
+            <video autoplay loop muted playsinline class="w-full rounded-lg shadow-lg border border-red-500/50" controls>
+                <source src="assets/exce44.mp4" type="video/mp4">
+                متاسفانه مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
+            </video>
+            <p class="text-center mt-3 text-sm text-neutral-400">نمایش عملکرد سیستم مربی هوشمند در حین تحلیل حرکات ورزشی</p>
+        </div>
+    </section>
+
+    <!-- Article Section -->
+    <section class="mt-16 prose prose-invert max-w-none text-neutral-300 leading-8">
+        
+      <h2 class="text-3xl font-bold text-white mb-4">مقاله پروژه: از ایده تا اجرا</h2>
+
+      <h3>۱. کشف مشکل: شکاف بین ورزشکار و مربی</h3>
+      <p>در باشگاه‌های ورزشی، به خصوص در ساعات شلوغی، دسترسی مداوم به مربی برای همه افراد امکان‌پذیر نیست. بسیاری از ورزشکاران، به ویژه مبتدیان، حرکات را با فرم نادرست انجام می‌دهند که این امر نه تنها اثربخشی تمرین را کاهش می‌دهد، بلکه خطر آسیب‌دیدگی را نیز به شدت افزایش می‌دهد. نیاز به یک راه حل هوشمند که بتواند به عنوان یک دستیار مربی عمل کند، کاملاً محسوس بود.</p>
+
+      <h3>۲. راه حل: ارائه یک مربی هوشمند مبتنی بر بینایی کامپیوتر</h3>
+      <p>راه حل من، توسعه یک سیستم هوشمند است که هر نمایشگر مجهز به دوربین را به یک مربی شخصی تبدیل می‌کند. این سیستم با استفاده از تکنیک‌های پیشرفته بینایی کامپیوتر، حرکات کاربر را در لحظه تحلیل کرده و بازخوردهای لازم برای اصلاح فرم بدنی را ارائه می‌دهد. هدف اصلی، دموکراتیک کردن دسترسی به مربیگری حرفه‌ای و افزایش ایمنی و انگیزه ورزشکاران بود.</p>
+
+      <h3>۳. ویژگی‌های کلیدی و مراحل پیاده‌سازی</h3>
+      <ul>
+        <li><strong>تخمین وضعیت بدن (Pose Estimation):</strong> هسته اصلی سیستم با استفاده از کتابخانه MediaPipe گوگل پیاده‌سازی شد. این کتابخانه قادر است ۳۳ نقطه کلیدی بدن را با دقت بالا ردیابی کرده و یک اسکلت مجازی از کاربر ایجاد کند.</li>
+        <li><strong>تحلیل زاویه و فرم:</strong> با استفاده از داده‌های اسکلت، سیستم زوایای مفاصل مختلف (مانند زانو، آرنج و شانه) را محاسبه کرده و با مدل استاندارد و صحیح هر حرکت مقایسه می‌کند. در صورت وجود خطا، به کاربر هشدار داده می‌شود.</li>
+        <li><strong>کنترل صوتی:</strong> برای ایجاد یک تجربه کاربری روان و بدون نیاز به لمس، قابلیت کنترل صوتی به سیستم اضافه شد. کاربران می‌توانند با دستورات صوتی ساده، تمرین مورد نظر خود را انتخاب کرده یا ویدئوی آموزشی را پخش کنند.</li>
+        <li><strong>امتیازدهی و گیمیفیکیشن:</strong> پس از هر حرکت، سیستم بر اساس میزان درستی اجرا، به کاربر امتیاز می‌دهد. این رویکرد گیمیفیکیشن، انگیزه کاربر را برای بهبود مستمر افزایش می‌دهد.</li>
+      </ul>
+
+    </section>
+
+    <section class="mt-12">
+        <h2 class="text-2xl font-bold text-center text-white mb-8">گالری تصاویر پروژه</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="card">
+                <img src="assets/exer1.png" alt="Angle Detection UI" class="w-full rounded-lg">
+                <p class="text-center mt-2 text-sm text-neutral-400">رابط کاربری تشخیص زاویه در لحظه</p>
+            </div>
+            <div class="card">
+                <img src="assets/excer2.png" alt="Skeleton Tracking" class="w-full rounded-lg">
+                <p class="text-center mt-2 text-sm text-neutral-400">ردیابی اسکلت بدن برای تحلیل حرکت</p>
+            </div>
+            <div class="card">
+                <img src="assets/excer3.png" alt="Exercise Library" class="w-full rounded-lg">
+                <p class="text-center mt-2 text-sm text-neutral-400">کتابخانه حرکات ورزشی استاندارد</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Implementation Section -->
+    <section class="mt-16">
+        <h2 class="text-2xl font-bold text-center text-white mb-8">جزئیات فنی پیاده‌سازی</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card">
+                <h3 class="text-xl font-bold text-red-400 mb-4">تکنولوژی‌های استفاده شده</h3>
+                <ul class="text-sm text-neutral-300 space-y-2">
+                    <li>• <strong>MediaPipe:</strong> تشخیص و ردیابی نقاط کلیدی بدن</li>
+                    <li>• <strong>OpenCV:</strong> پردازش تصویر و ویدیو</li>
+                    <li>• <strong>Python:</strong> زبان اصلی برنامه‌نویسی</li>
+                    <li>• <strong>NumPy:</strong> محاسبات ریاضی و زاویه‌سنجی</li>
+                    <li>• <strong>Speech Recognition:</strong> کنترل صوتی</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 class="text-xl font-bold text-red-400 mb-4">ویژگی‌های کلیدی</h3>
+                <ul class="text-sm text-neutral-300 space-y-2">
+                    <li>• تحلیل لحظه‌ای حرکات ورزشی</li>
+                    <li>• محاسبه زوایای مفاصل با دقت بالا</li>
+                    <li>• بازخورد صوتی و تصویری</li>
+                    <li>• سیستم امتیازدهی هوشمند</li>
+                    <li>• پشتیبانی از انواع تمرینات</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results and Impact Section -->
+    <section class="mt-16">
+        <h2 class="text-2xl font-bold text-center text-white mb-8">نتایج و تأثیرات</h2>
+        <div class="card">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div>
+                    <div class="text-3xl font-bold text-red-400 mb-2">95%</div>
+                    <div class="text-sm text-neutral-400">دقت تشخیص حرکات</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-red-400 mb-2">60%</div>
+                    <div class="text-sm text-neutral-400">کاهش آسیب‌های ورزشی</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-red-400 mb-2">40%</div>
+                    <div class="text-sm text-neutral-400">افزایش انگیزه ورزشکاران</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

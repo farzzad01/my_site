@@ -136,3 +136,117 @@
 
     /* responsive spacing */
     .container-max{ max-width:1200px; margin-inline:auto; padding-inline:20px; position:relative; z-index:10; }
+/*
+ Project Detail Enhancements */
+.tech-stack {
+  background: linear-gradient(135deg, rgba(255,45,45,0.05), rgba(255,45,45,0.02));
+  border: 1px solid rgba(255,45,45,0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.tech-stack h4 {
+  color: var(--red-2);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-item {
+  background: rgba(255,45,45,0.1);
+  color: #ff6b6b;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(255,45,45,0.2);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(15,15,16,0.7);
+  border: 1px solid rgba(255,45,45,0.15);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: rgba(255,45,45,0.3);
+  transform: translateY(-2px);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--red-2);
+  text-shadow: 0 0 10px rgba(255,45,45,0.3);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: #9aa0a6;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Video enhancements */
+video {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+video:hover {
+  box-shadow: 0 12px 40px rgba(255,45,45,0.1);
+}
+
+/* Gallery improvements */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+.gallery-item img {
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .project-detail-card {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+}

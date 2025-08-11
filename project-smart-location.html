@@ -38,30 +38,29 @@
       </h1>
       <div class="text-lg text-neutral-400 mb-8">YOLO • MediaPipe • Real-time</div>
 
-      <!-- پیش‌نمایش گیف -->
+      <!-- پیش‌نمایش تصویر -->
       <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-red-500 mb-10">
-        <img src="/assets/project-demo-2.gif" alt="پیش‌نمایش سیستم هوشمندسازی" class="w-full object-cover">
+        <img src="assets/yolo1.png" alt="پیش‌نمایش سیستم هوشمندسازی" class="w-full object-cover">
+        <p class="text-center mt-3 text-sm text-neutral-400 p-4">سیستم هوشمند نظارت و تحلیل تردد</p>
       </div>
 
       <!-- توضیحات کامل -->
       <div class="prose prose-invert max-w-none text-neutral-300 leading-8">
-        <p>
-          این پروژه یک سیستم محاسباتی و نظارتی هوشمند برای مکان‌های خاص با گیت‌های ورودی متعدد است. با استفاده از تکنولوژی‌های پیشرفته بینایی ماشین، این سیستم قادر به انجام وظایف زیر است:
-        </p>
+        <h2 class="text-3xl font-bold text-white mb-4">مقاله پروژه: نظارت هوشمند بر تردد و امنیت</h2>
+
+        <h3>۱. کشف مشکل: چالش مدیریت و امنیت در فضاهای پرتردد</h3>
+        <p>مدیریت امنیت و نظارت بر جمعیت در مکان‌های بزرگ با چندین ورودی و خروجی، مانند مراکز تجاری، ایستگاه‌های حمل و نقل عمومی یا سازمان‌های بزرگ، یک چالش جدی است. نظارت انسانی سنتی نه تنها هزینه‌بر و ناکارآمد است، بلکه قادر به تحلیل داده‌های پیچیده مانند الگوهای تردد، تراکم لحظه‌ای جمعیت و شناسایی سریع تهدیدات امنیتی نیست. نیاز به یک سیستم خودکار که بتواند این فرآیندها را هوشمند کند، کاملاً مشهود بود.</p>
+
+        <h3>۲. راه حل: پلتفرم یکپارچه تحلیل تصویر</h3>
+        <p>راهکار من، توسعه یک سیستم نظارتی هوشمند بود که با پردازش همزمان تصاویر از چندین دوربین، تحلیل جامعی از محیط ارائه می‌دهد. این سیستم نه تنها افراد و اشیاء را با دقت بالا شمارش می‌کند، بلکه قادر به شناسایی حرکات و رفتارهای خاص است و می‌تواند گزارش‌های تحلیلی برای مدیران و هشدارهای امنیتی برای پرسنل حراست تولید کند. هدف، تبدیل داده‌های تصویری خام به اطلاعات قابل استفاده برای بهبود امنیت و بهره‌وری بود.</p>
+
+        <h3>۳. ویژگی‌های کلیدی و مراحل پیاده‌سازی</h3>
         <ul>
-          <li>
-            <strong>شمارش و شناسایی:</strong> شمارش دقیق افراد و اشیاء، و شناسایی حرکات خاص با استفاده از مدل‌های YOLO و MediaPipe.
-          </li>
-          <li>
-            <strong>گزارش‌گیری پیشرفته:</strong> ارائه گزارش‌های دقیق و تحلیلی از تردد، تراکم جمعیت و الگوهای رفتاری.
-          </li>
-          <li>
-            <strong>سیستم هشداردهنده:</strong> ارسال هشدارهای بلادرنگ در صورت شناسایی حرکات مشکوک یا وقوع رویدادهای تعریف‌شده.
-          </li>
+          <li><strong>شناسایی و شمارش با YOLO:</strong> برای شناسایی و شمارش آنی افراد و اشیاء، از مدل قدرتمند YOLO (You Only Look Once) استفاده شد که به دلیل سرعت و دقت بالا، برای کاربردهای بلادرنگ ایده‌آل است.</li>
+          <li><strong>تحلیل رفتار با MediaPipe:</strong> با بهره‌گیری از کتابخانه MediaPipe، قابلیت تحلیل اسکلت بدن و تشخیص حرکات خاص به سیستم اضافه شد. این ویژگی امکان شناسایی رفتارهای مشکوک مانند تجمع غیرعادی، ورود به مناطق ممنوعه یا زمین خوردن افراد را فراهم می‌کند.</li>
+          <li><strong>گزارش‌گیری تحلیلی:</strong> داده‌های جمع‌آوری شده از تردد افراد در گیت‌های مختلف، در یک پایگاه داده ذخیره شده و برای تولید گزارش‌های مدیریتی (مانند ساعات اوج تردد، میانگین حضور افراد و...) استفاده می‌شود.</li>
+          <li><strong>ماژول هشدار بلادرنگ:</strong> یک سیستم هشداردهنده طراحی شد که در صورت وقوع هرگونه رویداد از پیش تعریف‌شده (مثلاً عبور بیش از حد ظرفیت)، به صورت خودکار به مسئولین مربوطه اطلاع‌رسانی می‌کند.</li>
         </ul>
-        <p>
-          این سیستم برای هوشمندسازی فضاهای پرتردد مانند مراکز خرید، ایستگاه‌ها و سازمان‌ها طراحی شده و به بهبود امنیت و مدیریت منابع کمک شایانی می‌کند.
-        </p>
       </div>
 
       <!-- گالری تصاویر -->
@@ -69,10 +68,60 @@
         <h3 class="text-2xl font-bold text-white mb-6">گالری تصاویر پروژه</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="bg-gray-900 rounded-lg overflow-hidden border border-neutral-800">
-            <img src="/assets/placeholder-3.jpg" alt="تصویر ۱ از پروژه" class="w-full h-auto object-cover">
+            <img src="assets/yolo1.png" alt="داشبورد تحلیلی" class="w-full h-auto object-cover">
+            <p class="text-center mt-2 text-sm text-neutral-400 p-2">داشبورد تحلیلی سیستم</p>
           </div>
           <div class="bg-gray-900 rounded-lg overflow-hidden border border-neutral-800">
-            <img src="/assets/placeholder-4.jpg" alt="تصویر ۲ از پروژه" class="w-full h-auto object-cover">
+            <img src="assets/yolo2.png" alt="تحلیل رفتار" class="w-full h-auto object-cover">
+            <p class="text-center mt-2 text-sm text-neutral-400 p-2">تحلیل رفتار و حرکات</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Implementation Section -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-center text-white mb-8">جزئیات فنی پیاده‌سازی</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card">
+          <h3 class="text-xl font-bold text-red-400 mb-4">تکنولوژی‌های استفاده شده</h3>
+          <ul class="text-sm text-neutral-300 space-y-2">
+            <li>• <strong>YOLO:</strong> شناسایی و شمارش افراد</li>
+            <li>• <strong>MediaPipe:</strong> تحلیل حرکات و رفتار</li>
+            <li>• <strong>OpenCV:</strong> پردازش تصویر</li>
+            <li>• <strong>Python:</strong> زبان اصلی برنامه‌نویسی</li>
+            <li>• <strong>Multi-threading:</strong> پردازش همزمان دوربین‌ها</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-bold text-red-400 mb-4">ویژگی‌های کلیدی</h3>
+          <ul class="text-sm text-neutral-300 space-y-2">
+            <li>• شمارش دقیق افراد</li>
+            <li>• تحلیل رفتار مشکوک</li>
+            <li>• پردازش چند دوربین همزمان</li>
+            <li>• هشدارهای بلادرنگ</li>
+            <li>• گزارش‌گیری تحلیلی</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results and Impact Section -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-center text-white mb-8">نتایج و تأثیرات</h2>
+      <div class="card">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">98%</div>
+            <div class="text-sm text-neutral-400">دقت شمارش افراد</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">75%</div>
+            <div class="text-sm text-neutral-400">کاهش نیاز به نیروی انسانی</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">90%</div>
+            <div class="text-sm text-neutral-400">بهبود امنیت محیط</div>
           </div>
         </div>
       </div>

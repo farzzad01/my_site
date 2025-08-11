@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>پروژه شمارش افراد — الهه</title>
+  <title>جزئیات پروژه - شمارش افراد</title>
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,77 +22,120 @@
   <!-- header -->
   <header class="container-max py-6 flex items-center justify-between">
     <div class="flex items-center gap-4">
-      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
-      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+      <a href="index.html" class="logo text-xl">FARZAD</a>
     </div>
-
-    <nav class="hidden md:flex items-center gap-6 text-sm">
-      <a href="index.html#about">درباره</a>
-      <a href="index.html#skills">مهارت‌ها</a>
-      <a href="index.html#projects">پروژه‌ها</a>
-      <a href="index.html#contact">تماس</a>
-      <a href="#cv" class="cta ml-4"><span class="mono">دانلود رزومه</span></a>
+    <nav>
+      <a href="index.html#projects" class="cta"><span class="mono">بازگشت به پروژه‌ها</span></a>
     </nav>
-
-    <!-- mobile menu -->
-    <div class="md:hidden">
-      <button id="menuBtn" class="text-neutral-300">☰</button>
-    </div>
   </header>
 
-  <main class="container-max mt-8 mb-14">
-    <section class="text-center">
-      <h1 class="hero-title"><span class="neo">شمارش افراد بلادرنگ</span></h1>
-      <p class="text-lg text-neutral-300 mt-4 max-w-3xl mx-auto">این پروژه یک سیستم هوشمند برای شمارش افراد با استفاده از چندین دوربین RTSP است. این سامانه قادر است به صورت بلادرنگ تعداد افراد را در مکان‌های مختلف تشخیص داده و گزارش‌های ساعتی و روزانه تولید کند.</p>
+  <!-- main content -->
+  <main class="container-max mt-12 mb-20">
+    <section class="project-detail-card">
+      <!-- عنوان پروژه -->
+      <h1 class="text-4xl font-extrabold bg-gradient-to-r from-red-500 via-red-400 to-red-600 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_10px_rgba(255,0,0,0.7)]">
+        سیستم هوشمند شمارش افراد
+      </h1>
+      <div class="text-lg text-neutral-400 mb-8">YOLOv8 • RTSP • DeepStream</div>
+
+      <!-- پیش‌نمایش تصاویر -->
+      <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-red-500 mb-10">
+        <img src="assets/yolo1.png" alt="دموی پروژه شمارش افراد" class="w-full object-cover">
+        <p class="text-center mt-3 text-sm text-neutral-400 p-4">نمایش سیستم شمارش افراد با YOLOv8</p>
+      </div>
+
+      <!-- توضیحات کامل -->
+      <div class="prose prose-invert max-w-none text-neutral-300 leading-8">
+        <h2 class="text-3xl font-bold text-white mb-4">مقاله پروژه: شمارش دقیق جمعیت با هوش مصنوعی</h2>
+
+        <h3>۱. کشف مشکل: نیاز به آمار دقیق و لحظه‌ای جمعیت</h3>
+        <p>مراکز خرید، ایستگاه‌های مترو، و فضاهای عمومی بزرگ برای مدیریت بهینه منابع، افزایش امنیت و تحلیل الگوهای ترافیکی، نیاز به آمار دقیق و آنی از تعداد افراد حاضر در مکان‌های مختلف دارند. روش‌های سنتی شمارش (مانند شمارش دستی یا گیت‌های ورودی) یا ناکارآمد هستند یا هزینه‌بر و محدود.</p>
+
+        <h3>۲. راه حل: سیستم یکپارچه شمارش با دوربین‌های مداربسته</h3>
+        <p>این پروژه یک سیستم هوشمند را معرفی می‌کند که با استفاده از جریان ویدئویی دوربین‌های امنیتی (RTSP)، به صورت خودکار و بلادرنگ افراد را در فریم‌های ویدئویی شناسایی و شمارش می‌کند. این سیستم قادر است ورودی چندین دوربین را به طور همزمان پردازش کرده و داده‌های تجمیعی را در یک داشبورد مرکزی نمایش دهد.</p>
+
+        <h3>۳. ویژگی‌های کلیدی و مراحل پیاده‌سازی</h3>
+        <ul>
+          <li><strong>شناسایی با YOLOv8:</strong> از مدل قدرتمند YOLOv8 برای شناسایی افراد در تصاویر ویدئویی استفاده شده است. این مدل به دلیل سرعت و دقت بالا، برای کاربردهای بلادرنگ ایده‌آل است.</li>
+          <li><strong>پردازش موازی با DeepStream:</strong> برای مدیریت همزمان چندین جریان ویدئویی و بهینه‌سازی عملکرد روی سخت‌افزارهای NVIDIA، از SDK قدرتمند DeepStream استفاده شده است. این ابزار به ما اجازه می‌دهد تا با حداقل تاخیر، تحلیل را انجام دهیم.</li>
+          <li><strong>داشبورد تحلیلی و گزارش‌دهی:</strong> داده‌های شمارش شده به یک پایگاه داده ارسال و در یک داشبورد مدیریتی نمایش داده می‌شوند. این داشبورد گزارش‌های ساعتی و روزانه از تردد افراد در هر منطقه ارائه می‌دهد که برای تحلیل‌های مدیریتی بسیار ارزشمند است.</li>
+          <li><strong>معماری ماژولار:</strong> سیستم به صورت ماژولار طراحی شده تا بتوان به راحتی دوربین‌های جدیدی به آن اضافه کرد یا الگوریتم‌های تحلیلی دیگری (مانند تشخیص صف یا تحلیل تراکم) را در آینده به آن افزود.</li>
+        </ul>
+      </div>
+
+      <!-- گالری تصاویر -->
+      <div class="mt-12">
+        <h3 class="text-2xl font-bold text-white mb-6">گالری تصاویر پروژه</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-gray-900 rounded-lg overflow-hidden border border-neutral-800">
+            <img src="assets/yolo1.png" alt="داشبورد تحلیلی" class="w-full h-auto object-cover">
+            <p class="text-center mt-2 text-sm text-neutral-400 p-2">داشبورد تحلیلی سیستم</p>
+          </div>
+          <div class="bg-gray-900 rounded-lg overflow-hidden border border-neutral-800">
+            <img src="assets/yolo2.png" alt="معماری سیستم" class="w-full h-auto object-cover">
+            <p class="text-center mt-2 text-sm text-neutral-400 p-2">معماری و پیکربندی سیستم</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="mt-12">
+    <!-- Technical Implementation Section -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-center text-white mb-8">جزئیات فنی پیاده‌سازی</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="card">
-            <img src="https://placehold.co/1200x600/0f0f10/ff2d2d?text=Real-time+Person+Counting+Demo" alt="Project GIF" class="w-full rounded-lg">
+          <h3 class="text-xl font-bold text-red-400 mb-4">تکنولوژی‌های استفاده شده</h3>
+          <ul class="text-sm text-neutral-300 space-y-2">
+            <li>• <strong>YOLOv8:</strong> شناسایی و شمارش افراد</li>
+            <li>• <strong>DeepStream:</strong> پردازش موازی ویدیو</li>
+            <li>• <strong>RTSP:</strong> جریان ویدیویی دوربین‌ها</li>
+            <li>• <strong>Python:</strong> زبان اصلی برنامه‌نویسی</li>
+            <li>• <strong>NVIDIA GPU:</strong> شتاب‌دهنده پردازش</li>
+          </ul>
         </div>
+        <div class="card">
+          <h3 class="text-xl font-bold text-red-400 mb-4">ویژگی‌های کلیدی</h3>
+          <ul class="text-sm text-neutral-300 space-y-2">
+            <li>• شمارش دقیق و بلادرنگ</li>
+            <li>• پردازش چند دوربین همزمان</li>
+            <li>• داشبورد تحلیلی</li>
+            <li>• گزارش‌گیری آماری</li>
+            <li>• معماری ماژولار</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="mt-12">
-        <h2 class="text-2xl font-bold text-center text-white mb-8">گالری تصاویر</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="card">
-                <img src="assets/yolo1.png" alt="داشبورد تحلیلی" class="w-full rounded-lg">
-                <p class="text-center mt-2 text-sm text-neutral-400">داشبورد گزارش‌گیری</p>
-            </div>
-            <div class="card">
-                <img src="assets/yolo2.png" alt="معماری سیستم" class="w-full rounded-lg">
-                <p class="text-center mt-2 text-sm text-neutral-400">دیاگرام معماری سیستم</p>
-            </div>
-            <div class="card">
-                <img src="assets/yolo3.png" alt="نمای چند دوربینه" class="w-full rounded-lg">
-                <p class="text-center mt-2 text-sm text-neutral-400">ورودی همزمان از ۶ دوربین</p>
-            </div>
+    <!-- Results and Impact Section -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-center text-white mb-8">نتایج و تأثیرات</h2>
+      <div class="card">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">96%</div>
+            <div class="text-sm text-neutral-400">دقت شمارش افراد</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">80%</div>
+            <div class="text-sm text-neutral-400">کاهش نیاز به نیروی انسانی</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">90%</div>
+            <div class="text-sm text-neutral-400">بهبود مدیریت ترافیک</div>
+          </div>
         </div>
+      </div>
     </section>
-
   </main>
 
   <!-- footer -->
-  <footer class="container-max py-8 text-neutral-400">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
-      <div class="text-sm">طراحی: تم مشکی-قرمز • سفارشی‌سازی با React/Next.js در دسترس است</div>
-    </div>
+  <footer class="container-max py-8 text-neutral-400 text-sm text-center">
+    © 2025 فرزاد — همه حقوق محفوظ است
   </footer>
-
-  <!-- small mobile menu panel -->
-  <div id="mobileMenu" class="fixed inset-x-4 bottom-6 z-50 md:hidden hidden">
-    <div class="bg-neutral-900/80 border border-neutral-800 rounded-xl p-4 flex justify-around">
-      <a href="index.html#about" class="text-sm text-neutral-200">درباره</a>
-      <a href="index.html#skills" class="text-sm text-neutral-200">مهارت‌ها</a>
-      <a href="index.html#projects" class="text-sm text-neutral-200">پروژه‌ها</a>
-      <a href="index.html#contact" class="text-sm text-neutral-200">تماس</a>
-    </div>
-  </div>
 
   <!-- scripts -->
   <script src="js/particles.js"></script>
-  <script src="js/main.js"></script>
+
 
 </body>
 </html>

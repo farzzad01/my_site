@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -9,10 +10,12 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Font (Vazirmatn) -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap"
+    rel="stylesheet">
 
   <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
 
   <!-- decorative layers -->
@@ -33,30 +36,47 @@
   <main class="container-max mt-12 mb-20">
     <section class="project-detail-card">
       <!-- عنوان پروژه -->
-      <h1 class="text-4xl font-extrabold bg-gradient-to-r from-red-500 via-red-400 to-red-600 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_10px_rgba(255,0,0,0.7)]">
+      <h1
+        class="text-4xl font-extrabold bg-gradient-to-r from-red-500 via-red-400 to-red-600 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_10px_rgba(255,0,0,0.7)]">
         سیستم امنیت هوشمند ویلا
       </h1>
       <div class="text-lg text-neutral-400 mb-8">Drone Surveillance • IoT Sensors • Automated Security</div>
 
-      <!-- پیش‌نمایش گیف -->
-      <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-red-500 mb-10">
-        <img src="/assets/project-demo-villa.gif" alt="پیش‌نمایش سیستم امنیتی ویلا" class="w-full object-cover">
+      <!--  نمایش ویدئو -->
+      <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-orange-500 mb-10">
+        <video src="assets/villa_clip.mp4" controls class="w-full h-auto" alt="سیستم امنیت هوشمند ویلا">
+          Your browser does not support the video tag.
+        </video>
+        <p class="text-center mt-3 text-sm text-neutral-400 p-4">سیستم امنیت هوشمند ویلا با پهپاد و IoT</p>
       </div>
 
       <!-- توضیحات کامل -->
       <div class="prose prose-invert max-w-none text-neutral-300 leading-8">
-        <p>
-          این سیستم امنیتی پیشرفته، نظارت ۲۴ ساعته بر ویلا را بدون نیاز به نگهبان انسانی فراهم می‌کند و امنیت را به سطح جدیدی از اتوماسیون می‌رساند.
-        </p>
+        <h2 class="text-3xl font-bold text-white mb-4">مقاله پروژه: نگهبان هوشمند ویلا، ترکیبی از پهپاد و اینترنت اشیاء
+        </h2>
+
+        <h3>۱. کشف مشکل: محدودیت‌های نظارت انسانی و سنتی</h3>
+        <p>تامین امنیت ویلاها و املاک بزرگ همواره با چالش‌هایی مانند هزینه‌های بالای استخدام نگهبان، خطای انسانی، و
+          محدودیت پوشش‌دهی کامل محیط همراه بوده است. سیستم‌های امنیتی سنتی نیز اغلب واکنشی هستند و قابلیت پیشگیری یا
+          شناسایی هوشمند تهدیدات را ندارند.</p>
+
+        <h3>۲. راه حل: سیستم یکپارچه نظارت خودکار</h3>
+        <p>این پروژه یک راهکار امنیتی جامع ارائه می‌دهد که با ترکیب پهپادهای گشت‌زن، سنسورهای هوشمند اینترنت اشیاء (IoT)
+          و یک پلتفرم کنترل مرکزی، نظارت ۲۴ ساعته و کاملاً خودکار را ممکن می‌سازد. این سیستم نه تنها امنیت را افزایش
+          می‌دهد، بلکه هزینه‌های عملیاتی را نیز به شکل چشمگیری کاهش می‌دهد.</p>
+
+        <h3>۳. ویژگی‌های کلیدی و مراحل پیاده‌سازی</h3>
         <ul>
-          <li>
-            <strong>پهپاد نگهبان خودکار:</strong> یک پهپاد به صورت برنامه‌ریزی شده یا پس از تحریک سنسورها، در اطراف ویلا گشت‌زنی کرده و پس از اتمام ماموریت، به صورت خودکار به ایستگاه شارژ خود بازمی‌گردد.
+          <li><strong>پهپاد نگهبان خودکار:</strong> پهپادها به عنوان نگهبانان هوایی عمل می‌کنند. آن‌ها می‌توانند به صورت
+            زمان‌بندی‌شده مسیرهای مشخصی را گشت‌زنی کنند یا در صورت دریافت هشدار از سنسورها، به سرعت به منطقه مورد نظر
+            اعزام شوند و تصاویر زنده ارسال کنند. پس از هر ماموریت، پهپاد به صورت خودکار به ایستگاه شارژ خود بازمی‌گردد.
           </li>
-          <li>
-            <strong>یکپارچه‌سازی با سنسورهای IoT:</strong> سیستم به انواع سنسورهای هوشمند (حرکتی، در و پنجره، حرارتی) متصل است. هرگونه ناهنجاری شناسایی‌شده، باعث ارسال هشدار و اعزام پهپاد به محل می‌شود.
-          </li>
-          <li>
-            <strong>کنترل و نظارت از راه دور:</strong> مالک ویلا می‌تواند از طریق یک اپلیکیشن موبایل، تصاویر زنده دوربین‌ها و پهپاد را مشاهده کرده، سیستم را کنترل کند و هشدارهای فوری دریافت نماید.
+          <li><strong>شبکه یکپارچه سنسورهای IoT:</strong> سنسورهای حرکتی، لرزشی، و سنسورهای باز شدن در و پنجره در سراسر
+            ملک نصب می‌شوند. این سنسورها به محض تشخیص فعالیت مشکوک، سیستم مرکزی را مطلع کرده و سناریوهای امنیتی
+            تعریف‌شده (مانند فعال کردن آژیر یا اعزام پهپاد) را فعال می‌کنند.</li>
+          <li><strong>پلتفرم کنترل و نظارت مرکزی:</strong> یک اپلیکیشن موبایل و وب به مالک اجازه می‌دهد تا در هر زمان و
+            از هر مکان، به تصاویر زنده دوربین‌ها و پهپاد دسترسی داشته باشد، وضعیت سنسورها را بررسی کند، و هشدارهای فوری
+            را روی گوشی خود دریافت نماید. این پلتفرم همچنین گزارش‌های دقیقی از تمام فعالیت‌های ثبت‌شده ارائه می‌دهد.
           </li>
         </ul>
       </div>
@@ -66,10 +86,60 @@
         <h3 class="text-2xl font-bold text-white mb-6">گالری تصاویر پروژه</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="bg-gray-900 rounded-lg overflow-hidden border border-neutral-800">
-            <img src="/assets/placeholder-villa-1.jpg" alt="تصویر ۱ از پروژه" class="w-full h-auto object-cover">
+            <img src="assets/VILLA.jpg" alt="سنسورهای IoT" class="w-full h-auto object-cover">
+            <p class="text-center mt-2 text-sm text-neutral-400 p-2">شبکه سنسورهای هوشمند IoT</p>
           </div>
           <div class="bg-gray-900 rounded-lg overflow-hidden border border-neutral-800">
-            <img src="/assets/placeholder-villa-2.jpg" alt="تصویر ۲ از پروژه" class="w-full h-auto object-cover">
+            <img src="assets/VILLA1.jpg" alt="پلتفرم کنترل مرکزی" class="w-full h-auto object-cover">
+            <p class="text-center mt-2 text-sm text-neutral-400 p-2">پلتفرم کنترل و نظارت مرکزی</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Implementation Section -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-center text-white mb-8">جزئیات فنی پیاده‌سازی</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card">
+          <h3 class="text-xl font-bold text-red-400 mb-4">تکنولوژی‌های استفاده شده</h3>
+          <ul class="text-sm text-neutral-300 space-y-2">
+            <li>• <strong>Drone Programming:</strong> کنترل و برنامه‌ریزی پهپاد</li>
+            <li>• <strong>IoT Sensors:</strong> سنسورهای حرکتی و لرزشی</li>
+            <li>• <strong>Python:</strong> برنامه‌نویسی سیستم مرکزی</li>
+            <li>• <strong>OpenCV:</strong> پردازش تصاویر دوربین</li>
+            <li>• <strong>Mobile App:</strong> اپلیکیشن کنترل از راه دور</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-bold text-red-400 mb-4">ویژگی‌های کلیدی</h3>
+          <ul class="text-sm text-neutral-300 space-y-2">
+            <li>• پهپاد نگهبان خودکار</li>
+            <li>• شبکه سنسورهای IoT</li>
+            <li>• پلتفرم کنترل مرکزی</li>
+            <li>• هشدارهای فوری</li>
+            <li>• نظارت ۲۴ ساعته</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results and Impact Section -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-center text-white mb-8">نتایج و تأثیرات</h2>
+      <div class="card">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">100%</div>
+            <div class="text-sm text-neutral-400">پوشش امنیتی محوطه</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">80%</div>
+            <div class="text-sm text-neutral-400">کاهش هزینه‌های نگهبانی</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">95%</div>
+            <div class="text-sm text-neutral-400">دقت تشخیص تهدیدات</div>
           </div>
         </div>
       </div>
@@ -84,4 +154,5 @@
   <!-- scripts -->
   <script src="js/particles.js"></script>
 </body>
+
 </html>

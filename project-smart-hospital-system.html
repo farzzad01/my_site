@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>پروژه سیستم هوشمند بیمارستانی — فرزاد</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap"
+    rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+    <nav>
+      <a href="index.html#projects" class="cta"><span class="mono">بازگشت به پروژه‌ها</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-8 mb-14">
+    <section class="text-center">
+      <h1 class="hero-title"><span class="neo">سیستم جامع هوشمندسازی بیمارستان</span></h1>
+      <p class="text-lg text-neutral-300 mt-4 max-w-3xl mx-auto">یک پلتفرم متمرکز برای مانیتورینگ علائم حیاتی بیماران و
+        مدیریت هوشمند فرآیندهای درمانی با استفاده از Raspberry Pi و هوش مصنوعی.</p>
+      <div class="text-md text-neutral-400 mt-2">Raspberry Pi • Voice Recognition • Real-time Monitoring</div>
+    </section>
+
+    <section class="mt-12">
+      <div class="card">
+        <video autoplay loop muted playsinline class="w-full rounded-lg shadow-lg border border-red-500/50" controls>
+          <source src="assets/hosp1.mp4" type="video/mp4">
+          متاسفانه مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
+        </video>
+        <p class="text-center mt-3 text-sm text-neutral-400">نمایش عملکرد سیستم مانیتورینگ بیمارستانی در حین کار</p>
+      </div>
+    </section>
+
+    <!-- Article Section -->
+    <section class="mt-16 prose prose-invert max-w-none text-neutral-300 leading-8">
+
+      <h2 class="text-3xl font-bold text-white mb-4">مقاله پروژه: از چالش تا راهکار هوشمند</h2>
+
+      <h3>۱. کشف مشکل: خطاهای انسانی و کمبود نظارت در بخش‌های درمانی</h3>
+      <p>در محیط‌های بیمارستانی، به ویژه در بخش‌های مراقبت ویژه، نظارت ۲۴ ساعته بر وضعیت بیماران و ثبت دقیق دستورات پزشک
+        امری حیاتی است. خطاهای انسانی در ثبت داروها یا تاخیر در رسیدگی به وضعیت‌های بحرانی می‌تواند عواقب جبران‌ناپذیری
+        داشته باشد. چالش اصلی، ایجاد یک سیستم قابل اعتماد بود که بتواند این فرآیندها را خودکار کرده و بار کاری کادر
+        درمان را کاهش دهد.</p>
+
+      <h3>۲. راه حل: پلتفرم مانیتورینگ و مدیریت هوشمند</h3>
+      <p>برای غلبه بر این چالش، یک سیستم ماژولار با استفاده از دستگاه‌های Raspberry Pi طراحی کردم. هر دستگاه به سنسورهای
+        مختلفی متصل شده و داده‌های حیاتی بیمار (مانند ضربان قلب و سطح اکسیژن) را جمع‌آوری می‌کند. این داده‌ها به یک سرور
+        مرکزی ارسال شده و در یک داشبورد جامع به ایستگاه پرستاری نمایش داده می‌شود. علاوه بر این، سیستم قادر است صدای
+        پزشک را برای ثبت دستورات دارویی پردازش کند.</p>
+
+      <h3>۳. ویژگی‌های کلیدی و مراحل پیاده‌سازی</h3>
+      <ul>
+        <li><strong>شبکه مانیتورینگ با Raspberry Pi:</strong> از ۱۰ دستگاه Raspberry Pi برای ساخت یک شبکه نظارتی استفاده
+          شد. این رویکرد، هزینه‌ها را به شکل چشمگیری کاهش داد و انعطاف‌پذیری بالایی برای توسعه سیستم فراهم کرد.</li>
+        <li><strong>پردازش صدا برای ثبت دارو:</strong> یک ماژول تشخیص صدا پیاده‌سازی شد که دستورات صوتی پزشک را به متن
+          تبدیل کرده و به صورت خودکار در پرونده الکترونیکی بیمار ثبت می‌کند. این ویژگی، خطای ناشی از دست‌خط ناخوانا یا
+          ثبت دستی را از بین می‌برد.</li>
+        <li><strong>سیستم هشدار هوشمند:</strong> الگوریتم‌هایی برای تحلیل داده‌های دریافتی از بیماران توسعه داده شد. در
+          صورتی که علائم حیاتی بیماری از محدوده نرمال خارج شود، سیستم به صورت خودکار یک هشدار فوری به ایستگاه پرستاری
+          ارسال می‌کند.</li>
+        <li><strong>زمان‌بندی خودکار داروها:</strong> سیستم به طور هوشمند زمان‌بندی مصرف داروهای هر بیمار را مدیریت کرده
+          و در زمان مقرر، به پرستاران یادآوری می‌کند.</li>
+      </ul>
+
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold text-center text-white mb-8">گالری تصاویر پروژه</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card">
+          <img src="assets/h2.png" alt="Raspberry Pi Setup" class="w-full rounded-lg">
+          <p class="text-center mt-2 text-sm text-neutral-400">مجموعه Raspberry Pi های استفاده شده</p>
+        </div>
+        <div class="card">
+          <img src="assets/h3.png" alt="Alerting System UI" class="w-full rounded-lg">
+          <p class="text-center mt-2 text-sm text-neutral-400">رابط کاربری سیستم هشدار لحظه‌ای</p>
+        </div>
+        <div class="card">
+          <img src="assets/h1.png" alt="Data Synchronization" class="w-full rounded-lg">
+          <p class="text-center mt-2 text-sm text-neutral-400">داشبورد مانیتورینگ مرکزی</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Implementation Section -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-center text-white mb-8">جزئیات فنی پیاده‌سازی</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card">
+          <h3 class="text-xl font-bold text-red-400 mb-4">سخت‌افزار و زیرساخت</h3>
+          <ul class="text-sm text-neutral-300 space-y-2">
+            <li>• <strong>Raspberry Pi 4:</strong> ۱۰ دستگاه برای مانیتورینگ</li>
+            <li>• <strong>سنسورهای حیاتی:</strong> ضربان قلب، اکسیژن خون</li>
+            <li>• <strong>شبکه WiFi:</strong> ارتباط بی‌سیم دستگاه‌ها</li>
+            <li>• <strong>سرور مرکزی:</strong> پردازش و ذخیره داده‌ها</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-bold text-red-400 mb-4">نرم‌افزار و الگوریتم‌ها</h3>
+          <ul class="text-sm text-neutral-300 space-y-2">
+            <li>• <strong>Python:</strong> برنامه‌نویسی اصلی سیستم</li>
+            <li>• <strong>Speech Recognition:</strong> تشخیص دستورات صوتی</li>
+            <li>• <strong>PostgreSQL:</strong> پایگاه داده بیماران</li>
+            <li>• <strong>Real-time Alerts:</strong> هشدارهای فوری</li>
+            <li>• <strong>Web Dashboard:</strong> رابط کاربری پرستاران</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results and Impact Section -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-center text-white mb-8">نتایج و تأثیرات</h2>
+      <div class="card">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">85%</div>
+            <div class="text-sm text-neutral-400">کاهش خطاهای دارویی</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">70%</div>
+            <div class="text-sm text-neutral-400">بهبود زمان پاسخ‌گویی</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">50%</div>
+            <div class="text-sm text-neutral-400">کاهش بار کاری پرستاران</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

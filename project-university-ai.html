@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -9,10 +10,12 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Font (Vazirmatn) -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap"
+    rel="stylesheet">
 
   <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
 
   <!-- decorative layers -->
@@ -33,35 +36,56 @@
   <main class="container-max mt-12 mb-20">
     <section class="project-detail-card">
       <!-- عنوان پروژه -->
-      <h1 class="text-4xl font-extrabold bg-gradient-to-r from-red-500 via-red-400 to-red-600 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_10px_rgba(255,0,0,0.7)]">
+      <h1
+        class="text-4xl font-extrabold bg-gradient-to-r from-red-500 via-red-400 to-red-600 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_10px_rgba(255,0,0,0.7)]">
         پلتفرم یکپارچه هوش مصنوعی دانشگاه
       </h1>
       <div class="text-lg text-neutral-400 mb-8">University AI Platform • LLM & Robotics</div>
 
-      <!-- پیش‌نمایش گیف -->
+      <!-- پیش‌نمایش ویدیو -->
       <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-red-500 mb-10">
-        <img src="assets/uni1.png" alt="پیش‌نمایش پلتفرم دانشگاه" class="w-full object-cover">
+        <video autoplay loop muted playsinline class="w-full object-cover" controls>
+          <source src="assets/uni33.mp4" type="video/mp4">
+          متاسفانه مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
+        </video>
+        <p class="text-center mt-3 text-sm text-neutral-400 p-4">نمایش عملکرد پلتفرم هوشمند دانشگاه در حین کار</p>
       </div>
 
       <!-- توضیحات کامل -->
       <div class="prose prose-invert max-w-none text-neutral-300 leading-8">
-        <p>
-          این پروژه یک پلتفرم جامع و یکپارچه برای هوشمندسازی کامل محیط دانشگاه است که سه بخش اصلی را پوشش می‌دهد:
-        </p>
+        <h2 class="text-3xl font-bold text-white mb-4">مقاله پروژه: تحول دیجیتال در دانشگاه با پلتفرم هوشمند یکپارچه
+        </h2>
+
+        <h3>۱. کشف مشکل: چالش‌های زندگی دانشجویی در محیط سنتی</h3>
+        <p>دانشگاه‌ها محیط‌های پیچیده‌ای هستند که دانشجویان و کارکنان با چالش‌های متعددی روبرو هستند: از یافتن اطلاعات
+          دقیق و سریع درباره خدمات دانشگاهی گرفته تا مشکلات حمل‌ونقل داخلی، رزرو امکانات و ارتباطات پراکنده. سیستم‌های
+          سنتی اغلب ناکارآمد، زمان‌بر و فاقد یکپارچگی هستند.</p>
+
+        <h3>۲. راه حل: اکوسیستم هوشمند مبتنی بر هوش مصنوعی</h3>
+        <p>این پروژه یک پلتفرم یکپارچه و ماژولار را برای هوشمندسازی کامل دانشگاه ارائه می‌دهد. هدف اصلی، ایجاد یک تجربه
+          کاربری مدرن، روان و کارآمد برای تمام اعضای جامعه دانشگاهی از طریق سه بازوی اصلی است: اطلاع‌رسانی هوشمند، خدمات
+          خودکار و ارتباطات یکپارچه.</p>
+
+        <h3>۳. ویژگی‌های کلیدی و ماژول‌های پیاده‌سازی شده</h3>
         <ul>
           <li>
-            <strong>مانیتورهای هوشمند پاسخگو:</strong> در هر ساختمان، مانیتورهایی نصب شده که با یک مدل زبانی بزرگ (LLM) که بر روی اطلاعات داخلی دانشگاه فاین-تیون شده، به سوالات دانشجویان و مراجعین در هر زمینه‌ای پاسخ می‌دهند.
+            <strong>ماژول اطلاع‌رسانی (مانیتورهای هوشمند):</strong> در نقاط کلیدی هر ساختمان، کیوسک‌ها و مانیتورهای
+            هوشمندی نصب شده‌اند که به یک مدل زبانی بزرگ (LLM) متصل هستند. این مدل بر روی داده‌های داخلی دانشگاه (مانند
+            قوانین آموزشی، نقشه ساختمان‌ها، رویدادها) آموزش دیده و می‌تواند به صورت صوتی یا متنی به سوالات دانشجویان و
+            مراجعین پاسخ دهد.
           </li>
           <li>
-            <strong>ربات‌های دلیوری:</strong> ربات‌های خودران برای تحویل امکانات دانشگاه و غذاهای بوفه به دانشجویان در محل نشستن آن‌ها در فضاهای مختلف دانشگاه طراحی شده‌اند.
+            <strong>ماژول خدمات رفاهی (ربات‌های دلیوری):</strong> ناوگانی از ربات‌های خودران در محوطه دانشگاه فعال
+            هستند. دانشجویان می‌توانند از طریق اپلیکیشن، غذا از بوفه یا وسایل مورد نیاز خود را سفارش داده و ربات‌ها
+            آن‌ها را در سریع‌ترین زمان ممکن به محل استقرار دانشجو تحویل می‌دهند. این سیستم باعث کاهش صف‌ها و افزایش
+            بهره‌وری می‌شود.
           </li>
           <li>
-            <strong>اپلیکیشن جامع ارتباطی:</strong> یک سوپر-اپ برای رفع تمام نیازهای دانشجویان، شامل سرویس اتوبوس، سیستم رزرواسیون، شبکه اجتماعی داخلی دانشگاه و سایر خدمات.
+            <strong>ماژول ارتباطی (سوپر-اپلیکیشن دانشگاه):</strong> یک اپلیکیشن جامع موبایل که تمام خدمات دانشگاهی را در
+            خود جای داده است. از ردیابی زنده اتوبوس‌های دانشگاه، رزرو سالن مطالعه و امکانات ورزشی، تا یک شبکه اجتماعی
+            داخلی برای ارتباط دانشجویان و اطلاع از رویدادها، همه در یک پلتفرم واحد قابل دسترسی است.
           </li>
         </ul>
-        <p>
-          هدف اصلی این پلتفرم، ایجاد یک تجربه مدرن، کارآمد و یکپارچه برای تمام اعضای جامعه دانشگاهی است.
-        </p>
       </div>
 
       <!-- گالری تصاویر -->
@@ -69,10 +93,56 @@
         <h3 class="text-2xl font-bold text-white mb-6">گالری تصاویر پروژه</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="bg-gray-900 rounded-lg overflow-hidden border border-neutral-800">
-            <img src="/assets/placeholder-1.jpg" alt="تصویر ۱ از پروژه" class="w-full h-auto object-cover">
+            <img src="assets/uni1.png" alt="رابط کاربری پلتفرم دانشگاه" class="w-full h-auto object-cover">
+            <p class="text-center mt-2 text-sm text-neutral-400 p-2">رابط کاربری پلتفرم هوشمند دانشگاه</p>
           </div>
-          <div class="bg-gray-900 rounded-lg overflow-hidden border border-neutral-800">
-            <img src="/assets/placeholder-2.jpg" alt="تصویر ۲ از پروژه" class="w-full h-auto object-cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Implementation Section -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-center text-white mb-8">جزئیات فنی پیاده‌سازی</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card">
+          <h3 class="text-xl font-bold text-red-400 mb-4">تکنولوژی‌های استفاده شده</h3>
+          <ul class="text-sm text-neutral-300 space-y-2">
+            <li>• <strong>LLM (Large Language Model):</strong> پردازش زبان طبیعی</li>
+            <li>• <strong>Python & FastAPI:</strong> بک‌اند و API سرویس‌ها</li>
+            <li>• <strong>React Native:</strong> اپلیکیشن موبایل</li>
+            <li>• <strong>PostgreSQL:</strong> پایگاه داده مرکزی</li>
+            <li>• <strong>Redis:</strong> کش و session management</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-bold text-red-400 mb-4">ویژگی‌های کلیدی</h3>
+          <ul class="text-sm text-neutral-300 space-y-2">
+            <li>• مانیتورهای هوشمند اطلاع‌رسانی</li>
+            <li>• ربات‌های دلیوری خودکار</li>
+            <li>• اپلیکیشن یکپارچه دانشگاهی</li>
+            <li>• سیستم رزرو امکانات</li>
+            <li>• ردیابی زنده حمل‌ونقل</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results and Impact Section -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-center text-white mb-8">نتایج و تأثیرات</h2>
+      <div class="card">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">80%</div>
+            <div class="text-sm text-neutral-400">کاهش زمان دسترسی به اطلاعات</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">65%</div>
+            <div class="text-sm text-neutral-400">افزایش رضایت دانشجویان</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-red-400 mb-2">90%</div>
+            <div class="text-sm text-neutral-400">بهبود کارایی خدمات</div>
           </div>
         </div>
       </div>
@@ -87,4 +157,5 @@
   <!-- scripts -->
   <script src="js/particles.js"></script>
 </body>
+
 </html>

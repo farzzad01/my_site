@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>خلاصه تمام پروژه‌ها — فرزاد</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+    <nav>
+      <a href="index.html" class="cta"><span class="mono">بازگشت به خانه</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-8 mb-14">
+    <section class="text-center mb-12">
+      <h1 class="hero-title"><span class="neo">پورتفولیو کامل پروژه‌ها</span></h1>
+      <p class="text-lg text-neutral-300 mt-4 max-w-3xl mx-auto">مجموعه‌ای جامع از پروژه‌های هوش مصنوعی، بینایی ماشین و اتوماسیون که در حوزه‌های مختلف پیاده‌سازی شده‌اند.</p>
+    </section>
+
+    <!-- Projects Summary Stats -->
+    <section class="mb-16">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">12+</div>
+          <div class="stat-label">پروژه تکمیل شده</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">8</div>
+          <div class="stat-label">حوزه تخصصی</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">تکنولوژی استفاده شده</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">نرخ موفقیت پروژه‌ها</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects by Category -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-white mb-8 text-center">پروژه‌ها بر اساس حوزه</h2>
+      
+      <!-- Healthcare & Medical -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-red-400 mb-6">سلامت و پزشکی</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <a href="project-smart-hospital-system.html" class="card-link">
+            <div class="card">
+              <div class="flex items-start gap-4">
+                <img src="assets/h1.png" alt="Hospital System" class="w-20 h-20 rounded-lg object-cover">
+                <div>
+                  <h4 class="font-semibold text-white mb-2">سیستم هوشمند بیمارستانی</h4>
+                  <p class="text-sm text-neutral-400 mb-3">مانیتورینگ بیماران با Raspberry Pi و هوش مصنوعی</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="tag">Raspberry Pi</span>
+                    <span class="tag">IoT</span>
+                    <span class="tag">Voice Recognition</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          
+          <a href="project-smart-coach.html" class="card-link">
+            <div class="card">
+              <div class="flex items-start gap-4">
+                <img src="assets/excer4.png" alt="Smart Coach" class="w-20 h-20 rounded-lg object-cover">
+                <div>
+                  <h4 class="font-semibold text-white mb-2">مربی هوشمند ورزشی</h4>
+                  <p class="text-sm text-neutral-400 mb-3">تحلیل حرکات ورزشی با MediaPipe</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="tag">MediaPipe</span>
+                    <span class="tag">Pose Estimation</span>
+                    <span class="tag">AI Coach</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Education & University -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-red-400 mb-6">آموزش و دانشگاه</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <a href="project-university-ai.html" class="card-link">
+            <div class="card">
+              <div class="flex items-start gap-4">
+                <img src="assets/uni1.png" alt="University Platform" class="w-20 h-20 rounded-lg object-cover">
+                <div>
+                  <h4 class="font-semibold text-white mb-2">پلتفرم هوشمند دانشگاه</h4>
+                  <p class="text-sm text-neutral-400 mb-3">سیستم یکپارچه خدمات دانشگاهی</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="tag">LLM</span>
+                    <span class="tag">Robotics</span>
+                    <span class="tag">Mobile App</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          
+          <a href="project-library-access.html" class="card-link">
+            <div class="card">
+              <div class="flex items-start gap-4">
+                <img src="assets/lib3.png" alt="Library Access" class="w-20 h-20 rounded-lg object-cover">
+                <div>
+                  <h4 class="font-semibold text-white mb-2">ورود به کتابخانه با انگشت</h4>
+                  <p class="text-sm text-neutral-400 mb-3">کنترل دسترسی با تشخیص کد انگشتی</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="tag">MediaPipe</span>
+                    <span class="tag">Gesture Recognition</span>
+                    <span class="tag">Access Control</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Security & Surveillance -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-red-400 mb-6">امنیت و نظارت</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <a href="project-smart-villa.html" class="card-link">
+            <div class="card">
+              <div class="flex items-start gap-4">
+                <img src="assets/cow1.png" alt="Smart Villa" class="w-20 h-20 rounded-lg object-cover">
+                <div>
+                  <h4 class="font-semibold text-white mb-2">امنیت هوشمند ویلا</h4>
+                  <p class="text-sm text-neutral-400 mb-3">نظارت با پهپاد و سنسورهای IoT</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="tag">Drone</span>
+                    <span class="tag">IoT</span>
+                    <span class="tag">Smart Home</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          
+          <a href="project-traffic-control.html" class="card-link">
+            <div class="card">
+              <div class="flex items-start gap-4">
+                <img src="assets/p2.png" alt="Traffic Control" class="w-20 h-20 rounded-lg object-cover">
+                <div>
+                  <h4 class="font-semibold text-white mb-2">کنترل هوشمند تردد</h4>
+                  <p class="text-sm text-neutral-400 mb-3">شناسایی پلاک و مدیریت پارکینگ</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="tag">LPR</span>
+                    <span class="tag">PyQt6</span>
+                    <span class="tag">Real-time</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Business & Management -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-red-400 mb-6">کسب‌وکار و مدیریت</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <a href="project-telecom-management.html" class="card-link">
+            <div class="card">
+              <div class="flex items-start gap-4">
+                <img src="assets/parseh1.png" alt="Telecom Management" class="w-20 h-20 rounded-lg object-cover">
+                <div>
+                  <h4 class="font-semibold text-white mb-2">مدیریت پروژه‌های مخابراتی</h4>
+                  <p class="text-sm text-neutral-400 mb-3">سیستم جامع CRM و مدیریت پروژه</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="tag">CRM</span>
+                    <span class="tag">Project Management</span>
+                    <span class="tag">Mobile App</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          
+          <a href="project-management-app.html" class="card-link">
+            <div class="card">
+              <div class="flex items-start gap-4">
+                <img src="assets/p3.png" alt="Management App" class="w-20 h-20 rounded-lg object-cover">
+                <div>
+                  <h4 class="font-semibold text-white mb-2">اپلیکیشن مدیریت پروژه</h4>
+                  <p class="text-sm text-neutral-400 mb-3">اپ موبایل مدیریت پروژه‌های شبکه</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="tag">Flutter</span>
+                    <span class="tag">Django</span>
+                    <span class="tag">CRM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Agriculture & Farming -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-red-400 mb-6">کشاورزی و دامداری</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <a href="project-ai-farming.html" class="card-link">
+            <div class="card">
+              <div class="flex items-start gap-4">
+                <img src="assets/cow33.gif" alt="AI Farming" class="w-20 h-20 rounded-lg object-cover">
+                <div>
+                  <h4 class="font-semibold text-white mb-2">هوشمندسازی دامداری</h4>
+                  <p class="text-sm text-neutral-400 mb-3">مانیتورینگ سلامت و رفتار دام‌ها</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="tag">AI Monitoring</span>
+                    <span class="tag">Animal Health</span>
+                    <span class="tag">Computer Vision</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technologies Used -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-white mb-8 text-center">تکنولوژی‌های استفاده شده</h2>
+      <div class="tech-stack">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h4>هوش مصنوعی و بینایی ماشین</h4>
+            <div class="tech-list">
+              <span class="tech-item">OpenCV</span>
+              <span class="tech-item">MediaPipe</span>
+              <span class="tech-item">YOLO</span>
+              <span class="tech-item">TensorFlow</span>
+              <span class="tech-item">PyTorch</span>
+            </div>
+          </div>
+          <div>
+            <h4>زبان‌های برنامه‌نویسی</h4>
+            <div class="tech-list">
+              <span class="tech-item">Python</span>
+              <span class="tech-item">C++</span>
+              <span class="tech-item">JavaScript</span>
+              <span class="tech-item">Dart</span>
+              <span class="tech-item">SQL</span>
+            </div>
+          </div>
+          <div>
+            <h4>فریم‌ورک‌ها و ابزارها</h4>
+            <div class="tech-list">
+              <span class="tech-item">PyQt6</span>
+              <span class="tech-item">Flutter</span>
+              <span class="tech-item">Django</span>
+              <span class="tech-item">Raspberry Pi</span>
+              <span class="tech-item">Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+      <div class="text-sm">
+        <a href="index.html#contact" class="text-red-400 hover:text-red-300">تماس برای همکاری</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
