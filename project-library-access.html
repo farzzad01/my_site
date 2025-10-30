@@ -110,6 +110,49 @@
       </div>
     </section>
 
+    <!-- Live Preview Section -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-center text-white mb-8">پیش‌نمایش تعاملی سیستم</h2>
+      <div class="card">
+        <div class="bg-gray-900 p-6 rounded-lg border border-red-500/50">
+          <h3 class="text-xl font-bold text-red-400 mb-4">شبیه‌سازی تشخیص کد انگشتی</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Input Section -->
+            <div>
+              <label class="block text-sm text-neutral-300 mb-2">کد انگشتی چهار رقمی (مثال: 2514)</label>
+              <div class="flex gap-2 mb-4">
+                <input type="number" id="finger1" min="0" max="5" placeholder="۱" class="w-16 p-3 bg-neutral-800 border border-neutral-600 rounded-lg text-white text-center focus:border-red-500 focus:outline-none">
+                <input type="number" id="finger2" min="0" max="5" placeholder="۲" class="w-16 p-3 bg-neutral-800 border border-neutral-600 rounded-lg text-white text-center focus:border-red-500 focus:outline-none">
+                <input type="number" id="finger3" min="0" max="5" placeholder="۳" class="w-16 p-3 bg-neutral-800 border border-neutral-600 rounded-lg text-white text-center focus:border-red-500 focus:outline-none">
+                <input type="number" id="finger4" min="0" max="5" placeholder="۴" class="w-16 p-3 bg-neutral-800 border border-neutral-600 rounded-lg text-white text-center focus:border-red-500 focus:outline-none">
+              </div>
+              <button id="verifyBtn" class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg transition">تأیید کد انگشتی</button>
+              <div id="status" class="mt-4 text-sm text-neutral-400">آماده برای تشخیص...</div>
+            </div>
+            <!-- Output Section -->
+            <div>
+              <h4 class="text-lg font-semibold text-white mb-4">نتیجه تشخیص</h4>
+              <div id="resultDisplay" class="bg-neutral-800 p-4 rounded-lg border border-neutral-600 mb-4">
+                <p class="text-neutral-400">هیچ نتیجه‌ای هنوز...</p>
+              </div>
+              <div class="mb-4">
+                <h5 class="text-sm text-neutral-300 mb-2">راهنما:</h5>
+                <p class="text-xs text-neutral-400">هر عدد نشان‌دهنده تعداد انگشتان باز شده است (0-5). برای مثال کد 2514 به معنی: ۲ انگشت، سپس ۵، سپس ۱، سپس ۴ انگشت.</p>
+              </div>
+              <div>
+                <h5 class="text-sm text-neutral-300 mb-2">کاربران نمونه</h5>
+                <ul id="users" class="text-sm text-neutral-400 space-y-1">
+                  <li>• علی - کد: 2514</li>
+                  <li>• سارا - کد: 1352</li>
+                  <li>• محمد - کد: 4201</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Results and Impact Section -->
     <section class="mt-16">
       <h2 class="text-2xl font-bold text-center text-white mb-8">نتایج و تأثیرات</h2>
@@ -139,5 +182,84 @@
 
   <!-- scripts -->
   <script src="js/particles.js"></script>
+  <script>
+      // Mock user database
+      const users = {
+          '2514': 'علی',
+          '1352': 'سارا',
+          '4201': 'محمد'
+      };
+
+      // DOM elements
+      const fingerInputs = [
+          document.getElementById('finger1'),
+          document.getElementById('finger2'),
+          document.getElementById('finger3'),
+          document.getElementById('finger4')
+      ];
+      const verifyBtn = document.getElementById('verifyBtn');
+      const status = document.getElementById('status');
+      const resultDisplay = document.getElementById('resultDisplay');
+
+      // Auto-focus next input
+      fingerInputs.forEach((input, index) => {
+          input.addEventListener('input', function() {
+              if (this.value.length === 1 && index < fingerInputs.length - 1) {
+                  fingerInputs[index + 1].focus();
+              }
+          });
+      });
+
+      // Event listener for verify button
+      verifyBtn.addEventListener('click', function() {
+          const code = fingerInputs.map(input => input.value).join('');
+          if (code.length !== 4 || code.includes('')) {
+              status.textContent = 'لطفاً کد چهار رقمی کامل را وارد کنید!';
+              status.className = 'mt-4 text-sm text-red-400';
+              return;
+          }
+
+          // Simulate processing
+          status.textContent = 'در حال تشخیص کد انگشتی...';
+          status.className = 'mt-4 text-sm text-yellow-400';
+          verifyBtn.disabled = true;
+          verifyBtn.textContent = 'پردازش...';
+
+          // Simulate delay
+          setTimeout(() => {
+              const user = users[code];
+              if (user) {
+                  resultDisplay.innerHTML = `
+                      <p class="font-semibold text-green-400">✅ دسترسی مجاز</p>
+                      <p class="text-neutral-400">کاربر: ${user}</p>
+                      <p class="text-neutral-400">کد انگشتی: ${code}</p>
+                      <p class="text-xs text-neutral-500 mt-2">زمان ورود: ${new Date().toLocaleTimeString('fa-IR')}</p>
+                  `;
+                  status.textContent = 'ورود موفق! در باز است.';
+                  status.className = 'mt-4 text-sm text-green-400';
+              } else {
+                  resultDisplay.innerHTML = `
+                      <p class="font-semibold text-red-400">❌ دسترسی غیرمجاز</p>
+                      <p class="text-neutral-400">کد انگشتی نامعتبر</p>
+                      <p class="text-xs text-neutral-500 mt-2">زمان تلاش: ${new Date().toLocaleTimeString('fa-IR')}</p>
+                  `;
+                  status.textContent = 'کد انگشتی نامعتبر!';
+                  status.className = 'mt-4 text-sm text-red-400';
+              }
+
+              verifyBtn.disabled = false;
+              verifyBtn.textContent = 'تأیید کد انگشتی';
+          }, 2000); // 2 second delay to simulate processing
+      });
+
+      // Allow Enter key to trigger verification
+      fingerInputs.forEach(input => {
+          input.addEventListener('keypress', function(e) {
+              if (e.key === 'Enter') {
+                  verifyBtn.click();
+              }
+          });
+      });
+  </script>
 </body>
 </html>
