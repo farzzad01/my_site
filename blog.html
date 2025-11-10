@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>بلاگ — فرزاد</title>
+  <meta name="description" content="بلاگ فنی فرزاد، شامل مقالات پروژه‌های هوش مصنوعی، بینایی ماشین و اتوماسیون. از ایده تا اجرا، چالش‌ها و راهکارها.">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+    <nav>
+      <a href="index.html" class="cta"><span class="mono">بازگشت به خانه</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-8 mb-14">
+    <section class="text-center mb-12">
+      <h1 class="hero-title"><span class="neo">بلاگ فنی</span></h1>
+      <p class="text-lg text-neutral-300 mt-4 max-w-3xl mx-auto">مجموعه مقالات فنی درباره پروژه‌های هوش مصنوعی و بینایی ماشین. از ایده‌پردازی اولیه تا چالش‌های پیاده‌سازی و راهکارهای نهایی.</p>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Blog Post 1: University AI Platform -->
+      <article class="card-link">
+        <a href="blog-university-ai.html" class="card block">
+          <div class="flex flex-col h-full">
+            <div class="mb-4">
+              <div class="text-xs text-red-400 mb-2">۱۴۰۳/۰۷/۱۵</div>
+              <h3 class="text-xl font-bold text-white mb-3">تحول دیجیتال دانشگاه با پلتفرم هوش مصنوعی یکپارچه</h3>
+              <p class="text-neutral-400 text-sm leading-6">چگونه یک سیستم هوشمند مبتنی بر LLM و رباتیک، تجربه زندگی دانشجویی را متحول کرد. از مانیتورهای اطلاع‌رسانی تا ربات‌های دلیوری و سوپر اپلیکیشن دانشگاهی.</p>
+            </div>
+            <div class="mt-auto">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="tag">LLM</span>
+                <span class="tag">Robotics</span>
+                <span class="tag">Mobile App</span>
+              </div>
+              <div class="text-sm text-neutral-500">خواندن مقاله →</div>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 2: Smart Coach -->
+      <article class="card-link">
+        <a href="blog-smart-coach.html" class="card block">
+          <div class="flex flex-col h-full">
+            <div class="mb-4">
+              <div class="text-xs text-red-400 mb-2">۱۴۰۳/۰۶/۲۲</div>
+              <h3 class="text-xl font-bold text-white mb-3">مربی هوشمند ورزشی: از ایده تا واقعیت</h3>
+              <p class="text-neutral-400 text-sm leading-6">چالش‌های پیاده‌سازی یک سیستم تحلیل حرکت مبتنی بر MediaPipe. چگونه بینایی ماشین با بازخورد لحظه‌ای، مربی شخصی هر ورزشکاری شد و فرم صحیح را تضمین می‌کند.</p>
+            </div>
+            <div class="mt-auto">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="tag">MediaPipe</span>
+                <span class="tag">Pose Estimation</span>
+                <span class="tag">AI Coach</span>
+              </div>
+              <div class="text-sm text-neutral-500">خواندن مقاله →</div>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 3: AI Farming -->
+      <article class="card-link">
+        <a href="blog-ai-farming.html" class="card block">
+          <div class="flex flex-col h-full">
+            <div class="mb-4">
+              <div class="text-xs text-red-400 mb-2">۱۴۰۳/۰۵/۱۰</div>
+              <h3 class="text-xl font-bold text-white mb-3">انقلاب هوش مصنوعی در دامداری مدرن</h3>
+              <p class="text-neutral-400 text-sm leading-6">چگونه بینایی ماشین با YOLO و سنسورهای IoT، نظارت ۲۴ ساعته بر سلامت و رفتار دام‌ها را ممکن ساخت. کاهش هزینه‌ها و افزایش بهره‌وری در مزارع.</p>
+            </div>
+            <div class="mt-auto">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="tag">Computer Vision</span>
+                <span class="tag">Animal Health</span>
+                <span class="tag">IoT</span>
+              </div>
+              <div class="text-sm text-neutral-500">خواندن مقاله →</div>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 4: Traffic Control -->
+      <article class="card-link">
+        <a href="blog-traffic-control.html" class="card block">
+          <div class="flex flex-col h-full">
+            <div class="mb-4">
+              <div class="text-xs text-red-400 mb-2">۱۴۰۳/۰۴/۱۸</div>
+              <h3 class="text-xl font-bold text-white mb-3">کنترل هوشمند تردد: چالش‌های پیاده‌سازی LPR</h3>
+              <p class="text-neutral-400 text-sm leading-6">از انتخاب الگوریتم OCR تا بهینه‌سازی عملکرد realtime با YOLO و Tesseract. چالش‌های تشخیص پلاک‌های ایرانی و پیاده‌سازی در محیط واقعی.</p>
+            </div>
+            <div class="mt-auto">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="tag">LPR</span>
+                <span class="tag">PyQt6</span>
+                <span class="tag">Real-time</span>
+              </div>
+              <div class="text-sm text-neutral-500">خواندن مقاله →</div>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 5: Smart Hospital -->
+      <article class="card-link">
+        <a href="blog-smart-hospital.html" class="card block">
+          <div class="flex flex-col h-full">
+            <div class="mb-4">
+              <div class="text-xs text-red-400 mb-2">۱۴۰۳/۰۳/۲۶</div>
+              <h3 class="text-xl font-bold text-white mb-3">سیستم هوشمند بیمارستانی با Raspberry Pi</h3>
+              <p class="text-neutral-400 text-sm leading-6">چالش‌های توسعه IoT در محیط پزشکی با Raspberry Pi. از کنترل صوتی و مانیتورینگ بیماران گرفته تا اتوماسیون تجهیزات و کاهش زمان پاسخگویی.</p>
+            </div>
+            <div class="mt-auto">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="tag">Raspberry Pi</span>
+                <span class="tag">IoT</span>
+                <span class="tag">Voice Control</span>
+              </div>
+              <div class="text-sm text-neutral-500">خواندن مقاله →</div>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 6: Library Access -->
+      <article class="card-link">
+        <a href="blog-library-access.html" class="card block">
+          <div class="flex flex-col h-full">
+            <div class="mb-4">
+              <div class="text-xs text-red-400 mb-2">۱۴۰۳/۰۲/۱۴</div>
+              <h3 class="text-xl font-bold text-white mb-3">ورود هوشمند به کتابخانه با تشخیص ژست</h3>
+              <p class="text-neutral-400 text-sm leading-6">پیاده‌سازی سیستم کنترل دسترسی بدون کارت با MediaPipe و ژست‌های دست. چالش‌های تشخیص ژست در شرایط واقعی و رابط کاربری PyQt6.</p>
+            </div>
+            <div class="mt-auto">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="tag">MediaPipe</span>
+                <span class="tag">Gesture Recognition</span>
+                <span class="tag">PyQt6</span>
+              </div>
+              <div class="text-sm text-neutral-500">خواندن مقاله →</div>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 7: Telecom Management -->
+      <article class="card-link">
+        <a href="blog-telecom-management.html" class="card block">
+          <div class="flex flex-col h-full">
+            <div class="mb-4">
+              <div class="text-xs text-red-400 mb-2">۱۴۰۳/۰۱/۳۰</div>
+              <h3 class="text-xl font-bold text-white mb-3">اپلیکیشن مدیریت پروژه‌های مخابراتی</h3>
+              <p class="text-neutral-400 text-sm leading-6">تجربه توسعه اپلیکیشن موبایل cross-platform با Flutter و Django. چالش‌های یکپارچه‌سازی CRM، مدیریت پروژه و کار offline در مناطق روستایی.</p>
+            </div>
+            <div class="mt-auto">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="tag">Flutter</span>
+                <span class="tag">Django</span>
+                <span class="tag">CRM</span>
+              </div>
+              <div class="text-sm text-neutral-500">خواندن مقاله →</div>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 8: Smart Villa -->
+      <article class="card-link">
+        <a href="blog-smart-villa.html" class="card block">
+          <div class="flex flex-col h-full">
+            <div class="mb-4">
+              <div class="text-xs text-red-400 mb-2">۱۴۰۲/۱۲/۲۰</div>
+              <h3 class="text-xl font-bold text-white mb-3">امنیت هوشمند ویلا با پهپاد و IoT</h3>
+              <p class="text-neutral-400 text-sm leading-6">پیاده‌سازی سیستم نظارت هوایی با پهپاد و زمینی با سنسورهای IoT. پوشش ۱۰۰% امنیتی و کاهش ۹۸% سرقت‌ها در ویلاهای بزرگ.</p>
+            </div>
+            <div class="mt-auto">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="tag">Drone</span>
+                <span class="tag">IoT</span>
+                <span class="tag">Smart Home</span>
+              </div>
+              <div class="text-sm text-neutral-500">خواندن مقاله →</div>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Blog Post 9: Person Counting -->
+      <article class="card-link">
+        <a href="blog-person-counting.html" class="card block">
+          <div class="flex flex-col h-full">
+            <div class="mb-4">
+              <div class="text-xs text-red-400 mb-2">۱۴۰۲/۱۱/۱۵</div>
+              <h3 class="text-xl font-bold text-white mb-3">سیستم شمارش افراد با YOLO و OpenCV</h3>
+              <p class="text-neutral-400 text-sm leading-6">چالش‌های پیاده‌سازی تشخیص و شمارش افراد در محیط‌های شلوغ با YOLO و DeepSORT. دستیابی به دقت ۹۵% و سرعت ۳۰ فریم بر ثانیه.</p>
+            </div>
+            <div class="mt-auto">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="tag">YOLO</span>
+                <span class="tag">OpenCV</span>
+                <span class="tag">Real-time</span>
+              </div>
+              <div class="text-sm text-neutral-500">خواندن مقاله →</div>
+            </div>
+          </div>
+        </a>
+      </article>
+
+    </section>
+
+    <!-- Newsletter/CTA Section -->
+    <section class="mt-16 text-center">
+      <div class="card max-w-2xl mx-auto">
+        <h3 class="text-2xl font-bold text-white mb-4">علاقمند به یادگیری بیشتر هستید؟</h3>
+        <p class="text-neutral-400 mb-6">مقالات جدید درباره پروژه‌های هوش مصنوعی و بینایی ماشین به صورت منظم منتشر می‌شود.</p>
+        <a href="index.html#contact" class="cta inline-block">تماس برای همکاری</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+      <div class="text-sm">
+        <a href="index.html" class="text-red-400 hover:text-red-300">بازگشت به خانه</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

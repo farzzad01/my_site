@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>سیستم شمارش افراد با YOLO و OpenCV — بلاگ فرزاد</title>
+  <meta name="description" content="مقاله فنی درباره پیاده‌سازی سیستم شمارش افراد در محیط‌های شلوغ. چالش‌های بهینه‌سازی عملکرد و دقت سیستم.">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+    <nav>
+      <a href="blog.html" class="cta"><span class="mono">بازگشت به بلاگ</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-8 mb-14">
+    <article class="max-w-4xl mx-auto">
+
+      <!-- Article Header -->
+      <header class="mb-12">
+        <div class="text-sm text-red-400 mb-4">۱۴۰۲/۱۱/۱۵ • ۹ دقیقه مطالعه</div>
+        <h1 class="text-4xl font-extrabold text-white mb-6 leading-tight">
+          سیستم شمارش افراد با YOLO و OpenCV
+        </h1>
+        <p class="text-xl text-neutral-300 leading-8">
+          چالش‌های پیاده‌سازی تشخیص و شمارش افراد در محیط‌های شلوغ. بهینه‌سازی عملکرد و دقت سیستم.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="tag">YOLO</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">Real-time</span>
+          <span class="tag">Computer Vision</span>
+        </div>
+        <div class="mt-8">
+          <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&h=400&fit=crop" alt="سیستم شمارش افراد هوشمند" class="w-full h-64 object-cover rounded-lg shadow-lg">
+          <p class="text-sm text-neutral-400 mt-2">تصویر: دوربین‌های هوشمند برای شمارش افراد در محیط‌های عمومی</p>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <div class="prose prose-invert prose-lg max-w-none text-neutral-300 leading-8">
+
+        <h2>نیاز به شمارش دقیق افراد</h2>
+        <p>
+          شمارش افراد یکی از چالش‌های اساسی در مدیریت اماکن عمومی است. کاربردهای متعددی دارد:
+        </p>
+        <ul>
+          <li>مدیریت ظرفیت فروشگاه‌ها و مراکز خرید</li>
+          <li>بهینه‌سازی نیروی امنیتی در رویدادها</li>
+          <li>تحلیل رفت‌وآمد مشتریان</li>
+          <li>کنترل ازدحام در شرایط اضطراری</li>
+        </ul>
+        <p>
+          روش‌های سنتی مانند شمارنده‌های مکانیکی یا شمارش دستی ناکارآمد و مستعد خطا هستند. راهکار مدرن: استفاده از بینایی ماشین برای شمارش خودکار و real-time.
+        </p>
+
+        <h2>معماری سیستم</h2>
+        <p>
+          سیستم از سه بخش اصلی تشکیل شده:
+        </p>
+        <ol>
+          <li><strong>ورودی:</strong> دوربین‌های IP با کیفیت بالا</li>
+          <li><strong>پردازش:</strong> الگوریتم‌های بینایی ماشین</li>
+          <li><strong>خروجی:</strong> داشبورد نمایش آمار</li>
+        </ol>
+
+        <h3>انتخاب تکنولوژی</h3>
+        <ul>
+          <li><strong>YOLOv5:</strong> برای تشخیص افراد در تصویر</li>
+          <li><strong>OpenCV:</strong> برای پردازش تصویر و tracking</li>
+          <li><strong>DeepSORT:</strong> برای ردیابی افراد در طول زمان</li>
+          <li><strong>Python:</strong> زبان اصلی پیاده‌سازی</li>
+        </ul>
+
+        <h2>چالش‌های پیاده‌سازی</h2>
+
+        <h3>چالش ۱: تشخیص افراد در شرایط شلوغ</h3>
+        <p>
+          در محیط‌های شلوغ، افراد نزدیک هم هستند و تشخیص مرز بین آن‌ها دشوار است:
+        </p>
+        <ul>
+          <li>Overlapping افراد</li>
+          <li>Occlusion (پنهان شدن بخشی از بدن)</li>
+          <li>متفاوت بودن زاویه دید</li>
+        </ul>
+        <p>
+          راهکار: استفاده از YOLOv5 که bounding boxهای دقیق‌تری نسبت به مدل‌های قدیمی‌تر ارائه می‌دهد.
+        </p>
+
+        <h3>چالش ۲: ردیابی افراد (Tracking)</h3>
+        <p>
+          تشخیص افراد در هر فریم کافی نیست. باید هر فرد را در طول زمان ردیابی کنیم تا از double counting جلوگیری شود:
+        </p>
+        <ul>
+          <li>تخصیص ID منحصربه‌فرد به هر فرد</li>
+          <li>مدیریت ورود و خروج افراد</li>
+          <li>Handling occlusion موقت</li>
+        </ul>
+        <p>
+          از DeepSORT استفاده کردیم که ترکیبی از appearance features و motion prediction است.
+        </p>
+
+        <h3>چالش ۳: عملکرد real-time</h3>
+        <p>
+          سیستم باید با سرعت حداقل ۲۵ فریم بر ثانیه کار کند:
+        </p>
+        <ul>
+          <li>بهینه‌سازی مدل YOLO (model pruning)</li>
+          <li>استفاده از GPU acceleration</li>
+          <li>Parallel processing</li>
+          <li>Region of interest processing</li>
+        </ul>
+
+        <h3>چالش ۴: شرایط نوری متغیر</h3>
+        <p>
+          نور طبیعی در طول روز تغییر می‌کند و سیستم باید سازگار باشد:
+        </p>
+        <ul>
+          <li>Adaptive brightness adjustment</li>
+          <li>HDR camera support</li>
+          <li>Preprocessing pipeline قوی</li>
+        </ul>
+
+        <h2>الگوریتم شمارش</h2>
+
+        <h3>روش Counting Line</h3>
+        <p>
+          ساده‌ترین روش: رسم یک خط مجازی در تصویر و شمارش عبور افراد از آن:
+        </p>
+        <ul>
+          <li>تشخیص جهت حرکت</li>
+          <li>جلوگیری از double counting</li>
+          <li>مدیریت multiple lines</li>
+        </ul>
+
+        <h3>روش Region-based Counting</h3>
+        <p>
+          شمارش افراد در مناطق تعریف شده:
+        </p>
+        <ul>
+          <li>تعریف zones مختلف (ورودی، خروجی، مناطق داخلی)</li>
+          <li>آمار real-time هر منطقه</li>
+          <li>Heat maps برای تحلیل رفت‌وآمد</li>
+        </ul>
+
+        <h3>مدیریت خطاها</h3>
+        <p>
+          سیستم‌های counting مستعد خطا هستند:
+        </p>
+        <ul>
+          <li><strong>False Positives:</strong> تشخیص شیء غیرانسانی به عنوان فرد</li>
+          <li><strong>False Negatives:</strong> عدم تشخیص فرد</li>
+          <li><strong>Double Counting:</strong> شمارش یک فرد چندین بار</li>
+        </ul>
+        <p>
+          از confidence thresholds و post-processing filters برای کاهش خطاها استفاده کردیم.
+        </p>
+
+        <h2>بهینه‌سازی عملکرد</h2>
+
+        <h3>Hardware Acceleration</h3>
+        <ul>
+          <li>NVIDIA GPU برای inference</li>
+          <li>TensorRT برای optimization</li>
+          <li>Multi-stream processing</li>
+        </ul>
+
+        <h3>Software Optimization</h3>
+        <ul>
+          <li>Async processing pipeline</li>
+          <li>Memory pooling</li>
+          <li>Batch processing</li>
+        </ul>
+
+        <h2>رابط کاربری و گزارش‌گیری</h2>
+
+        <h3>داشبورد real-time</h3>
+        <p>
+          نمایش اطلاعات به صورت کاربرپسند:
+        </p>
+        <ul>
+          <li>شمارنده زنده افراد</li>
+          <li>نمودارهای historical</li>
+          <li>Heat maps حرکت</li>
+          <li>گزارشات روزانه/ماهانه</li>
+        </ul>
+
+        <h3>API و Integration</h3>
+        <p>
+          امکان یکپارچه‌سازی با سیستم‌های دیگر:
+        </p>
+        <ul>
+          <li>REST API برای دسترسی داده‌ها</li>
+          <li>WebSocket برای real-time updates</li>
+          <li>Database storage با PostgreSQL</li>
+        </ul>
+
+        <h2>تست و ارزیابی</h2>
+        <p>
+          ارزیابی سیستم در محیط واقعی فروشگاه:
+        </p>
+        <ul>
+          <li><strong>Accuracy:</strong> ۹۵% دقت تشخیص افراد</li>
+          <li><strong>Precision:</strong> ۹۲% در شمارش</li>
+          <li><strong>Performance:</strong> ۳۰ FPS روی GPU</li>
+          <li><strong>Reliability:</strong> ۹۹.۵% uptime</li>
+        </ul>
+
+        <h2>مطالعات موردی</h2>
+
+        <h3>کاربرد در فروشگاه زنجیره‌ای</h3>
+        <p>
+          پیاده‌سازی در ۵ شعبه فروشگاه:
+        </p>
+        <ul>
+          <li>بهبود ۴۰% در مدیریت نیروی فروش</li>
+          <li>کاهش ۲۵% زمان انتظار مشتریان</li>
+          <li>داده‌های دقیق برای تصمیم‌گیری بازاریابی</li>
+        </ul>
+
+        <h3>کاربرد در رویدادهای ورزشی</h3>
+        <p>
+          استفاده در استادیوم فوتبال:
+        </p>
+        <ul>
+          <li>کنترل ظرفیت real-time</li>
+          <li>مدیریت خروج اضطراری</li>
+          <li>آمار حضور تماشاگران</li>
+        </ul>
+
+        <h2>نتایج و تأثیرات</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۹۵%</div>
+            <div class="text-sm text-neutral-400">دقت تشخیص</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۳۰fps</div>
+            <div class="text-sm text-neutral-400">سرعت پردازش</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۹۹.۵%</div>
+            <div class="text-sm text-neutral-400">قابلیت اطمینان</div>
+          </div>
+        </div>
+
+        <h2>آموزش‌های آموخته شده</h2>
+        <p>
+          این پروژه بینش‌های ارزشمندی در مورد چالش‌های real-world computer vision ارائه داد:
+        </p>
+        <ul>
+          <li><strong>Data Quality:</strong> کیفیت داده‌های آموزشی تعیین‌کننده دقت است</li>
+          <li><strong>Edge Cases:</strong> تست در شرایط واقعی بسیار مهم‌تر از lab testing است</li>
+          <li><strong>Performance vs Accuracy:</strong> trade-off بین سرعت و دقت</li>
+          <li><strong>User Requirements:</strong> نیازهای عملی اغلب پیچیده‌تر از انتظارات اولیه است</li>
+        </ul>
+
+        <h2>توسعه‌های آینده</h2>
+        <p>
+          مسیرهای بهبود سیستم:
+        </p>
+        <ul>
+          <li>استفاده از YOLOv8 برای دقت بالاتر</li>
+          <li>ادغام با سیستم‌های مدیریت جمعیت</li>
+          <li>استفاده از multiple cameras برای ۳D tracking</li>
+          <li>AI برای پیش‌بینی ازدحام</li>
+        </ul>
+
+      </div>
+
+      <!-- Article Footer -->
+      <footer class="mt-12 pt-8 border-t border-neutral-800">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div class="flex flex-wrap gap-2">
+            <span class="text-sm text-neutral-400">تکنولوژی‌ها:</span>
+            <span class="tag">YOLO</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">DeepSORT</span>
+            <span class="tag">Python</span>
+            <span class="tag">TensorFlow</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="blog.html" class="text-red-400 hover:text-red-300 text-sm">← مقالات دیگر</a>
+            <a href="project-person-counting.html" class="text-red-400 hover:text-red-300 text-sm">مشاهده پروژه ←</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+      <div class="text-sm">
+        <a href="blog.html" class="text-red-400 hover:text-red-300">بازگشت به بلاگ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

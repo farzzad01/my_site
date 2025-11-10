@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>اپلیکیشن مدیریت پروژه‌های مخابراتی — بلاگ فرزاد</title>
+  <meta name="description" content="مقاله فنی درباره توسعه اپلیکیشن موبایل مدیریت پروژه‌های مخابراتی با Flutter و Django. چالش‌های CRM و مدیریت پروژه.">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+    <nav>
+      <a href="blog.html" class="cta"><span class="mono">بازگشت به بلاگ</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-8 mb-14">
+    <article class="max-w-4xl mx-auto">
+
+      <!-- Article Header -->
+      <header class="mb-12">
+        <div class="text-sm text-red-400 mb-4">۱۴۰۳/۰۱/۳۰ • ۱۱ دقیقه مطالعه</div>
+        <h1 class="text-4xl font-extrabold text-white mb-6 leading-tight">
+          اپلیکیشن مدیریت پروژه‌های مخابراتی
+        </h1>
+        <p class="text-xl text-neutral-300 leading-8">
+          تجربه توسعه اپلیکیشن موبایل با Flutter و Django. چالش‌های یکپارچه‌سازی CRM و مدیریت پروژه.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="tag">Flutter</span>
+          <span class="tag">Django</span>
+          <span class="tag">CRM</span>
+          <span class="tag">Mobile App</span>
+        </div>
+        <div class="mt-8">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop" alt="تیم مخابراتی در حال کار" class="w-full h-64 object-cover rounded-lg shadow-lg">
+          <p class="text-sm text-neutral-400 mt-2">تصویر: تیم فنی مخابراتی در حال نصب تجهیزات با استفاده از اپلیکیشن مدیریت پروژه</p>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <div class="prose prose-invert prose-lg max-w-none text-neutral-300 leading-8">
+
+        <h2>زمینه صنعت مخابرات</h2>
+        <p>
+          صنعت مخابرات یکی از پیچیده‌ترین حوزه‌های کسب‌وکار است. پروژه‌های فیبر نوری شامل مراحل متعددی هستند:
+        </p>
+        <ul>
+          <li>بازاریابی و فروش خدمات</li>
+          <li>طراحی شبکه و مسیر</li>
+          <li>دریافت مجوزهای لازم</li>
+          <li>اجرای فیزیکی شبکه</li>
+          <li>تست و راه‌اندازی</li>
+          <li>پشتیبانی و نگهداری</li>
+        </ul>
+        <p>
+          شرکت مخابراتی مشتری نیاز به سیستمی یکپارچه برای مدیریت تمام این مراحل داشت. نتیجه: اپلیکیشنی جامع برای مدیریت پروژه‌ها و ارتباط با مشتریان.
+        </p>
+
+        <h2>معماری سیستم</h2>
+        <p>
+          سیستم از دو بخش اصلی تشکیل شده:
+        </p>
+        <ol>
+          <li><strong>Backend (Django):</strong> API سرور و منطق کسب‌وکار</li>
+          <li><strong>Mobile App (Flutter):</strong> رابط کاربری برای تیم‌های میدانی</li>
+        </ol>
+
+        <h3>انتخاب Stack تکنولوژی</h3>
+        <ul>
+          <li><strong>Flutter:</strong> برای توسعه cross-platform mobile app</li>
+          <li><strong>Django REST Framework:</strong> برای API backend</li>
+          <li><strong>PostgreSQL:</strong> برای پایگاه داده</li>
+          <li><strong>Redis:</strong> برای caching و session management</li>
+        </ul>
+
+        <h2>ویژگی‌های کلیدی اپلیکیشن</h2>
+
+        <h3>مدیریت پروژه‌ها</h3>
+        <p>
+          سیستم مدیریت کامل چرخه حیات پروژه:
+        </p>
+        <ul>
+          <li><strong>Project Creation:</strong> تعریف پروژه با جزئیات کامل</li>
+          <li><strong>Task Management:</strong> شکست پروژه به taskهای کوچک‌تر</li>
+          <li><strong>Progress Tracking:</strong> ردیابی پیشرفت با درصد تکمیل</li>
+          <li><strong>Resource Allocation:</strong> تخصیص منابع انسانی و تجهیزات</li>
+          <li><strong>Timeline Management:</strong> برنامه‌ریزی و کنترل زمان‌بندی</li>
+        </ul>
+
+        <h3>سیستم CRM یکپارچه</h3>
+        <p>
+          مدیریت ارتباط با مشتریان:
+        </p>
+        <ul>
+          <li><strong>Customer Database:</strong> اطلاعات کامل مشتریان</li>
+          <li><strong>Lead Management:</strong> مدیریت سرنخ‌های فروش</li>
+          <li><strong>Quotation System:</strong> صدور پیش‌فاکتور</li>
+          <li><strong>Contract Management:</strong> مدیریت قراردادها</li>
+          <li><strong>Support Tickets:</strong> سیستم پشتیبانی مشتریان</li>
+        </ul>
+
+        <h3>ویژگی‌های میدانی</h3>
+        <p>
+          ابزارهای ویژه برای تیم‌های اجرایی:
+        </p>
+        <ul>
+          <li><strong>GPS Tracking:</strong> ردیابی موقعیت تیم‌ها</li>
+          <li><strong>Photo Documentation:</strong> ثبت تصاویر پیشرفت کار</li>
+          <li><strong>Material Management:</strong> کنترل موجودی مواد</li>
+          <li><strong>Time Tracking:</strong> ثبت ساعت کاری</li>
+          <li><strong>Offline Mode:</strong> کار بدون اینترنت</li>
+        </ul>
+
+        <h2>چالش‌های پیاده‌سازی</h2>
+
+        <h3>چالش ۱: یکپارچه‌سازی داده‌ها</h3>
+        <p>
+          شرکت دارای سیستم‌های legacy متعددی بود. چالش اصلی migration و integration داده‌ها:
+        </p>
+        <ul>
+          <li>طراحی ETL processes برای انتقال داده‌ها</li>
+          <li>ایجاد data mapping بین سیستم‌های مختلف</li>
+          <li>Handling data inconsistencies</li>
+          <li>Validation و cleansing داده‌ها</li>
+        </ul>
+
+        <h3>چالش ۲: Offline-First Architecture</h3>
+        <p>
+          تیم‌های میدانی اغلب در مناطق روستایی کار می‌کنند که اینترنت ضعیف یا قطع است. راهکارها:
+        </p>
+        <ul>
+          <li>Local database با SQLite</li>
+          <li>Data synchronization با conflict resolution</li>
+          <li>Queue system برای عملیات pending</li>
+          <li>Optimistic UI updates</li>
+        </ul>
+
+        <h3>چالش ۳: امنیت داده‌ها</h3>
+        <p>
+          داده‌های مشتریان حساس هستند. اقدامات امنیتی:
+        </p>
+        <ul>
+          <li>End-to-end encryption</li>
+          <li>JWT authentication</li>
+          <li>Role-based access control</li>
+          <li>Regular security audits</li>
+        </ul>
+
+        <h3>چالش ۴: تجربه کاربری برای کاربران مختلف</h3>
+        <p>
+          سه گروه کاربری اصلی:
+        </p>
+        <ul>
+          <li><strong>مدیران:</strong> نیاز به overview و گزارشات</li>
+          <li><strong>کارشناسان فروش:</strong> تمرکز روی CRM</li>
+          <li><strong>تیم‌های اجرایی:</strong> رابط ساده و سریع</li>
+        </ul>
+        <p>
+          طراحی UX adaptive بر اساس role کاربر.
+        </p>
+
+        <h2>توسعه Flutter App</h2>
+
+        <h3>State Management</h3>
+        <p>
+          از Provider pattern برای مدیریت state استفاده کردیم:
+        </p>
+        <ul>
+          <li>Separation of concerns</li>
+          <li>Reactive UI updates</li>
+          <li>Dependency injection</li>
+          <li>Testable code architecture</li>
+        </ul>
+
+        <h3>Networking و API Integration</h3>
+        <p>
+          پیاده‌سازی robust networking layer:
+        </p>
+        <ul>
+          <li>HTTP client با Dio package</li>
+          <li>Automatic retry mechanism</li>
+          <li>Request/response interceptors</li>
+          <li>Error handling و user feedback</li>
+        </ul>
+
+        <h3>Offline Support</h3>
+        <p>
+          معماری offline-first:
+        </p>
+        <ul>
+          <li>Local storage با Moor (SQLite)</li>
+          <li>Data synchronization strategies</li>
+          <li>Conflict resolution algorithms</li>
+          <li>Background sync services</li>
+        </ul>
+
+        <h2>توسعه Django Backend</h2>
+
+        <h3>API Design</h3>
+        <p>
+          RESTful API با Django REST Framework:
+        </p>
+        <ul>
+          <li>Versioning API</li>
+          <li>Proper HTTP status codes</li>
+          <li>Pagination برای لیست‌ها</li>
+          <li>Filtering و sorting</li>
+        </ul>
+
+        <h3>Database Design</h3>
+        <p>
+          مدل داده‌های بهینه:
+        </p>
+        <ul>
+          <li>Normalized schema</li>
+          <li>Proper indexing</li>
+          <li>Foreign key relationships</li>
+          <li>Data validation</li>
+        </ul>
+
+        <h3>Performance Optimization</h3>
+        <ul>
+          <li>Database query optimization</li>
+          <li>Caching با Redis</li>
+          <li>Asynchronous task processing</li>
+          <li>Database connection pooling</li>
+        </ul>
+
+        <h2>تست و استقرار</h2>
+
+        <h3>Testing Strategy</h3>
+        <ul>
+          <li><strong>Unit Tests:</strong> برای business logic</li>
+          <li><strong>Integration Tests:</strong> برای API endpoints</li>
+          <li><strong>UI Tests:</strong> برای Flutter app</li>
+          <li><strong>E2E Tests:</strong> برای سناریوهای کامل</li>
+        </ul>
+
+        <h3>CI/CD Pipeline</h3>
+        <p>
+          اتوماسیون کامل deployment:
+        </p>
+        <ul>
+          <li>GitHub Actions برای CI</li>
+          <li>Docker containers</li>
+          <li>Automated testing</li>
+          <li>Blue-green deployment</li>
+        </ul>
+
+        <h2>نتایج و تأثیرات</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۴۰%</div>
+            <div class="text-sm text-neutral-400">افزایش بهره‌وری تیم‌ها</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۶۰%</div>
+            <div class="text-sm text-neutral-400">کاهش زمان پاسخگویی</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۸۰%</div>
+            <div class="text-sm text-neutral-400">بهبود رضایت مشتریان</div>
+          </div>
+        </div>
+
+        <h2>آموزش‌های آموخته شده</h2>
+        <p>
+          این پروژه تجربه ارزشمندی در توسعه enterprise applications بود:
+        </p>
+        <ul>
+          <li><strong>Domain Knowledge:</strong> درک عمیق صنعت مخابرات ضروری است</li>
+          <li><strong>Offline-First:</strong> طراحی برای شرایط ضعیف شبکه حیاتی است</li>
+          <li><strong>Security by Design:</strong> امنیت باید از ابتدا در نظر گرفته شود</li>
+          <li><strong>User Research:</strong> نیازهای واقعی کاربران را شناسایی کنید</li>
+        </ul>
+
+        <h2>توسعه‌های آینده</h2>
+        <p>
+          پتانسیل‌های گسترش سیستم:
+        </p>
+        <ul>
+          <li>ادغام با IoT devices برای مانیتورینگ تجهیزات</li>
+          <li>استفاده از AI برای پیش‌بینی مشکلات پروژه</li>
+          <li>Blockchain برای قراردادهای هوشمند</li>
+          <li>AR برای راهنمایی تیم‌های میدانی</li>
+        </ul>
+
+      </div>
+
+      <!-- Article Footer -->
+      <footer class="mt-12 pt-8 border-t border-neutral-800">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div class="flex flex-wrap gap-2">
+            <span class="text-sm text-neutral-400">تکنولوژی‌ها:</span>
+            <span class="tag">Flutter</span>
+            <span class="tag">Django</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Redis</span>
+            <span class="tag">Docker</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="blog.html" class="text-red-400 hover:text-red-300 text-sm">← مقالات دیگر</a>
+            <a href="project-telecom-management.html" class="text-red-400 hover:text-red-300 text-sm">مشاهده پروژه ←</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+      <div class="text-sm">
+        <a href="blog.html" class="text-red-400 hover:text-red-300">بازگشت به بلاگ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

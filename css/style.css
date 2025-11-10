@@ -215,23 +215,98 @@ video:hover {
 }
 
 /* Gallery improvements */
+.gallery-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.gallery-track {
+  display: flex;
+  animation: scroll 40s linear infinite;
+  width: calc(200px * 14); /* 6 تصویر اصلی + 6 تکراری */
+}
+
 .gallery-item {
+  flex: 0 0 200px;
+  margin: 0 10px;
   position: relative;
   overflow: hidden;
   border-radius: 12px;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .gallery-item:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 .gallery-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .gallery-item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.1);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.gallery-container:hover .gallery-track {
+  animation-play-state: paused;
+}
+
+/* Responsive gallery */
+@media (max-width: 768px) {
+  .gallery-track {
+    width: calc(150px * 14);
+  }
+  .gallery-item {
+    flex: 0 0 150px;
+  }
+  .gallery-item img {
+    height: 120px;
+  }
+}
+
+/* Stats section styles */
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--red-2);
+  text-shadow: 0 0 10px rgba(255,45,45,0.3);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: #9aa0a6;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Progress bars */
+.progress-bar {
+  background: rgba(255,255,255,0.1);
+  border-radius: 9999px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, var(--red), var(--red-2));
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 1s ease-out;
 }
 
 /* Mobile responsiveness */
@@ -240,13 +315,23 @@ video:hover {
     padding: 1.5rem;
     margin: 1rem;
   }
-  
+
   .stats-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
   }
-  
+
   .stat-number {
     font-size: 2rem;
+  }
+
+  .gallery-track {
+    width: calc(150px * 14);
+  }
+  .gallery-item {
+    flex: 0 0 150px;
+  }
+  .gallery-item img {
+    height: 120px;
   }
 }

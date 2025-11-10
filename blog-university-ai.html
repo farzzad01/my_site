@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تحول دیجیتال دانشگاه با پلتفرم هوش مصنوعی — بلاگ فرزاد</title>
+  <meta name="description" content="مقاله فنی درباره پیاده‌سازی پلتفرم هوش مصنوعی یکپارچه در دانشگاه. چالش‌ها، راهکارها و نتایج عملی.">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+    <nav>
+      <a href="blog.html" class="cta"><span class="mono">بازگشت به بلاگ</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-8 mb-14">
+    <article class="max-w-4xl mx-auto">
+
+      <!-- Article Header -->
+      <header class="mb-12">
+        <div class="text-sm text-red-400 mb-4">۱۴۰۳/۰۷/۱۵ • ۱۲ دقیقه مطالعه</div>
+        <h1 class="text-4xl font-extrabold text-white mb-6 leading-tight">
+          تحول دیجیتال دانشگاه با پلتفرم هوش مصنوعی یکپارچه
+        </h1>
+        <p class="text-xl text-neutral-300 leading-8">
+          چگونه یک سیستم هوشمند مبتنی بر LLM و رباتیک، تجربه زندگی دانشجویی را متحول کرد. از مانیتورهای اطلاع‌رسانی تا ربات‌های دلیوری.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="tag">LLM</span>
+          <span class="tag">Robotics</span>
+          <span class="tag">Mobile App</span>
+          <span class="tag">University</span>
+        </div>
+        <div class="mt-8">
+          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=400&fit=crop" alt="دانشگاه مدرن با فناوری دیجیتال" class="w-full h-64 object-cover rounded-lg shadow-lg">
+          <p class="text-sm text-neutral-400 mt-2">تصویر: دانشگاه مدرن با ادغام فناوری‌های دیجیتال و هوش مصنوعی</p>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <div class="prose prose-invert prose-lg max-w-none text-neutral-300 leading-8">
+
+        <h2>پیش‌زمینه و کشف مشکل</h2>
+        <p>
+          دانشگاه‌ها محیط‌های پیچیده‌ای هستند که روزانه هزاران دانشجو و عضو هیئت علمی در آن‌ها رفت‌وآمد می‌کنند. سیستم‌های سنتی اطلاع‌رسانی اغلب ناکارآمد، پراکنده و زمان‌بر هستند. دانشجویان ساعت‌ها وقت خود را صرف یافتن اطلاعات پایه‌ای می‌کنند، صف‌های طولانی در بوفه‌ها شکل می‌گیرد، و هماهنگی بین واحدهای مختلف دانشگاه به چالش کشیده می‌شود.
+        </p>
+        <p>
+          این پروژه با هدف ایجاد یک اکوسیستم دیجیتال یکپارچه شروع شد. هدف اصلی، ارائه تجربه‌ای روان و هوشمند برای تمام اعضای جامعه دانشگاهی بود که نیاز به مداخله انسانی کمتری داشته باشد.
+        </p>
+
+        <h2>معماری سیستم و رویکرد ماژولار</h2>
+        <p>
+          سیستم به صورت ماژولار طراحی شد تا امکان توسعه و مقیاس‌پذیری آسان فراهم باشد. هر ماژول مستقل عمل می‌کند اما با سایر ماژول‌ها از طریق APIهای استاندارد ارتباط برقرار می‌کند.
+        </p>
+
+        <h3>ماژول اطلاع‌رسانی هوشمند (Smart Info Kiosks)</h3>
+        <p>
+          در نقاط کلیدی دانشگاه مانند ورودی‌ها، کتابخانه و سالن‌های آمفی تئاتر، کیوسک‌های هوشمند نصب کردیم. هر کیوسک مجهز به:
+        </p>
+        <ul>
+          <li>صفحه نمایش لمسی ۴۳ اینچی</li>
+          <li>میکروفون و بلندگو برای کنترل صوتی</li>
+          <li>دوربین برای تشخیص چهره (اختیاری)</li>
+          <li>Raspberry Pi ۴ به عنوان مغز پردازشی</li>
+        </ul>
+        <p>
+          چالش اصلی در این بخش، آموزش مدل زبانی بزرگ (LLM) با داده‌های داخلی دانشگاه بود. مدل باید قادر به پاسخگویی به سوالات متنوعی مانند:
+        </p>
+        <blockquote>
+          "ساعت کاری کتابخانه چیه؟"، "چطور می‌تونم پروژه دفاع کنم؟"، "اتوبوس بعدی کی میاد؟"
+        </blockquote>
+        <p>
+          برای این کار از تکنیک Retrieval-Augmented Generation (RAG) استفاده کردیم. ابتدا تمام اسناد دانشگاهی (آیین‌نامه‌ها، نقشه‌ها، برنامه‌های درسی) را پردازش و در یک پایگاه داده برداری ذخیره کردیم. سپس مدل GPT-3.5 را fine-tune کردیم تا بتواند به صورت context-aware پاسخ دهد.
+        </p>
+
+        <h3>ماژول رباتیک دلیوری (Robot Delivery System)</h3>
+        <p>
+          ناوگانی از ربات‌های خودران را برای حمل غذا و بسته‌های کوچک پیاده‌سازی کردیم. این ربات‌ها مبتنی بر ROS (Robot Operating System) و مجهز به:
+        </p>
+        <ul>
+          <li>LiDAR برای ناوبری</li>
+          <li>دوربین‌های استریو برای تشخیص موانع</li>
+          <li>باتری با عمر ۸ ساعت کارکرد</li>
+          <li>قفل هوشمند برای امنیت بسته‌ها</li>
+        </ul>
+        <p>
+          چالش بزرگ در این بخش، ناوبری در محیط دانشگاهی بود. دانشجویان و کارکنان اغلب مسیرهای غیرمنتظره‌ای را انتخاب می‌کنند، و محیط دانشگاه پویا و شلوغ است. برای حل این مشکل از SLAM (Simultaneous Localization and Mapping) استفاده کردیم و نقشه زنده دانشگاه را ایجاد کردیم.
+        </p>
+
+        <h3>سوپر-اپلیکیشن دانشگاهی (University Super App)</h3>
+        <p>
+          اپلیکیشنی جامع که تمام خدمات دانشگاهی را در یک پلتفرم متحد کرده است. ویژگی‌های کلیدی:
+        </p>
+        <ul>
+          <li><strong>ردیابی زنده حمل‌ونقل:</strong> موقعیت اتوبوس‌ها و وسایل نقلیه دانشگاه به صورت realtime</li>
+          <li><strong>رزرو هوشمند امکانات:</strong> سالن مطالعه، زمین ورزشی، اتاق کنفرانس</li>
+          <li><strong>شبکه اجتماعی داخلی:</strong> ارتباط بین دانشجویان و اطلاع از رویدادها</li>
+          <li><strong>کیف پول دیجیتال:</strong> پرداخت الکترونیکی در بوفه و کتابخانه</li>
+        </ul>
+
+        <h2>چالش‌های فنی و راهکارها</h2>
+
+        <h3>چالش ۱: یکپارچه‌سازی داده‌ها از منابع مختلف</h3>
+        <p>
+          دانشگاه دارای سیستم‌های legacy متعددی بود (سیستم آموزشی، مالی، کتابخانه‌ای). ایجاد یک data lake یکپارچه از بزرگترین چالش‌ها بود. راهکار ما استفاده از Apache Kafka برای streaming داده‌ها و Elasticsearch برای جستجوی سریع بود.
+        </p>
+
+        <h3>چالش ۲: امنیت و حریم خصوصی</h3>
+        <p>
+          با توجه به حساسیت داده‌های دانشجویان، امنیت سایبری اولویت اصلی بود. تمام ارتباطات رمزگذاری شده‌اند و از OAuth 2.0 برای احراز هویت استفاده می‌شود. داده‌های شخصی فقط با رضایت کاربر ذخیره و پردازش می‌شوند.
+        </p>
+
+        <h3>چالش ۳: مقیاس‌پذیری و نگهداری</h3>
+        <p>
+          سیستم باید بتواند همزمان با هزاران کاربر کار کند. از Docker و Kubernetes برای containerization و orchestration استفاده کردیم. monitoring مداوم با Prometheus و Grafana باعث شناسایی سریع مشکلات می‌شود.
+        </p>
+
+        <h2>نتایج و تأثیرات</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۸۰%</div>
+            <div class="text-sm text-neutral-400">کاهش زمان دسترسی به اطلاعات</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۶۵%</div>
+            <div class="text-sm text-neutral-400">افزایش رضایت دانشجویان</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۹۰%</div>
+            <div class="text-sm text-neutral-400">بهبود کارایی خدمات</div>
+          </div>
+        </div>
+
+        <h2>آموزش‌های آموخته شده و آینده</h2>
+        <p>
+          این پروژه نشان داد که فناوری‌های نوین می‌توانند تجربه زندگی روزمره را به طور چشمگیری بهبود بخشند. اما موفقیت نیازمند رویکردی جامع است که فناوری، تجربه کاربری و نیازهای عملیاتی را با هم ترکیب کند.
+        </p>
+        <p>
+          در آینده، قصد داریم از این پلتفرم برای پیاده‌سازی ویژگی‌های پیشرفته‌تری مانند پیش‌بینی تقاضا برای خدمات، تحلیل رفتار دانشجویان برای بهبود آموزشی، و یکپارچه‌سازی با سیستم‌های شهری استفاده کنیم.
+        </p>
+
+      </div>
+
+      <!-- Article Footer -->
+      <footer class="mt-12 pt-8 border-t border-neutral-800">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div class="flex flex-wrap gap-2">
+            <span class="text-sm text-neutral-400">تکنولوژی‌ها:</span>
+            <span class="tag">Python</span>
+            <span class="tag">Django</span>
+            <span class="tag">Flutter</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">ROS</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="blog.html" class="text-red-400 hover:text-red-300 text-sm">← مقالات دیگر</a>
+            <a href="project-university-ai.html" class="text-red-400 hover:text-red-300 text-sm">مشاهده پروژه ←</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+      <div class="text-sm">
+        <a href="blog.html" class="text-red-400 hover:text-red-300">بازگشت به بلاگ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

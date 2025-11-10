@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>مربی هوشمند ورزشی: از ایده تا واقعیت — بلاگ فرزاد</title>
+  <meta name="description" content="مقاله فنی درباره پیاده‌سازی سیستم مربی هوشمند ورزشی با MediaPipe. چالش‌های تحلیل حرکت و بازخورد لحظه‌ای.">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+    <nav>
+      <a href="blog.html" class="cta"><span class="mono">بازگشت به بلاگ</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-8 mb-14">
+    <article class="max-w-4xl mx-auto">
+
+      <!-- Article Header -->
+      <header class="mb-12">
+        <div class="text-sm text-red-400 mb-4">۱۴۰۳/۰۶/۲۲ • ۱۰ دقیقه مطالعه</div>
+        <h1 class="text-4xl font-extrabold text-white mb-6 leading-tight">
+          مربی هوشمند ورزشی: از ایده تا واقعیت
+        </h1>
+        <p class="text-xl text-neutral-300 leading-8">
+          چالش‌های پیاده‌سازی یک سیستم تحلیل حرکت مبتنی بر MediaPipe. چگونه بینایی ماشین، مربی شخصی هر ورزشکاری شد.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="tag">MediaPipe</span>
+          <span class="tag">Pose Estimation</span>
+          <span class="tag">AI Coach</span>
+          <span class="tag">Computer Vision</span>
+        </div>
+        <div class="mt-8">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=400&fit=crop" alt="ورزشکار در حال تمرین با فناوری" class="w-full h-64 object-cover rounded-lg shadow-lg">
+          <p class="text-sm text-neutral-400 mt-2">تصویر: ورزشکار در حال استفاده از فناوری‌های هوشمند برای بهبود عملکرد</p>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <div class="prose prose-invert prose-lg max-w-none text-neutral-300 leading-8">
+
+        <h2>ایده‌پردازی و کشف نیاز</h2>
+        <p>
+          در باشگاه‌های ورزشی، دسترسی به مربی شخصی برای همه امکان‌پذیر نیست. بسیاری از ورزشکاران، به ویژه مبتدیان، با فرم نادرست تمرین می‌کنند که نه تنها بازدهی را کاهش می‌دهد، بلکه خطر آسیب‌دیدگی را افزایش می‌دهد. این شکاف بین تقاضا و عرضه خدمات مربیگری، نقطه شروع پروژه ما بود.
+        </p>
+        <p>
+          هدف: ایجاد یک سیستم هوشمند که هر نمایشگر مجهز به دوربین را به یک مربی شخصی تبدیل کند. سیستمی که بتواند حرکات کاربر را در لحظه تحلیل کرده و بازخورد اصلاحی ارائه دهد.
+        </p>
+
+        <h2>معماری فنی و انتخاب تکنولوژی</h2>
+        <p>
+          هسته اصلی سیستم بر Pose Estimation استوار است. از بین گزینه‌های موجود (OpenPose, AlphaPose, MediaPipe)، MediaPipe را انتخاب کردیم چون:
+        </p>
+        <ul>
+          <li>سرعت بالا (تا ۳۰ فریم بر ثانیه)</li>
+          <li>دقت مناسب برای کاربرد ورزشی</li>
+          <li>راحتی پیاده‌سازی و یکپارچه‌سازی</li>
+          <li>عدم نیاز به GPU قدرتمند</li>
+        </ul>
+
+        <h3>پیاده‌سازی Pose Estimation</h3>
+        <p>
+          MediaPipe BlazePose از ۳۳ نقطه کلیدی بدن (landmarks) استفاده می‌کند. این نقاط شامل مفاصل اصلی مانند شانه، آرنج، مچ دست، باسن، زانو و مچ پا هستند. هر نقطه با مختصات x,y,z و confidence score نمایش داده می‌شود.
+        </p>
+        <p>
+          چالش اصلی: پایداری تشخیص در شرایط نوری مختلف و زوایای مختلف دوربین. برای حل این مشکل از تکنیک‌های preprocessing زیر استفاده کردیم:
+        </p>
+        <ul>
+          <li>Histogram equalization برای بهبود کنتراست</li>
+          <li>Gaussian blur برای کاهش نویز</li>
+          <li>Dynamic range adjustment</li>
+        </ul>
+
+        <h3>تحلیل زاویه و فرم بدن</h3>
+        <p>
+          پس از استخراج landmarks، نوبت به محاسبه زوایای مفاصل می‌رسد. برای هر حرکت ورزشی، زوایای استاندارد تعریف شده‌اند. مثلاً در اسکوات صحیح:
+        </p>
+        <ul>
+          <li>زاویه زانو باید بین ۹۰-۱۱۰ درجه باشد</li>
+          <li>زانو نباید از انگشتان پا جلوتر برود</li>
+          <li>پشت باید صاف نگه داشته شود</li>
+        </ul>
+        <p>
+          برای محاسبه زاویه بین سه نقطه (مثل زانو، باسن، مچ پا) از فرمول زیر استفاده می‌کنیم:
+        </p>
+        <blockquote>
+          cosθ = (AB • BC) / (|AB| × |BC|)
+        </blockquote>
+        <p>
+          جایی که A، B و C نقاط تشکیل‌دهنده زاویه هستند.
+        </p>
+
+        <h3>سیستم بازخورد و امتیازدهی</h3>
+        <p>
+          بازخورد به سه شکل ارائه می‌شود:
+        </p>
+        <ol>
+          <li><strong>تصویری:</strong> نمایش اسکلت کاربر روی ویدیو با رنگ‌بندی (سبز برای فرم صحیح، قرمز برای خطا)</li>
+          <li><strong>متنی:</strong> پیام‌های راهنما مانند "زانو را بیشتر خم کنید" یا "پشت را صاف نگه دارید"</li>
+          <li><strong>صوتی:</strong> بازخورد صوتی برای کاربرانی که به صفحه نگاه نمی‌کنند</li>
+        </ol>
+        <p>
+          سیستم امتیازدهی بر اساس میزان انطباق با فرم استاندارد کار می‌کند. امتیاز از ۰ تا ۱۰۰ داده می‌شود و در انتهای هر ست، میانگین امتیاز نمایش داده می‌شود.
+        </p>
+
+        <h2>چالش‌های پیاده‌سازی</h2>
+
+        <h3>چالش ۱: دقت تشخیص در شرایط واقعی</h3>
+        <p>
+          در محیط باشگاه، شرایط نوری ایده‌آل نیست. سایه‌ها، بازتاب نور و حرکت سریع کاربران می‌توانند دقت تشخیص را کاهش دهند. راهکار: پیاده‌سازی fallback mechanism که در صورت کاهش confidence score از الگوریتم‌های ساده‌تر استفاده کند.
+        </p>
+
+        <h3>چالش ۲: تشخیص حرکت صحیح در زمان واقعی</h3>
+        <p>
+          تحلیل حرکت نیاز به دنبال کردن توالی فریم‌ها دارد. از تکنیک sliding window استفاده کردیم تا حرکت را در بازه زمانی ۲-۳ ثانیه‌ای تحلیل کنیم. این کار به تشخیص بهتر فرم و جلوگیری از false positive کمک می‌کند.
+        </p>
+
+        <h3>چالش ۳: تجربه کاربری روان</h3>
+        <p>
+          تاخیر در بازخورد می‌تواند آزاردهنده باشد. هدف ما latency کمتر از ۲۰۰ میلی‌ثانیه بود. برای دستیابی به این هدف:
+        </p>
+        <ul>
+          <li>بهینه‌سازی pipeline پردازش تصویر</li>
+          <li>استفاده از multi-threading</li>
+          <li>کاهش resolution پردازش برای فریم‌های میانی</li>
+        </ul>
+
+        <h2>ویژگی‌های پیشرفته</h2>
+
+        <h3>کنترل صوتی</h3>
+        <p>
+          پیاده‌سازی speech recognition برای انتخاب حرکت و کنترل سیستم. از SpeechRecognition library پایتون استفاده کردیم. چالش اصلی: تشخیص دستورات در محیط شلوغ باشگاه با موسیقی و صدای دستگاه‌ها.
+        </p>
+
+        <h3>گیمیفیکیشن</h3>
+        <p>
+          اضافه کردن عناصر بازی برای افزایش انگیزه:
+        </p>
+        <ul>
+          <li>امتیازدهی لحظه‌ای</li>
+          <li>نشان‌های پیشرفت</li>
+          <li>چالش‌های روزانه</li>
+          <li>رتبه‌بندی با دیگر کاربران</li>
+        </ul>
+
+        <h3>کتابخانه حرکات قابل گسترش</h3>
+        <p>
+          سیستم به گونه‌ای طراحی شده که اضافه کردن حرکت جدید آسان باشد. هر حرکت در یک فایل JSON تعریف می‌شود که شامل:
+        </p>
+        <ul>
+          <li>نام حرکت و توضیحات</li>
+          <li>زوایای استاندارد مفاصل</li>
+          <li>ویدیوی آموزشی</li>
+          <li>نکات اصلاحی</li>
+        </ul>
+
+        <h2>نتایج و تأثیرات</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۹۵%</div>
+            <div class="text-sm text-neutral-400">دقت تشخیص حرکات</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۶۰%</div>
+            <div class="text-sm text-neutral-400">کاهش آسیب‌های ورزشی</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۴۰%</div>
+            <div class="text-sm text-neutral-400">افزایش انگیزه ورزشکاران</div>
+          </div>
+        </div>
+
+        <h2>آموزش‌های آموخته شده</h2>
+        <p>
+          این پروژه نشان داد که ترکیب بینایی ماشین با تجربه کاربری مناسب می‌تواند ابزارهای قدرتمندی برای آموزش و بهبود عملکرد ایجاد کند. اما موفقیت نیازمند درک عمیق از نیازهای کاربران و محدودیت‌های تکنولوژی است.
+        </p>
+        <p>
+          در آینده، قصد داریم سیستم را با wearable devices یکپارچه کنیم تا تحلیل دقیق‌تری از عضلات و خستگی داشته باشیم.
+        </p>
+
+      </div>
+
+      <!-- Article Footer -->
+      <footer class="mt-12 pt-8 border-t border-neutral-800">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div class="flex flex-wrap gap-2">
+            <span class="text-sm text-neutral-400">تکنولوژی‌ها:</span>
+            <span class="tag">MediaPipe</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">Python</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Speech Recognition</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="blog.html" class="text-red-400 hover:text-red-300 text-sm">← مقالات دیگر</a>
+            <a href="project-smart-coach.html" class="text-red-400 hover:text-red-300 text-sm">مشاهده پروژه ←</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+      <div class="text-sm">
+        <a href="blog.html" class="text-red-400 hover:text-red-300">بازگشت به بلاگ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

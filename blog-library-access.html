@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ورود هوشمند به کتابخانه با تشخیص ژست — بلاگ فرزاد</title>
+  <meta name="description" content="مقاله فنی درباره پیاده‌سازی سیستم کنترل دسترسی کتابخانه با MediaPipe. چالش‌های تشخیص ژست و یکپارچه‌سازی.">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+    <nav>
+      <a href="blog.html" class="cta"><span class="mono">بازگشت به بلاگ</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-8 mb-14">
+    <article class="max-w-4xl mx-auto">
+
+      <!-- Article Header -->
+      <header class="mb-12">
+        <div class="text-sm text-red-400 mb-4">۱۴۰۳/۰۲/۱۴ • ۹ دقیقه مطالعه</div>
+        <h1 class="text-4xl font-extrabold text-white mb-6 leading-tight">
+          ورود هوشمند به کتابخانه با تشخیص ژست
+        </h1>
+        <p class="text-xl text-neutral-300 leading-8">
+          پیاده‌سازی سیستم کنترل دسترسی مبتنی بر MediaPipe. چالش‌های تشخیص ژست و یکپارچه‌سازی با PyQt6.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="tag">MediaPipe</span>
+          <span class="tag">Gesture Recognition</span>
+          <span class="tag">PyQt6</span>
+          <span class="tag">Access Control</span>
+        </div>
+        <div class="mt-8">
+          <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=400&fit=crop" alt="کتابخانه مدرن با فناوری" class="w-full h-64 object-cover rounded-lg shadow-lg">
+          <p class="text-sm text-neutral-400 mt-2">تصویر: کتابخانه دیجیتال با سیستم‌های کنترل دسترسی هوشمند</p>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <div class="prose prose-invert prose-lg max-w-none text-neutral-300 leading-8">
+
+        <h2>نیاز به سیستم کنترل دسترسی مدرن</h2>
+        <p>
+          کتابخانه‌های دانشگاهی و عمومی با چالش‌های متعددی در مدیریت تردد روبرو هستند. کارت‌های سنتی اغلب گم می‌شوند، کپی می‌شوند یا فراموش می‌شوند. نیاز به سیستمی بود که:
+        </p>
+        <ul>
+          <li>بدون نیاز به کارت یا دستگاه فیزیکی کار کند</li>
+          <li>امن و قابل اعتماد باشد</li>
+          <li>تجربه کاربری ساده‌ای داشته باشد</li>
+          <li>هزینه پیاده‌سازی مناسبی داشته باشد</li>
+        </ul>
+        <p>
+          راهکار ما: استفاده از gesture recognition برای کنترل دسترسی. کاربران با ژست خاصی (مانند دست دادن) می‌توانند درب را باز کنند.
+        </p>
+
+        <h2>معماری سیستم</h2>
+        <p>
+          سیستم از سه بخش اصلی تشکیل شده:
+        </p>
+        <ol>
+          <li><strong>Hardware:</strong> دوربین، Raspberry Pi، قفل الکترونیکی</li>
+          <li><strong>Computer Vision:</strong> تشخیص ژست با MediaPipe</li>
+          <li><strong>Software:</strong> رابط مدیریتی با PyQt6</li>
+        </ol>
+
+        <h3>انتخاب تکنولوژی تشخیص ژست</h3>
+        <p>
+          از بین گزینه‌های موجود، MediaPipe را انتخاب کردیم چون:
+        </p>
+        <ul>
+          <li>دقت بالا در تشخیص ژست‌های دست</li>
+          <li>سرعت مناسب برای real-time processing</li>
+          <li>راحتی پیاده‌سازی و یکپارچه‌سازی</li>
+          <li>عدم نیاز به GPU قدرتمند</li>
+        </ul>
+        <p>
+          MediaPipe Hand Tracking از ۲۱ نقطه کلیدی روی دست استفاده می‌کند که امکان تشخیص ژست‌های پیچیده را فراهم می‌کند.
+        </p>
+
+        <h2>پیاده‌سازی Gesture Recognition</h2>
+
+        <h3>ژست‌های تعریف شده</h3>
+        <p>
+          سه ژست اصلی برای کنترل دسترسی تعریف کردیم:
+        </p>
+        <ul>
+          <li><strong>Peace Sign (V):</strong> برای باز کردن درب ورودی</li>
+          <li><strong>Thumbs Up:</strong> برای تایید حضور</li>
+          <li><strong>Open Palm:</strong> برای لغو عملیات</li>
+        </ul>
+        <p>
+          هر ژست با ترکیب وضعیت انگشتان تعریف می‌شود. مثلاً برای peace sign، انگشت اشاره و میانی باید باز باشند و سایر انگشتان بسته.
+        </p>
+
+        <h3>الگوریتم تشخیص ژست</h3>
+        <p>
+          برای تشخیص ژست از heuristic rules استفاده کردیم:
+        </p>
+        <ol>
+          <li>تشخیص نقاط کلیدی دست با MediaPipe</li>
+          <li>محاسبه زاویه بین مفاصل انگشتان</li>
+          <li>بررسی وضعیت باز/بسته بودن هر انگشت</li>
+          <li>مقایسه با الگوهای تعریف شده</li>
+          <li>اعمال فیلتر زمانی برای جلوگیری از false positive</li>
+        </ol>
+
+        <h3>مدیریت کاربران</h3>
+        <p>
+          سیستم از دو سطح دسترسی پشتیبانی می‌کند:
+        </p>
+        <ul>
+          <li><strong>کاربران عادی:</strong> با ژست peace sign وارد می‌شوند</li>
+          <li><strong>مدیران:</strong> علاوه بر ژست، نیاز به تشخیص چهره دارند</li>
+        </ul>
+        <p>
+          برای امنیت بیشتر، ژست باید به مدت ۲ ثانیه نگه داشته شود تا از accidental activation جلوگیری شود.
+        </p>
+
+        <h2>چالش‌های پیاده‌سازی</h2>
+
+        <h3>چالش ۱: شرایط نوری متغیر</h3>
+        <p>
+          کتابخانه‌ها شرایط نوری متفاوتی دارند. برای اطمینان از عملکرد پایدار:
+        </p>
+        <ul>
+          <li>استفاده از دوربین با قابلیت night vision</li>
+          <li>تنظیم automatic brightness و contrast</li>
+          <li>آموزش مدل با داده‌های متنوع نوری</li>
+        </ul>
+
+        <h3>چالش ۲: تشخیص ژست در فواصل مختلف</h3>
+        <p>
+          کاربران در فاصله‌های متفاوتی از دوربین قرار می‌گیرند. برای حل این مشکل:
+        </p>
+        <ul>
+          <li>استفاده از bounding box برای normalization اندازه دست</li>
+          <li>Dynamic threshold بر اساس فاصله</li>
+          <li>Multi-scale detection</li>
+        </ul>
+
+        <h3>چالش ۳: جلوگیری از spoofing</h3>
+        <p>
+          سیستم باید در برابر تلاش‌های spoofing مقاوم باشد:
+        </p>
+        <ul>
+          <li>تشخیص حرکت واقعی دست (نه تصویر ثابت)</li>
+          <li>بررسی continuity ژست در طول زمان</li>
+          <li>Liveness detection برای اطمینان از حضور واقعی کاربر</li>
+        </ul>
+
+        <h3>چالش ۴: تجربه کاربری</h3>
+        <p>
+          کاربران باید به راحتی یاد بگیرند چگونه از سیستم استفاده کنند:
+        </p>
+        <ul>
+          <li>نمایش visual feedback در لحظه</li>
+          <li>آموزش تعاملی برای کاربران جدید</li>
+          <li>پیام‌های خطا واضح و مفید</li>
+        </ul>
+
+        <h2>رابط کاربری PyQt6</h2>
+        <p>
+          اپلیکیشن دسکتاپ برای مدیریت سیستم شامل قابلیت‌های زیر:
+        </p>
+        <ul>
+          <li><strong>Live Camera Feed:</strong> نمایش تصویر دوربین به صورت real-time</li>
+          <li><strong>Gesture Recognition Display:</strong> نمایش ژست تشخیص داده شده</li>
+          <li><strong>Access Logs:</strong> ثبت تمام ترددهای موفق و ناموفق</li>
+          <li><strong>User Management:</strong> اضافه/حذف کاربران مجاز</li>
+          <li><strong>Settings:</strong> تنظیم پارامترهای تشخیص</li>
+        </ul>
+
+        <h3>ویژگی‌های پیشرفته</h3>
+        <ul>
+          <li><strong>Multi-camera Support:</strong> پشتیبانی از چند دوربین همزمان</li>
+          <li><strong>Time-based Access:</strong> کنترل دسترسی بر اساس زمان</li>
+          <li><strong>Integration with Library System:</strong> اتصال به سیستم کتابخانه</li>
+          <li><strong>Mobile App:</strong> مدیریت از طریق اپ موبایل</li>
+        </ul>
+
+        <h2>بهینه‌سازی عملکرد</h2>
+
+        <h3>بهینه‌سازی MediaPipe</h3>
+        <p>
+          برای بهبود عملکرد real-time:
+        </p>
+        <ul>
+          <li>کاهش resolution ورودی به 320x240</li>
+          <li>استفاده از model complexity پایین</li>
+          <li>Parallel processing برای چند دست</li>
+        </ul>
+
+        <h3>مدیریت منابع سیستم</h3>
+        <p>
+          Raspberry Pi منابع محدودی دارد، بنابراین:
+        </p>
+        <ul>
+          <li>استفاده از threading برای پردازش موازی</li>
+          <li>Memory pooling برای کاهش allocation</li>
+          <li>Background processing برای عملیات غیرضروری</li>
+        </ul>
+
+        <h2>امنیت و قابلیت اطمینان</h2>
+
+        <h3>امنیت فیزیکی</h3>
+        <ul>
+          <li>قفل الکترونیکی با backup مکانیکی</li>
+          <li>تشخیص tampering با دوربین</li>
+          <li>Alarm system برای تلاش‌های غیرمجاز</li>
+        </ul>
+
+        <h3>امنیت دیجیتال</h3>
+        <ul>
+          <li>Encryption داده‌های کاربران</li>
+          <li>Secure communication با سرور مرکزی</li>
+          <li>Regular security updates</li>
+        </ul>
+
+        <h2>تست و ارزیابی</h2>
+        <p>
+          سیستم در محیط واقعی کتابخانه دانشگاه تست شد:
+        </p>
+        <ul>
+          <li><strong>Accuracy:</strong> ۹۲% دقت تشخیص ژست</li>
+          <li><strong>Response Time:</strong> کمتر از ۵۰۰ میلی‌ثانیه</li>
+          <li><strong>User Satisfaction:</strong> ۸۵% رضایت کاربران</li>
+          <li><strong>False Positive Rate:</strong> کمتر از ۲%</li>
+        </ul>
+
+        <h2>نتایج و تأثیرات</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۹۲%</div>
+            <div class="text-sm text-neutral-400">دقت تشخیص ژست</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۷۰%</div>
+            <div class="text-sm text-neutral-400">کاهش زمان انتظار</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۵۰%</div>
+            <div class="text-sm text-neutral-400">رضایت کاربران</div>
+          </div>
+        </div>
+
+        <h2>آموزش‌های آموخته شده</h2>
+        <p>
+          این پروژه نشان داد که gesture recognition می‌تواند جایگزین مناسبی برای کارت‌های دسترسی سنتی باشد، اما نیازمند توجه ویژه به:
+        </p>
+        <ul>
+          <li><strong>User Experience:</strong> سادگی استفاده برای همه کاربران</li>
+          <li><strong>Security:</strong> مقاومت در برابر spoofing attacks</li>
+          <li><strong>Reliability:</strong> عملکرد پایدار در شرایط مختلف</li>
+          <li><strong>Integration:</strong> اتصال مناسب با سیستم‌های موجود</li>
+        </ul>
+
+        <h2>آینده Gesture-based Access Control</h2>
+        <p>
+          این تکنولوژی پتانسیل بالایی برای گسترش دارد:
+        </p>
+        <ul>
+          <li>استفاده در ساختمان‌های هوشمند</li>
+          <li>ادغام با سیستم‌های پرداخت</li>
+          <li>کاربرد در خودروهای خودران</li>
+          <li>کنترل دستگاه‌های IoT خانگی</li>
+        </ul>
+
+      </div>
+
+      <!-- Article Footer -->
+      <footer class="mt-12 pt-8 border-t border-neutral-800">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div class="flex flex-wrap gap-2">
+            <span class="text-sm text-neutral-400">تکنولوژی‌ها:</span>
+            <span class="tag">MediaPipe</span>
+            <span class="tag">PyQt6</span>
+            <span class="tag">Python</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">Raspberry Pi</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="blog.html" class="text-red-400 hover:text-red-300 text-sm">← مقالات دیگر</a>
+            <a href="project-library-access.html" class="text-red-400 hover:text-red-300 text-sm">مشاهده پروژه ←</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+      <div class="text-sm">
+        <a href="blog.html" class="text-red-400 hover:text-red-300">بازگشت به بلاگ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

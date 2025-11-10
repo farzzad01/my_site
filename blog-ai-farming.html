@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>انقلاب هوش مصنوعی در دامداری مدرن — بلاگ فرزاد</title>
+  <meta name="description" content="مقاله فنی درباره پیاده‌سازی سیستم هوشمندسازی دامداری. چالش‌های مانیتورینگ با بینایی ماشین و نتایج عملی.">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+    <nav>
+      <a href="blog.html" class="cta"><span class="mono">بازگشت به بلاگ</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-8 mb-14">
+    <article class="max-w-4xl mx-auto">
+
+      <!-- Article Header -->
+      <header class="mb-12">
+        <div class="text-sm text-red-400 mb-4">۱۴۰۳/۰۵/۱۰ • ۸ دقیقه مطالعه</div>
+        <h1 class="text-4xl font-extrabold text-white mb-6 leading-tight">
+          انقلاب هوش مصنوعی در دامداری مدرن
+        </h1>
+        <p class="text-xl text-neutral-300 leading-8">
+          چگونه بینایی ماشین، نظارت سنتی بر دام‌ها را متحول کرد. چالش‌های پیاده‌سازی و نتایج عملی در مزرعه.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Animal Health</span>
+          <span class="tag">IoT</span>
+          <span class="tag">Agriculture</span>
+        </div>
+        <div class="mt-8">
+          <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=800&h=400&fit=crop" alt="دامداری مدرن با فناوری" class="w-full h-64 object-cover rounded-lg shadow-lg">
+          <p class="text-sm text-neutral-400 mt-2">تصویر: مزرعه مدرن با استفاده از فناوری‌های هوشمند برای نظارت بر دام‌ها</p>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <div class="prose prose-invert prose-lg max-w-none text-neutral-300 leading-8">
+
+        <h2>چالش‌های دامداری سنتی</h2>
+        <p>
+          دامداری‌های مدرن با چالش‌های متعددی روبرو هستند. نظارت انسانی محدود، هزینه‌بر و مستعد خطاست. تشخیص دیرهنگام بیماری‌ها، مدیریت ناکارآمد تغذیه و عدم امکان تحلیل الگوهای رفتاری گله، منجر به کاهش بهره‌وری و افزایش هزینه‌ها می‌شود.
+        </p>
+        <p>
+          این پروژه با هدف ایجاد یک سیستم نظارت هوشمند ۲۴ ساعته شروع شد. سیستمی که بتواند به عنوان چشم همیشه‌بیدار عمل کند و داده‌های ارزشمندی برای تصمیم‌گیری بهتر فراهم آورد.
+        </p>
+
+        <h2>معماری سیستم مانیتورینگ</h2>
+        <p>
+          سیستم از سه لایه اصلی تشکیل شده:
+        </p>
+        <ol>
+          <li><strong>لایه سخت‌افزاری:</strong> دوربین‌های IP در نقاط استراتژیک آخور</li>
+          <li><strong>لایه پردازش:</strong> سرور مرکزی با GPU برای پردازش تصویر</li>
+          <li><strong>لایه نرم‌افزاری:</strong> داشبورد وب برای نمایش و تحلیل داده‌ها</li>
+        </ol>
+
+        <h3>دوربین‌های هوشمند</h3>
+        <p>
+          از دوربین‌های ۴K با قابلیت night vision استفاده کردیم. هر دوربین مجهز به:
+        </p>
+        <ul>
+          <li>لنز واید برای پوشش کامل آخور</li>
+          <li>پردازنده داخلی برای preprocessing</li>
+          <li>اتصال PoE برای تغذیه و داده</li>
+          <li>قابلیت PTZ برای تنظیم زاویه</li>
+        </ul>
+
+        <h3>الگوریتم‌های بینایی ماشین</h3>
+        <p>
+          برای تشخیص و ردیابی دام‌ها از ترکیبی از تکنیک‌های زیر استفاده کردیم:
+        </p>
+        <ul>
+          <li><strong>Object Detection:</strong> YOLOv5 برای شناسایی دام‌ها در تصویر</li>
+          <li><strong>Object Tracking:</strong> DeepSORT برای ردیابی حرکت هر دام</li>
+          <li><strong>Pose Estimation:</strong> تحلیل وضعیت بدن برای تشخیص سلامت</li>
+          <li><strong>Behavior Analysis:</strong> یادگیری الگوهای رفتاری نرمال</li>
+        </ul>
+
+        <h2>ویژگی‌های کلیدی سیستم</h2>
+
+        <h3>مانیتورینگ تغذیه</h3>
+        <p>
+          سیستم به طور خودکار مدت زمان و دفعات تغذیه هر دام را ثبت می‌کند. این اطلاعات برای شناسایی علائم اولیه بیماری حیاتی هستند. مثلاً کاهش مصرف غذا می‌تواند نشان‌دهنده استرس یا بیماری باشد.
+        </p>
+        <p>
+          چالش اصلی: تشخیص دقیق لحظه شروع و پایان تغذیه. برای حل این مشکل از motion detection و color analysis استفاده کردیم تا تفاوت بین دام فعال و غیرفعال را تشخیص دهیم.
+        </p>
+
+        <h3>تحلیل رفتار و سلامت</h3>
+        <p>
+          هر دام الگوی رفتاری منحصربه‌فردی دارد. سیستم با یادگیری این الگوها می‌تواند انحرافات را شناسایی کند:
+        </p>
+        <ul>
+          <li>کاهش فعالیت غیرعادی</li>
+          <li>گوشه‌گیری از گله</li>
+          <li>تغییر در راه رفتن</li>
+          <li>علائم فیزیکی مانند لنگیدن</li>
+        </ul>
+        <p>
+          از تکنیک anomaly detection مبتنی بر autoencoder استفاده کردیم. مدل با داده‌های نرمال آموزش دیده و هر انحراف را به عنوان هشدار گزارش می‌کند.
+        </p>
+
+        <h3>شمارش و مدیریت گله</h3>
+        <p>
+          شمارش دقیق دام‌ها در محیط‌های شلوغ چالش‌برانگیز است. راهکار ما ترکیبی از detection و tracking بود:
+        </p>
+        <ol>
+          <li>تشخیص دام‌ها در هر فریم</li>
+          <li>تخصیص ID منحصربه‌فرد به هر دام</li>
+          <li>ردیابی حرکت در طول زمان</li>
+          <li>شمارش ورود و خروج از مناطق مختلف</li>
+        </ol>
+
+        <h2>چالش‌های پیاده‌سازی</h2>
+
+        <h3>چالش ۱: شرایط نوری متغیر</h3>
+        <p>
+          آخورها شرایط نوری متغیر دارند. از صبح تا شب، نور خورشید، لامپ‌های LED و تاریکی کامل. برای حل این مشکل:
+        </p>
+        <ul>
+          <li>استفاده از دوربین‌های با قابلیت WDR (Wide Dynamic Range)</li>
+          <li>الگوریتم‌های adaptive brightness compensation</li>
+          <li>آموزش مدل با داده‌های متنوع نوری</li>
+        </ul>
+
+        <h3>چالش ۲: پردازش real-time</h3>
+        <p>
+          پردازش ویدیوهای ۴K با سرعت ۳۰ فریم بر ثانیه نیاز به قدرت محاسباتی بالا دارد. بهینه‌سازی‌های اعمال شده:
+        </p>
+        <ul>
+          <li>استفاده از TensorRT برای acceleration</li>
+          <li>Parallel processing روی multiple GPU</li>
+          <li>Region of Interest processing</li>
+        </ul>
+
+        <h3>چالش ۳: یکپارچه‌سازی با سنسورهای IoT</h3>
+        <p>
+          علاوه بر دوربین‌ها، سنسورهای وزن، دما و رطوبت نیز استفاده شدند. چالش اصلی همگام‌سازی داده‌ها از منابع مختلف بود. از MQTT protocol برای communication و InfluxDB برای ذخیره time-series data استفاده کردیم.
+        </p>
+
+        <h2>داشبورد تحلیلی</h2>
+        <p>
+          رابط کاربری وب با قابلیت‌های زیر:
+        </p>
+        <ul>
+          <li><strong>Real-time Monitoring:</strong> نمایش زنده وضعیت آخور</li>
+          <li><strong>Historical Analytics:</strong> تحلیل روندها در طول زمان</li>
+          <li><strong>Alert System:</strong> هشدارهای فوری و گزارش روزانه</li>
+          <li><strong>Reporting:</strong> گزارش‌های PDF و Excel برای مدیریت</li>
+        </ul>
+        <p>
+          از React برای frontend و Node.js برای backend استفاده کردیم. داده‌ها در PostgreSQL ذخیره و با Grafana برای visualization نمایش داده می‌شوند.
+        </p>
+
+        <h2>نتایج و تأثیرات عملی</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۸۵%</div>
+            <div class="text-sm text-neutral-400">بهبود سلامت دام‌ها</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۷۰%</div>
+            <div class="text-sm text-neutral-400">کاهش هزینه‌های نظارت</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۶۰%</div>
+            <div class="text-sm text-neutral-400">افزایش بهره‌وری</div>
+          </div>
+        </div>
+
+        <h2>مطالعات موردی</h2>
+        <p>
+          در یک مزرعه ۵۰۰ رأسی، سیستم توانست:
+        </p>
+        <ul>
+          <li>بیماری عفونی را ۳ روز زودتر تشخیص دهد</li>
+          <li>هدررفت علوفه را ۲۵% کاهش دهد</li>
+          <li>تولید شیر را ۱۲% افزایش دهد</li>
+        </ul>
+        <p>
+          این نتایج نشان می‌دهد که سرمایه‌گذاری اولیه در تکنولوژی هوش مصنوعی، بازدهی قابل توجهی در بلندمدت دارد.
+        </p>
+
+        <h2>آینده دامداری هوشمند</h2>
+        <p>
+          این پروژه نقطه شروع انقلاب دیجیتال در دامداری است. در آینده نزدیک شاهد یکپارچه‌سازی با:
+        </p>
+        <ul>
+          <li>دrones برای نظارت هوایی</li>
+          <li>wearable sensors برای مانیتورینگ دقیق‌تر</li>
+          <li>predictive analytics برای پیش‌بینی بیماری‌ها</li>
+          <li>blockchain برای traceability محصولات</li>
+        </ul>
+
+      </div>
+
+      <!-- Article Footer -->
+      <footer class="mt-12 pt-8 border-t border-neutral-800">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div class="flex flex-wrap gap-2">
+            <span class="text-sm text-neutral-400">تکنولوژی‌ها:</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">YOLO</span>
+            <span class="tag">Python</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">React</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="blog.html" class="text-red-400 hover:text-red-300 text-sm">← مقالات دیگر</a>
+            <a href="project-ai-farming.html" class="text-red-400 hover:text-red-300 text-sm">مشاهده پروژه ←</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+      <div class="text-sm">
+        <a href="blog.html" class="text-red-400 hover:text-red-300">بازگشت به بلاگ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

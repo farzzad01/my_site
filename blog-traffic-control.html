@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>کنترل هوشمند تردد: چالش‌های پیاده‌سازی LPR — بلاگ فرزاد</title>
+  <meta name="description" content="مقاله فنی درباره پیاده‌سازی سیستم تشخیص پلاک خودرو. چالش‌های OCR، بهینه‌سازی عملکرد و تجربیات عملی.">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+    <nav>
+      <a href="blog.html" class="cta"><span class="mono">بازگشت به بلاگ</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-8 mb-14">
+    <article class="max-w-4xl mx-auto">
+
+      <!-- Article Header -->
+      <header class="mb-12">
+        <div class="text-sm text-red-400 mb-4">۱۴۰۳/۰۴/۱۸ • ۱۲ دقیقه مطالعه</div>
+        <h1 class="text-4xl font-extrabold text-white mb-6 leading-tight">
+          کنترل هوشمند تردد: چالش‌های پیاده‌سازی LPR
+        </h1>
+        <p class="text-xl text-neutral-300 leading-8">
+          از انتخاب الگوریتم OCR تا بهینه‌سازی عملکرد realtime. تجربیات عملی در پیاده‌سازی سیستم تشخیص پلاک خودرو.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="tag">LPR</span>
+          <span class="tag">PyQt6</span>
+          <span class="tag">Real-time</span>
+          <span class="tag">OCR</span>
+        </div>
+        <div class="mt-8">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop" alt="سیستم کنترل تردد هوشمند" class="w-full h-64 object-cover rounded-lg shadow-lg">
+          <p class="text-sm text-neutral-400 mt-2">تصویر: دوربین‌های هوشمند برای تشخیص پلاک خودرو در سیستم‌های کنترل تردد</p>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <div class="prose prose-invert prose-lg max-w-none text-neutral-300 leading-8">
+
+        <h2>مقدمه و اهمیت LPR</h2>
+        <p>
+          سیستم‌های تشخیص پلاک خودرو (License Plate Recognition) یکی از پایه‌ای‌ترین کاربردهای بینایی ماشین در زندگی روزمره هستند. از کنترل دسترسی پارکینگ‌ها گرفته تا مدیریت تردد شهری، LPR نقشی حیاتی در اتوماسیون فرآیندها ایفا می‌کند.
+        </p>
+        <p>
+          این پروژه با هدف توسعه یک سیستم LPR کامل برای مدیریت پارکینگ یک مجتمع مسکونی شروع شد. سیستم باید قادر به تشخیص پلاک‌ها در شرایط مختلف نوری، زوایای مختلف و سرعت‌های متفاوت خودروها باشد.
+        </p>
+
+        <h2>معماری سیستم LPR</h2>
+        <p>
+          یک سیستم LPR کامل از چهار مرحله اصلی تشکیل شده:
+        </p>
+        <ol>
+          <li><strong>Vehicle Detection:</strong> تشخیص حضور خودرو</li>
+          <li><strong>Plate Localization:</strong> یافتن محل پلاک در تصویر</li>
+          <li><strong>Character Segmentation:</strong> جدا کردن کاراکترها</li>
+          <li><strong>OCR:</strong> تشخیص کاراکترها و تبدیل به متن</li>
+        </ol>
+
+        <h3>انتخاب تکنولوژی پایه</h3>
+        <p>
+          برای پیاده‌سازی از ترکیبی از OpenCV و deep learning استفاده کردیم:
+        </p>
+        <ul>
+          <li><strong>OpenCV:</strong> برای پردازش تصویر پایه و computer vision</li>
+          <li><strong>YOLO:</strong> برای تشخیص خودرو و پلاک</li>
+          <li><strong>Tesseract OCR:</strong> برای تشخیص کاراکترها</li>
+          <li><strong>PyQt6:</strong> برای رابط کاربری دسکتاپ</li>
+        </ul>
+
+        <h2>چالش‌های پیاده‌سازی</h2>
+
+        <h3>چالش ۱: شرایط نوری متغیر</h3>
+        <p>
+          پلاک‌ها در شرایط نوری بسیار متفاوتی ظاهر می‌شوند: نور خورشید مستقیم، شب، باران، برف، و حتی پلاک‌های کثیف یا آسیب‌دیده. برای حل این مشکل:
+        </p>
+        <ul>
+          <li>پیش‌پردازش تصویر با histogram equalization</li>
+          <li>Adaptive thresholding برای جدا کردن متن از پس‌زمینه</li>
+          <li>آموزش مدل با داده‌های متنوع (augmentation)</li>
+        </ul>
+        <p>
+          تکنیک کلیدی: استفاده از CLAHE (Contrast Limited Adaptive Histogram Equalization) برای بهبود کنتراست محلی بدون افزایش نویز.
+        </p>
+
+        <h3>چالش ۲: زوایای مختلف دوربین</h3>
+        <p>
+          دوربین‌ها نمی‌توانند همیشه کاملاً روبروی پلاک قرار گیرند. زاویه، پرسپکتیو و حرکت خودرو باعث变形 پلاک می‌شود. راهکارها:
+        </p>
+        <ul>
+          <li>Geometric transformation برای تصحیح پرسپکتیو</li>
+          <li>Perspective correction با یافتن corners پلاک</li>
+          <li>آموزش مدل با داده‌های multi-angle</li>
+        </ul>
+
+        <h3>چالش ۳: تشخیص پلاک‌های ایرانی</h3>
+        <p>
+          پلاک‌های ایرانی ویژگی‌های منحصربه‌فرد دارند:
+        </p>
+        <ul>
+          <li>دو بخش عددی جدا شده با خط</li>
+          <li>کاراکترهای فارسی و انگلیسی</li>
+          <li>رنگ‌های مختلف برای انواع خودرو</li>
+          <li>استیکرهای اضافی (معلولین، گاز)</li>
+        </ul>
+        <p>
+          برای تشخیص بهتر، مدل OCR را با dataset اختصاصی پلاک‌های ایرانی fine-tune کردیم. بیش از ۵۰,۰۰۰ تصویر پلاک جمع‌آوری و annotate شد.
+        </p>
+
+        <h3>چالش ۴: عملکرد real-time</h3>
+        <p>
+          سیستم باید بتواند پلاک‌ها را در کمتر از ۵۰۰ میلی‌ثانیه پردازش کند. بهینه‌سازی‌های اعمال شده:
+        </p>
+        <ul>
+          <li>استفاده از GPU acceleration با CUDA</li>
+          <li>Parallel processing pipeline</li>
+          <li>Model quantization برای کاهش حجم</li>
+          <li>Caching نتایج برای پلاک‌های تکراری</li>
+        </ul>
+
+        <h2>پیاده‌سازی فنی</h2>
+
+        <h3>Pipeline پردازش تصویر</h3>
+        <p>
+          جریان پردازش به شرح زیر است:
+        </p>
+        <ol>
+          <li><strong>Input:</strong> فریم ویدیو از دوربین IP</li>
+          <li><strong>Motion Detection:</strong> تشخیص حرکت برای کاهش پردازش غیرضروری</li>
+          <li><strong>Vehicle Detection:</strong> YOLOv5 برای یافتن خودرو</li>
+          <li><strong>Plate Localization:</strong> جستجو در ناحیه پلاک خودرو</li>
+          <li><strong>Preprocessing:</strong> بهبود کیفیت تصویر پلاک</li>
+          <li><strong>OCR:</strong> استخراج متن پلاک</li>
+          <li><strong>Validation:</strong> بررسی اعتبار پلاک استخراج شده</li>
+          <li><strong>Database:</strong> ذخیره و جستجو در لیست مجازها</li>
+        </ol>
+
+        <h3>رابط کاربری PyQt6</h3>
+        <p>
+          رابط کاربری باید ساده، سریع و کاربردی باشد. ویژگی‌های کلیدی:
+        </p>
+        <ul>
+          <li><strong>Live Video Feed:</strong> نمایش همزمان چند دوربین</li>
+          <li><strong>Real-time Results:</strong> نمایش پلاک‌های تشخیص داده شده</li>
+          <li><strong>Access Control:</strong> باز کردن/بستن گیت‌ها</li>
+          <li><strong>Logging:</strong> ثبت تمام ترددها با timestamp</li>
+          <li><strong>Reports:</strong> آمار روزانه/ماهانه ترددها</li>
+        </ul>
+
+        <h3>پایگاه داده و یکپارچه‌سازی</h3>
+        <p>
+          از SQLite برای ذخیره اطلاعات استفاده کردیم. جداول اصلی:
+        </p>
+        <ul>
+          <li><strong>vehicles:</strong> لیست خودروهای مجاز با اطلاعات مالک</li>
+          <li><strong>access_logs:</strong> تاریخچه تمام ترددها</li>
+          <li><strong>blacklist:</strong> لیست خودروهای ممنوعه</li>
+          <li><strong>settings:</strong> تنظیمات سیستم</li>
+        </ul>
+
+        <h2>بهینه‌سازی و بهبود عملکرد</h2>
+
+        <h3>بهینه‌سازی OCR</h3>
+        <p>
+          Tesseract OCR را با پارامترهای سفارشی تنظیم کردیم:
+        </p>
+        <ul>
+          <li>Whitelist characters برای پلاک‌های ایرانی</li>
+          <li>Custom segmentation برای فرمت دو بخشی</li>
+          <li>Confidence threshold برای فیلتر نتایج ضعیف</li>
+        </ul>
+
+        <h3>Handling Edge Cases</h3>
+        <p>
+          سیستم باید با شرایط خاص نیز برخورد کند:
+        </p>
+        <ul>
+          <li><strong>پلاک‌های کثیف:</strong> الگوریتم‌های cleaning پیشرفته</li>
+          <li><strong>پلاک‌های آسیب‌دیده:</strong> تشخیص partial و reconstruction</li>
+          <li><strong>پلاک‌های دوچرخه/موتور:</strong> اندازه‌های مختلف</li>
+          <li><strong>Overlapping:</strong> تشخیص پلاک‌های پشت سر هم</li>
+        </ul>
+
+        <h3>امنیت و قابلیت اطمینان</h3>
+        <p>
+          برای اطمینان از عملکرد مداوم:
+        </p>
+        <ul>
+          <li>Redundant cameras برای backup</li>
+          <li>Failover mechanism در صورت خرابی سخت‌افزار</li>
+          <li>Encryption داده‌های حساس</li>
+          <li>Regular backup و disaster recovery</li>
+        </ul>
+
+        <h2>نتایج و سنجش عملکرد</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۹۶%</div>
+            <div class="text-sm text-neutral-400">دقت تشخیص پلاک</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۳۰۰ms</div>
+            <div class="text-sm text-neutral-400">زمان پردازش متوسط</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۹۹.۹%</div>
+            <div class="text-sm text-neutral-400">uptime سیستم</div>
+          </div>
+        </div>
+
+        <h2>تجربیات عملی و درس‌های آموخته شده</h2>
+        <p>
+          پیاده‌سازی این سیستم چالش‌های زیادی داشت اما درس‌های ارزشمندی هم به همراه داشت:
+        </p>
+        <ul>
+          <li><strong>اهمیت Data Quality:</strong> کیفیت داده‌های آموزشی تعیین‌کننده دقت نهایی است</li>
+          <li><strong>Testing in Real Conditions:</strong> آزمایش در محیط واقعی بسیار مهم‌تر از lab testing است</li>
+          <li><strong>User Feedback:</strong> نیازهای عملی کاربران اغلب با expectations اولیه متفاوت است</li>
+          <li><strong>Maintenance:</strong> سیستم‌های real-world نیاز به نگهداری مداوم دارند</li>
+        </ul>
+
+        <h2>آینده LPR در ایران</h2>
+        <p>
+          با توجه به رشد شهرهای هوشمند و نیاز به مدیریت تردد، LPR نقش مهمی در آینده خواهد داشت. توسعه‌های آینده ممکن:
+        </p>
+        <ul>
+          <li>ادغام با سیستم‌های شهری هوشمند</li>
+          <li>استفاده از AI پیشرفته‌تر برای شرایط پیچیده</li>
+          <li>یکپارچه‌سازی با blockchain برای امنیت بیشتر</li>
+          <li>پردازش edge computing برای کاهش latency</li>
+        </ul>
+
+      </div>
+
+      <!-- Article Footer -->
+      <footer class="mt-12 pt-8 border-t border-neutral-800">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div class="flex flex-wrap gap-2">
+            <span class="text-sm text-neutral-400">تکنولوژی‌ها:</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">YOLO</span>
+            <span class="tag">Tesseract</span>
+            <span class="tag">PyQt6</span>
+            <span class="tag">SQLite</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="blog.html" class="text-red-400 hover:text-red-300 text-sm">← مقالات دیگر</a>
+            <a href="project-traffic-control.html" class="text-red-400 hover:text-red-300 text-sm">مشاهده پروژه ←</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+      <div class="text-sm">
+        <a href="blog.html" class="text-red-400 hover:text-red-300">بازگشت به بلاگ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

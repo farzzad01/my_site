@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>سیستم هوشمند بیمارستانی با Raspberry Pi — بلاگ فرزاد</title>
+  <meta name="description" content="مقاله فنی درباره پیاده‌سازی سیستم هوشمند بیمارستانی. چالش‌های IoT در محیط پزشکی و کنترل صوتی.">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+    <nav>
+      <a href="blog.html" class="cta"><span class="mono">بازگشت به بلاگ</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-8 mb-14">
+    <article class="max-w-4xl mx-auto">
+
+      <!-- Article Header -->
+      <header class="mb-12">
+        <div class="text-sm text-red-400 mb-4">۱۴۰۳/۰۳/۲۶ • ۱۰ دقیقه مطالعه</div>
+        <h1 class="text-4xl font-extrabold text-white mb-6 leading-tight">
+          سیستم هوشمند بیمارستانی با Raspberry Pi
+        </h1>
+        <p class="text-xl text-neutral-300 leading-8">
+          چالش‌های توسعه IoT در محیط پزشکی. از کنترل صوتی گرفته تا مانیتورینگ بیماران با سنسورهای هوشمند.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="tag">Raspberry Pi</span>
+          <span class="tag">IoT</span>
+          <span class="tag">Voice Control</span>
+          <span class="tag">Healthcare</span>
+        </div>
+        <div class="mt-8">
+          <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800&h=400&fit=crop" alt="سیستم هوشمند بیمارستانی" class="w-full h-64 object-cover rounded-lg shadow-lg">
+          <p class="text-sm text-neutral-400 mt-2">تصویر: اتاق بیمارستانی مجهز به فناوری‌های IoT و کنترل هوشمند</p>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <div class="prose prose-invert prose-lg max-w-none text-neutral-300 leading-8">
+
+        <h2>چالش‌های بیمارستان‌های سنتی</h2>
+        <p>
+          بیمارستان‌ها محیط‌های پیچیده‌ای هستند که نیاز به مراقبت ۲۴ ساعته دارند. پرستاران و کادر پزشکی اغلب با چالش‌های زیر روبرو هستند:
+        </p>
+        <ul>
+          <li>مانیتورینگ مداوم علائم حیاتی بیماران</li>
+          <li>پاسخگویی سریع به درخواست‌های بیماران</li>
+          <li>مدیریت تجهیزات پزشکی پراکنده</li>
+          <li>ثبت دقیق اطلاعات درمانی</li>
+        </ul>
+        <p>
+          این پروژه با هدف ایجاد یک سیستم هوشمند کمکی برای بهبود کارایی و کاهش خطاهای انسانی در بیمارستان‌ها توسعه یافت.
+        </p>
+
+        <h2>معماری سیستم مبتنی بر Raspberry Pi</h2>
+        <p>
+          از Raspberry Pi ۴ به عنوان مغز متفکر سیستم استفاده کردیم. مزایای Raspberry Pi در این کاربرد:
+        </p>
+        <ul>
+          <li>هزینه مناسب برای deployment گسترده</li>
+          <li>قابل اعتماد و کم‌مصرف</li>
+          <li>پشتیبانی کامل از GPIO برای سنسورها</li>
+          <li>قادر به اجرای Linux و برنامه‌های Python</li>
+        </ul>
+
+        <h3>اجزای سخت‌افزاری</h3>
+        <p>
+          هر واحد بیمارستانی مجهز به:
+        </p>
+        <ul>
+          <li><strong>Raspberry Pi 4:</strong> پردازنده مرکزی</li>
+          <li><strong>ReSpeaker 4-Mic Array:</strong> میکروفون‌های کنترل صوتی</li>
+          <li><strong>Sensors:</strong> دما، رطوبت، حرکت، صدا</li>
+          <li><strong>Relay Module:</strong> کنترل تجهیزات برقی</li>
+          <li><strong>LCD Display:</strong> نمایش اطلاعات</li>
+          <li><strong>LED Indicators:</strong> وضعیت سیستم</li>
+        </ul>
+
+        <h2>ویژگی‌های کلیدی سیستم</h2>
+
+        <h3>کنترل صوتی هوشمند</h3>
+        <p>
+          پیاده‌سازی speech recognition برای سهولت استفاده بیماران و کادر پزشکی. چالش اصلی: تشخیص دستورات در محیط شلوغ بیمارستان با صدای دستگاه‌ها و صحبت بیماران دیگر.
+        </p>
+        <p>
+          از Snowboy hotword detection برای wake word استفاده کردیم. پس از شنیدن "مراقب" یا "sister"، سیستم آماده دریافت دستور می‌شود. سپس از Google Speech Recognition API برای تبدیل گفتار به متن استفاده می‌کنیم.
+        </p>
+        <p>
+          دستورات پشتیبانی شده:
+        </p>
+        <ul>
+          <li>"نور اتاق را روشن کن"</li>
+          <li>"دما را تنظیم کن"</li>
+          <li>"با پرستار تماس بگیر"</li>
+          <li>"درخواست دارو"</li>
+          <li>"گزارش وضعیت بیمار"</li>
+        </ul>
+
+        <h3>مانیتورینگ هوشمند بیماران</h3>
+        <p>
+          سیستم به طور مداوم علائم حیاتی را کنترل می‌کند:
+        </p>
+        <ul>
+          <li><strong>Motion Detection:</strong> تشخیص حرکت بیمار برای جلوگیری از افتادگی</li>
+          <li><strong>Sound Monitoring:</strong> تشخیص صداهای غیرعادی (ناله، سرفه شدید)</li>
+          <li><strong>Environmental Sensors:</strong> کنترل دما و رطوبت اتاق</li>
+          <li><strong>Call Button:</strong> سیستم فراخوانی پرستار با اولویت‌بندی</li>
+        </ul>
+
+        <h3>اتوماسیون تجهیزات پزشکی</h3>
+        <p>
+          کنترل هوشمند تجهیزات اتاق بیمار:
+        </p>
+        <ul>
+          <li>تنظیم نور اتاق بر اساس زمان روز</li>
+          <li>کنترل پرده‌ها و پنجره‌ها</li>
+          <li>مدیریت سیستم تهویه مطبوع</li>
+          <li>کنترل تلویزیون و سرگرمی</li>
+        </ul>
+
+        <h2>چالش‌های پیاده‌سازی</h2>
+
+        <h3>چالش ۱: قابلیت اطمینان در محیط پزشکی</h3>
+        <p>
+          بیمارستان‌ها محیط mission-critical هستند. سیستم باید ۹۹.۹% uptime داشته باشد. برای اطمینان از reliability:
+        </p>
+        <ul>
+          <li>Watchdog timer برای restart خودکار در صورت crash</li>
+          <li>Battery backup برای تغذیه اضطراری</li>
+          <li>Redundant communication channels</li>
+          <li>Regular health checks و self-diagnostics</li>
+        </ul>
+
+        <h3>چالش ۲: امنیت داده‌های پزشکی</h3>
+        <p>
+          اطلاعات بیماران بسیار حساس هستند. رعایت HIPAA و قوانین حفظ حریم خصوصی ضروری بود:
+        </p>
+        <ul>
+          <li>Encryption تمام داده‌ها در transit و at rest</li>
+          <li>Access control مبتنی بر role</li>
+          <li>Audit logging برای تمام عملیات</li>
+          <li>Secure boot برای جلوگیری از tampering</li>
+        </ul>
+
+        <h3>چالش ۳: یکپارچه‌سازی با سیستم‌های موجود</h3>
+        <p>
+          بیمارستان دارای سیستم‌های legacy متعددی بود. چالش اصلی integration با:
+        </p>
+        <ul>
+          <li>سیستم EHR (Electronic Health Records)</li>
+          <li>سیستم nurse call موجود</li>
+          <li>پایگاه داده بیماران</li>
+        </ul>
+        <p>
+          از RESTful APIs و HL7 FHIR standards برای یکپارچه‌سازی استفاده کردیم.
+        </p>
+
+        <h3>چالش ۴: تجربه کاربری برای بیماران سالمند</h3>
+        <p>
+          بسیاری از بیماران سالمند هستند و با تکنولوژی آشنایی کمی دارند. طراحی UX باید:
+        </p>
+        <ul>
+          <li>ساده و intuitive باشد</li>
+          <li>دستورات صوتی واضح داشته باشد</li>
+          <li>feedback بصری و صوتی مناسب ارائه دهد</li>
+          <li>قابل استفاده برای افراد کم‌توان باشد</li>
+        </ul>
+
+        <h2>پردازش و ذخیره داده‌ها</h2>
+
+        <h3>Edge Computing vs Cloud</h3>
+        <p>
+          تصمیم گرفتیم بیشتر پردازش‌ها را روی edge (Raspberry Pi) انجام دهیم تا:
+        </p>
+        <ul>
+          <li>Latency را کاهش دهیم</li>
+          <li>Privacy را بهبود بخشیم</li>
+          <li>هزینه bandwidth را کاهش دهیم</li>
+          <li>قابل استفاده در صورت قطع اینترنت باشیم</li>
+        </ul>
+        <p>
+          فقط داده‌های مهم (alerts, logs) به سرور مرکزی ارسال می‌شوند.
+        </p>
+
+        <h3>پایگاه داده محلی</h3>
+        <p>
+          از SQLite برای ذخیره داده‌های محلی استفاده کردیم:
+        </p>
+        <ul>
+          <li>تنظیمات دستگاه</li>
+          <li>لاگ فعالیت‌ها</li>
+          <li>داده‌های سنسورها</li>
+          <li>offline cache</li>
+        </ul>
+
+        <h2>نرم‌افزار و توسعه</h2>
+
+        <h3>Stack تکنولوژی</h3>
+        <ul>
+          <li><strong>Python:</strong> زبان اصلی برنامه‌نویسی</li>
+          <li><strong>Flask:</strong> وب سرور برای API محلی</li>
+          <li><strong>Socket.IO:</strong> real-time communication</li>
+          <li><strong>RPi.GPIO:</strong> کنترل پین‌های GPIO</li>
+          <li><strong>SpeechRecognition:</strong> پردازش گفتار</li>
+        </ul>
+
+        <h3>معماری نرم‌افزار</h3>
+        <p>
+          سیستم به صورت modular طراحی شده:
+        </p>
+        <ul>
+          <li><strong>Voice Module:</strong> پردازش دستورات صوتی</li>
+          <li><strong>Sensor Module:</strong> خواندن و پردازش داده سنسورها</li>
+          <li><strong>Control Module:</strong> کنترل تجهیزات</li>
+          <li><strong>Communication Module:</strong> ارتباط با سرور مرکزی</li>
+          <li><strong>UI Module:</strong> رابط کاربری محلی</li>
+        </ul>
+
+        <h2>تست و ارزیابی</h2>
+        <p>
+          سیستم در بخش آزمایشی بیمارستان به مدت ۳ ماه تست شد:
+        </p>
+        <ul>
+          <li><strong>Response Time:</strong> کمتر از ۲ ثانیه برای دستورات صوتی</li>
+          <li><strong>Accuracy:</strong> ۹۴% دقت تشخیص دستورات</li>
+          <li><strong>Reliability:</strong> ۹۹.۵% uptime</li>
+          <li><strong>User Satisfaction:</strong> ۸۷% رضایت بیماران و کادر</li>
+        </ul>
+
+        <h2>نتایج و تأثیرات</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۶۰%</div>
+            <div class="text-sm text-neutral-400">کاهش زمان پاسخگویی</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۴۵%</div>
+            <div class="text-sm text-neutral-400">افزایش رضایت بیماران</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۳۰%</div>
+            <div class="text-sm text-neutral-400">بهبود کارایی پرستاران</div>
+          </div>
+        </div>
+
+        <h2>آموزش‌های آموخته شده</h2>
+        <p>
+          این پروژه نشان داد که IoT می‌تواند تجربه بیمارستان را به طور چشمگیری بهبود دهد، اما نیازمند رویکردی multidisciplinary است:
+        </p>
+        <ul>
+          <li><strong>Healthcare Domain Knowledge:</strong> درک عمیق نیازهای پزشکی ضروری است</li>
+          <li><strong>Regulatory Compliance:</strong> رعایت استانداردهای پزشکی و امنیتی حیاتی است</li>
+          <li><strong>User-Centered Design:</strong> بیماران و کادر پزشکی کاربران اصلی هستند</li>
+          <li><strong>Reliability First:</strong> در محیط‌های critical، reliability بر innovation اولویت دارد</li>
+        </ul>
+
+        <h2>آینده سیستم‌های هوشمند بیمارستانی</h2>
+        <p>
+          این پروژه نقطه شروع تحول دیجیتال در مراقبت‌های بهداشتی است. توسعه‌های آینده شامل:
+        </p>
+        <ul>
+          <li>ادغام با AI برای پیش‌بینی نیازهای بیماران</li>
+          <li>استفاده از 5G برای real-time monitoring</li>
+          <li>یکپارچه‌سازی با wearable devices</li>
+          <li>استفاده از blockchain برای امنیت داده‌ها</li>
+        </ul>
+
+      </div>
+
+      <!-- Article Footer -->
+      <footer class="mt-12 pt-8 border-t border-neutral-800">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div class="flex flex-wrap gap-2">
+            <span class="text-sm text-neutral-400">تکنولوژی‌ها:</span>
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Speech Recognition</span>
+            <span class="tag">SQLite</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="blog.html" class="text-red-400 hover:text-red-300 text-sm">← مقالات دیگر</a>
+            <a href="project-smart-hospital-system.html" class="text-red-400 hover:text-red-300 text-sm">مشاهده پروژه ←</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+      <div class="text-sm">
+        <a href="blog.html" class="text-red-400 hover:text-red-300">بازگشت به بلاگ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

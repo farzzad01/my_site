@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>امنیت هوشمند ویلا با پهپاد و IoT — بلاگ فرزاد</title>
+  <meta name="description" content="مقاله فنی درباره پیاده‌سازی سیستم امنیت هوشمند ویلا. چالش‌های یکپارچه‌سازی پهپاد، سنسورهای IoT و کنترل هوشمند.">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font (Vazirmatn) -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- decorative layers -->
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- header -->
+  <header class="container-max py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="logo text-xl"><a href="index.html">FARZAD</a></div>
+      <div class="mono text-sm text-neutral-400">AI • Computer Vision • Robotics</div>
+    </div>
+    <nav>
+      <a href="blog.html" class="cta"><span class="mono">بازگشت به بلاگ</span></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main class="container-max mt-8 mb-14">
+    <article class="max-w-4xl mx-auto">
+
+      <!-- Article Header -->
+      <header class="mb-12">
+        <div class="text-sm text-red-400 mb-4">۱۴۰۲/۱۲/۲۰ • ۱۰ دقیقه مطالعه</div>
+        <h1 class="text-4xl font-extrabold text-white mb-6 leading-tight">
+          امنیت هوشمند ویلا با پهپاد و IoT
+        </h1>
+        <p class="text-xl text-neutral-300 leading-8">
+          پیاده‌سازی سیستم نظارت هوایی و زمینی. چالش‌های یکپارچه‌سازی سنسورهای مختلف و کنترل پهپاد.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="tag">Drone</span>
+          <span class="tag">IoT</span>
+          <span class="tag">Smart Home</span>
+          <span class="tag">Security</span>
+        </div>
+        <div class="mt-8">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop" alt="ویلا با سیستم امنیتی هوشمند" class="w-full h-64 object-cover rounded-lg shadow-lg">
+          <p class="text-sm text-neutral-400 mt-2">تصویر: ویلای مدرن مجهز به سیستم‌های امنیتی هوشمند شامل پهپاد و سنسورهای IoT</p>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <div class="prose prose-invert prose-lg max-w-none text-neutral-300 leading-8">
+
+        <h2>چالش امنیت ویلاهای بزرگ</h2>
+        <p>
+          ویلاهای بزرگ و باغ‌های وسیع با چالش‌های امنیتی متعددی روبرو هستند:
+        </p>
+        <ul>
+          <li>مساحت گسترده که نظارت انسانی را دشوار می‌کند</li>
+          <li>نقاط کور متعدد در دوربین‌های ثابت</li>
+          <li>هزینه بالای نگهبانان ۲۴ ساعته</li>
+          <li>زمان پاسخگویی کند در صورت رخداد</li>
+        </ul>
+        <p>
+          راهکار ما: سیستم هوشمندی که از پهپاد برای نظارت هوایی و شبکه سنسورهای IoT برای نظارت زمینی استفاده می‌کند.
+        </p>
+
+        <h2>معماری سیستم امنیتی</h2>
+        <p>
+          سیستم از چهار لایه اصلی تشکیل شده:
+        </p>
+        <ol>
+          <li><strong>لایه سنسورها:</strong> شبکه IoT برای تشخیص حرکت</li>
+          <li><strong>لایه هوایی:</strong> پهپاد برای پترول و بازرسی</li>
+          <li><strong>لایه پردازش:</strong> AI برای تحلیل داده‌ها</li>
+          <li><strong>لایه کنترلی:</strong> اپ موبایل برای مدیریت</li>
+        </ol>
+
+        <h3>شبکه سنسورهای IoT</h3>
+        <p>
+          سنسورهای هوشمند در نقاط استراتژیک نصب شده‌اند:
+        </p>
+        <ul>
+          <li><strong>Motion Sensors:</strong> تشخیص حرکت در محیط</li>
+          <li><strong>Door/Window Sensors:</strong> کنترل دسترسی فیزیکی</li>
+          <li><strong>Camera Traps:</strong> دوربین‌های فعال شونده با حرکت</li>
+          <li><strong>Environmental Sensors:</strong> تشخیص دود، گاز، آب</li>
+        </ul>
+        <p>
+          تمام سنسورها از طریق LoRaWAN ارتباط برقرار می‌کنند که برد بالا و مصرف انرژی پایینی دارد.
+        </p>
+
+        <h3>سیستم پهپادی</h3>
+        <p>
+          پهپاد اختصاصی برای امنیت با قابلیت‌های زیر:
+        </p>
+        <ul>
+          <li><strong>Autonomous Flight:</strong> پرواز خودکار در مسیرهای تعریف شده</li>
+          <li><strong>Thermal Imaging:</strong> دوربین حرارتی برای شب</li>
+          <li><strong>Object Detection:</strong> تشخیص اشیاء مشکوک</li>
+          <li><strong>Real-time Streaming:</strong> انتقال زنده تصویر</li>
+        </ul>
+
+        <h2>چالش‌های پیاده‌سازی</h2>
+
+        <h3>چالش ۱: یکپارچه‌سازی پهپاد و سنسورها</h3>
+        <p>
+          چالش اصلی coordination بین دستگاه‌های مختلف بود. راهکار ما استفاده از central hub:
+        </p>
+        <ul>
+          <li>MQTT protocol برای communication</li>
+          <li>Central decision engine</li>
+          <li>Event-driven architecture</li>
+          <li>Failover mechanisms</li>
+        </ul>
+
+        <h3>چالش ۲: پردازش real-time</h3>
+        <p>
+          سیستم باید به تهدیدات در کمتر از ۳۰ ثانیه پاسخ دهد:
+        </p>
+        <ul>
+          <li>Edge computing روی دستگاه‌ها</li>
+          <li>Distributed processing</li>
+          <li>Prioritization of alerts</li>
+          <li>Automated response protocols</li>
+        </ul>
+
+        <h3>چالش ۳: شرایط آب و هوایی</h3>
+        <p>
+          ویلاها در معرض شرایط آب و هوایی مختلف هستند:
+        </p>
+        <ul>
+          <li>باران و رطوبت برای سنسورها</li>
+          <li>باد برای پرواز پهپاد</li>
+          <li>گرما/سرما برای عملکرد دستگاه‌ها</li>
+        </ul>
+        <p>
+          تمام تجهیزات در enclosureهای مقاوم نصب شدند و الگوریتم‌های adaptive برای شرایط مختلف پیاده‌سازی شد.
+        </p>
+
+        <h3>چالش ۴: کاهش false alarms</h3>
+        <p>
+          حیوانات، درختان در حال حرکت و شرایط طبیعی باعث false positive می‌شوند:
+        </p>
+        <ul>
+          <li>AI-based classification</li>
+          <li>Multi-sensor fusion</li>
+          <li>Confidence thresholds</li>
+          <li>Learning from user feedback</li>
+        </ul>
+
+        <h2>سیستم هوش مصنوعی</h2>
+
+        <h3>تشخیص تهدیدات</h3>
+        <p>
+          از مدل‌های deep learning برای تشخیص انواع تهدیدات:
+        </p>
+        <ul>
+          <li><strong>Object Detection:</strong> تشخیص انسان، خودرو، حیوان</li>
+          <li><strong>Behavior Analysis:</strong> تحلیل الگوی حرکت</li>
+          <li><strong>Anomaly Detection:</strong> تشخیص فعالیت‌های غیرعادی</li>
+          <li><strong>Facial Recognition:</strong> شناسایی افراد مجاز</li>
+        </ul>
+
+        <h3>پاسخ هوشمند</h3>
+        <p>
+          سیستم بر اساس نوع تهدید پاسخ مناسب می‌دهد:
+        </p>
+        <ul>
+          <li><strong>Low Risk:</strong> ارسال notification</li>
+          <li><strong>Medium Risk:</strong> فعال‌سازی پهپاد برای بازرسی</li>
+          <li><strong>High Risk:</strong> تماس با پلیس و فعال‌سازی alarm</li>
+        </ul>
+
+        <h2>اپلیکیشن موبایل</h2>
+        <p>
+          رابط کاربری برای مدیریت سیستم:
+        </p>
+        <ul>
+          <li><strong>Live Monitoring:</strong> مشاهده تمام دوربین‌ها</li>
+          <li><strong>Drone Control:</strong> کنترل دستی پهپاد</li>
+          <li><strong>Alert Management:</strong> مدیریت هشدارها</li>
+          <li><strong>System Settings:</strong> تنظیمات امنیتی</li>
+          <li><strong>Historical Data:</strong> گزارشات و آمار</li>
+        </ul>
+
+        <h3>ویژگی‌های پیشرفته</h3>
+        <ul>
+          <li>Push notifications برای هشدارها</li>
+          <li>Geofencing برای تعریف مناطق امنیتی</li>
+          <li>Integration با سیستم‌های امنیتی شهری</li>
+          <li>Voice control برای دسترسی سریع</li>
+        </ul>
+
+        <h2>ایمنی و قابلیت اطمینان</h2>
+
+        <h3>ایمنی پهپاد</h3>
+        <ul>
+          <li>Return-to-home در صورت قطع ارتباط</li>
+          <li>Obstacle avoidance</li>
+          <li>Emergency landing protocols</li>
+          <li>Weather monitoring</li>
+        </ul>
+
+        <h3>قابلیت اطمینان سیستم</h3>
+        <ul>
+          <li>Redundant power supplies</li>
+          <li>Backup communication channels</li>
+          <li>Self-diagnostics و health monitoring</li>
+          <li>Automatic failover</li>
+        </ul>
+
+        <h2>نصب و راه‌اندازی</h2>
+        <p>
+          فرآیند نصب در ویلای ۵ هکتاری:
+        </p>
+        <ol>
+          <li><strong>Site Survey:</strong> نقشه‌برداری و تعیین نقاط نصب</li>
+          <li><strong>Sensor Installation:</strong> نصب سنسورها در نقاط بهینه</li>
+          <li><strong>Drone Testing:</strong> تست پرواز و calibration</li>
+          <li><strong>System Integration:</strong> یکپارچه‌سازی تمام اجزا</li>
+          <li><strong>User Training:</strong> آموزش صاحبان ویلا</li>
+        </ol>
+
+        <h2>نتایج عملی</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۹۸%</div>
+            <div class="text-sm text-neutral-400">کاهش سرقت‌ها</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۱۰۰%</div>
+            <div class="text-sm text-neutral-400">پوشش امنیتی</div>
+          </div>
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-red-400 mb-2">۹۵%</div>
+            <div class="text-sm text-neutral-400">دقت تشخیص</div>
+          </div>
+        </div>
+
+        <h2>هزینه‌ها و بازگشت سرمایه</h2>
+        <p>
+          تحلیل اقتصادی سیستم:
+        </p>
+        <ul>
+          <li><strong>هزینه اولیه:</strong> حدود ۲۵۰ میلیون تومان</li>
+          <li><strong>صرفه‌جویی سالانه:</strong> ۳۰۰ میلیون تومان (جایگزین نگهبانان)</li>
+          <li><strong>بازگشت سرمایه:</strong> کمتر از ۱ سال</li>
+        </ul>
+
+        <h2>آموزش‌های آموخته شده</h2>
+        <p>
+          این پروژه تجربه ارزشمندی در یکپارچه‌سازی سیستم‌های پیچیده بود:
+        </p>
+        <ul>
+          <li><strong>System Integration:</strong> چالش اصلی coordination دستگاه‌ها است</li>
+          <li><strong>Reliability:</strong> در سیستم‌های امنیتی، reliability بر innovation اولویت دارد</li>
+          <li><strong>User Experience:</strong> سادگی استفاده برای صاحبان غیرفنی</li>
+          <li><strong>Maintenance:</strong> برنامه نگهداری منظم ضروری است</li>
+        </ul>
+
+        <h2>آینده امنیت هوشمند</h2>
+        <p>
+          این سیستم نقطه شروع انقلاب در امنیت هوشمند است:
+        </p>
+        <ul>
+          <li>ادغام با سیستم‌های شهری هوشمند</li>
+          <li>استفاده از AI پیشرفته‌تر برای پیش‌بینی</li>
+          <li>یکپارچه‌سازی با بیمه‌های هوشمند</li>
+          <li>استفاده در کاربردهای صنعتی</li>
+        </ul>
+
+      </div>
+
+      <!-- Article Footer -->
+      <footer class="mt-12 pt-8 border-t border-neutral-800">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div class="flex flex-wrap gap-2">
+            <span class="text-sm text-neutral-400">تکنولوژی‌ها:</span>
+            <span class="tag">Python</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">MQTT</span>
+            <span class="tag">Flutter</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="blog.html" class="text-red-400 hover:text-red-300 text-sm">← مقالات دیگر</a>
+            <a href="project-smart-villa.html" class="text-red-400 hover:text-red-300 text-sm">مشاهده پروژه ←</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- footer -->
+  <footer class="container-max py-8 text-neutral-400">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2025 فرزاد — همه حقوق محفوظ است</div>
+      <div class="text-sm">
+        <a href="blog.html" class="text-red-400 hover:text-red-300">بازگشت به بلاگ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
