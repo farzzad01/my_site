@@ -80,6 +80,71 @@ if (statsSection) {
   observer.observe(statsSection);
 }
 
+// contact form handling
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      service: document.getElementById('service').value,
+      message: document.getElementById('message').value,
+      timestamp: new Date().toISOString()
+    };
+
+    // Show loading state
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'در حال ارسال...';
+    submitBtn.disabled = true;
+
+    try {
+      // Send to Telegram bot (you'll need to set up a bot and get the token/chat_id)
+      const telegramMessage = `
+📋 درخواست همکاری جدید
+
+👤 نام: ${formData.name}
+📧 ایمیل: ${formData.email}
+📱 تلفن: ${formData.phone || 'مشخص نشده'}
+🎯 نوع همکاری: ${formData.service}
+💬 پیام: ${formData.message}
+
+⏰ زمان: ${new Date().toLocaleString('fa-IR')}
+      `;
+
+      // For now, we'll use a simple approach - you can integrate with your backend
+      // This is a placeholder - you'll need to implement actual sending
+      console.log('Form data:', formData);
+      console.log('Telegram message:', telegramMessage);
+
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Show success message
+      formMessage.className = 'mt-4 text-sm text-green-400';
+      formMessage.textContent = '✅ درخواست شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.';
+      formMessage.classList.remove('hidden');
+
+      // Reset form
+      contactForm.reset();
+
+    } catch (error) {
+      console.error('Error sending form:', error);
+      formMessage.className = 'mt-4 text-sm text-red-400';
+      formMessage.textContent = '❌ خطا در ارسال درخواست. لطفاً دوباره تلاش کنید یا مستقیماً با ما تماس بگیرید.';
+      formMessage.classList.remove('hidden');
+    } finally {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+}
+
 // small interactivity
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
