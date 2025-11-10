@@ -145,6 +145,34 @@ if (contactForm) {
   });
 }
 
+// fade-in animation for blog cards
+function initFadeInAnimations() {
+  const fadeElements = document.querySelectorAll('.fade-in');
+
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Add delay for staggered animation
+        setTimeout(() => {
+          entry.target.classList.add('show');
+        }, index * 150);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  fadeElements.forEach(element => {
+    fadeObserver.observe(element);
+  });
+}
+
+// Initialize animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  initFadeInAnimations();
+});
+
 // small interactivity
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
