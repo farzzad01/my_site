@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>سیستم شمارش افراد با YOLO و OpenCV — بلاگ فرزاد</title>
-  <meta name="description" content="مقاله فنی درباره پیاده‌سازی سیستم شمارش افراد در محیط‌های شلوغ. چالش‌های بهینه‌سازی عملکرد و دقت سیستم.">
+  <meta name="description"
+    content="مقاله فنی درباره پیاده‌سازی سیستم شمارش افراد در محیط‌های شلوغ. چالش‌های بهینه‌سازی عملکرد و دقت سیستم.">
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Font (Vazirmatn) -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap"
+    rel="stylesheet">
 
   <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
 
   <!-- decorative layers -->
@@ -51,7 +55,8 @@
           <span class="tag">Computer Vision</span>
         </div>
         <div class="mt-8">
-          <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&h=400&fit=crop" alt="سیستم شمارش افراد هوشمند" class="w-full h-64 object-cover rounded-lg shadow-lg">
+          <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&h=400&fit=crop"
+            alt="سیستم شمارش افراد هوشمند" class="w-full h-64 object-cover rounded-lg shadow-lg">
           <p class="text-sm text-neutral-400 mt-2">تصویر: دوربین‌های هوشمند برای شمارش افراد در محیط‌های عمومی</p>
         </div>
       </header>
@@ -70,7 +75,8 @@
           <li>کنترل ازدحام در شرایط اضطراری</li>
         </ul>
         <p>
-          روش‌های سنتی مانند شمارنده‌های مکانیکی یا شمارش دستی ناکارآمد و مستعد خطا هستند. راهکار مدرن: استفاده از بینایی ماشین برای شمارش خودکار و real-time.
+          روش‌های سنتی مانند شمارنده‌های مکانیکی یا شمارش دستی ناکارآمد و مستعد خطا هستند. راهکار مدرن: استفاده از
+          بینایی ماشین برای شمارش خودکار و real-time.
         </p>
 
         <h2>معماری سیستم</h2>
@@ -248,6 +254,95 @@
         </ul>
 
         <h2>نتایج و تأثیرات</h2>
+
+        <!-- Project Environment Carousel -->
+        <div class="mb-8">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-white">محیط پروژه</h3>
+            <div class="flex gap-2">
+              <button id="prevBtn"
+                class="w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center text-white transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+              </button>
+              <button id="nextBtn"
+                class="w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center text-white transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="relative overflow-hidden rounded-lg bg-neutral-900/50 backdrop-blur-sm border border-neutral-800">
+            <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
+              <div class="min-w-full flex gap-4 p-4">
+                <div class="flex-1 rounded-lg overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=250&fit=crop"
+                    alt="داشبورد کنترل سیستم" class="w-full h-40 object-cover">
+                  <div class="p-3 bg-neutral-800">
+                    <h4 class="text-sm font-medium text-white mb-1">داشبورد کنترل</h4>
+                    <p class="text-xs text-neutral-400">رابط مدیریت سیستم شمارش</p>
+                  </div>
+                </div>
+                <div class="flex-1 rounded-lg overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop"
+                    alt="تحلیل داده‌ها" class="w-full h-40 object-cover">
+                  <div class="p-3 bg-neutral-800">
+                    <h4 class="text-sm font-medium text-white mb-1">تحلیل داده‌ها</h4>
+                    <p class="text-xs text-neutral-400">نمودارهای آماری و گزارشات</p>
+                  </div>
+                </div>
+                <div class="flex-1 rounded-lg overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=250&fit=crop"
+                    alt="کیفیت کد" class="w-full h-40 object-cover">
+                  <div class="p-3 bg-neutral-800">
+                    <h4 class="text-sm font-medium text-white mb-1">کیفیت کد</h4>
+                    <p class="text-xs text-neutral-400">معماری و استانداردهای کدنویسی</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="min-w-full flex gap-4 p-4">
+                <div class="flex-1 rounded-lg overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=250&fit=crop"
+                    alt="تست سیستم" class="w-full h-40 object-cover">
+                  <div class="p-3 bg-neutral-800">
+                    <h4 class="text-sm font-medium text-white mb-1">تست سیستم</h4>
+                    <p class="text-xs text-neutral-400">آزمایش در محیط واقعی</p>
+                  </div>
+                </div>
+                <div class="flex-1 rounded-lg overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=250&fit=crop"
+                    alt="مانیتورینگ" class="w-full h-40 object-cover">
+                  <div class="p-3 bg-neutral-800">
+                    <h4 class="text-sm font-medium text-white mb-1">مانیتورینگ</h4>
+                    <p class="text-xs text-neutral-400">نظارت بر عملکرد سیستم</p>
+                  </div>
+                </div>
+                <div class="flex-1 rounded-lg overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop"
+                    alt="تیم توسعه" class="w-full h-40 object-cover">
+                  <div class="p-3 bg-neutral-800">
+                    <h4 class="text-sm font-medium text-white mb-1">تیم توسعه</h4>
+                    <p class="text-xs text-neutral-400">همکاری و مدیریت پروژه</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Indicators -->
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+              <button class="carousel-indicator w-2 h-2 rounded-full bg-red-400 transition-colors"
+                data-slide="0"></button>
+              <button
+                class="carousel-indicator w-2 h-2 rounded-full bg-neutral-600 hover:bg-neutral-500 transition-colors"
+                data-slide="1"></button>
+            </div>
+          </div>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
           <div class="card text-center">
             <div class="text-3xl font-bold text-red-400 mb-2">۹۵%</div>
@@ -322,5 +417,63 @@
   <script src="js/particles.js"></script>
   <script src="js/main.js"></script>
 
+  <!-- Carousel Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const carousel = document.getElementById('carousel');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const indicators = document.querySelectorAll('.carousel-indicator');
+
+      let currentSlide = 0;
+      const totalSlides = 2;
+
+      function updateCarousel() {
+        const translateX = -currentSlide * 100;
+        carousel.style.transform = `translateX(${translateX}%)`;
+
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+          if (index === currentSlide) {
+            indicator.classList.remove('bg-neutral-600');
+            indicator.classList.add('bg-red-400');
+          } else {
+            indicator.classList.remove('bg-red-400');
+            indicator.classList.add('bg-neutral-600');
+          }
+        });
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      }
+
+      // Event listeners
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+
+      // Indicator clicks
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          currentSlide = index;
+          updateCarousel();
+        });
+      });
+
+      // Auto-play carousel
+      setInterval(nextSlide, 5000);
+
+      // Initialize
+      updateCarousel();
+    });
+  </script>
+
 </body>
+
 </html>
