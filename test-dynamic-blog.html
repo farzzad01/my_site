@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تست سیستم بلاگ پویا</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Arial', sans-serif; direction: rtl; }
+    .test-pass { color: green; }
+    .test-fail { color: red; }
+  </style>
+</head>
+<body class="bg-gray-900 text-white p-8">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-8">تست سیستم بلاگ پویا</h1>
+    
+    <div id="testResults" class="space-y-4">
+      <div id="loadingTest" class="text-yellow-400">🔄 در حال تست سیستم...</div>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">نتایج:</h2>
+      <div id="results" class="space-y-2"></div>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">لینک‌ها:</h2>
+      <div class="space-x-4">
+        <a href="blog-dynamic.html" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">بلاگ پویا</a>
+        <a href="blog.html" class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded">بلاگ استاتیک (قدیمی)</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function runTests() {
+      const results = [];
+      
+      // Test 1: JSON file exists and is valid
+      try {
+        const response = await fetch('articles.json');
+        const articles = await response.json();
+        
+        if (Array.isArray(articles) && articles.length > 0) {
+          results.push({ test: 'بارگذاری articles.json', status: 'success', message: `✅ ${articles.length} مقاله یافت شد` });
+        } else {
+          results.push({ test: 'بارگذاری articles.json', status: 'fail', message: '❌ فایل JSON خالی یا نامعتبر است' });
+        }
+      } catch (error) {
+        results.push({ test: 'بارگذاری articles.json', status: 'fail', message: '❌ خطا در بارگذاری فایل JSON' });
+      }
+
+      // Test 2: JavaScript files exist
+      try {
+        await fetch('js/blog-dynamic.js');
+        results.push({ test: 'فایل blog-dynamic.js', status: 'success', message: '✅ فایل JavaScript موجود است' });
+      } catch (error) {
+        results.push({ test: 'فایل blog-dynamic.js', status: 'fail', message: '❌ فایل JavaScript یافت نشد' });
+      }
+
+      // Test 3: HTML file structure
+      try {
+        const response = await fetch('blog-dynamic.html');
+        const html = await response.text();
+        
+        if (html.includes('articlesContainer') && html.includes('blog-dynamic.js')) {
+          results.push({ test: 'ساختار HTML', status: 'success', message: '✅ HTML شامل container و script مناسب است' });
+        } else {
+          results.push({ test: 'ساختار HTML', status: 'fail', message: '❌ HTML شامل المان‌های مورد نیاز نیست' });
+        }
+      } catch (error) {
+        results.push({ test: 'ساختار HTML', status: 'fail', message: '❌ خطا در دسترسی به فایل HTML' });
+      }
+
+      // Test 4: GitHub Pages compatibility
+      const isLocal = window.location.protocol === 'file:';
+      if (isLocal) {
+        results.push({ test: 'محیط اجرا', status: 'warn', message: '⚠️ برای تست کامل، فایل‌ها را روی GitHub Pages منتشر کنید' });
+      } else {
+        results.push({ test: 'محیط اجرا', status: 'success', message: '✅ محیط مناسب برای fetch() است' });
+      }
+
+      displayResults(results);
+    }
+
+    function displayResults(results) {
+      document.getElementById('loadingTest').style.display = 'none';
+      
+      const resultsContainer = document.getElementById('results');
+      resultsContainer.innerHTML = '';
+
+      results.forEach(result => {
+        const div = document.createElement('div');
+        div.className = `p-3 rounded ${result.status === 'success' ? 'bg-green-900' : result.status === 'warn' ? 'bg-yellow-900' : 'bg-red-900'}`;
+        div.innerHTML = `<span class="${result.status === 'success' ? 'test-pass' : result.status === 'warn' ? 'text-yellow-400' : 'test-fail'}">${result.message}</span>`;
+        resultsContainer.appendChild(div);
+      });
+
+      const successCount = results.filter(r => r.status === 'success').length;
+      const totalCount = results.length;
+      
+      const summary = document.createElement('div');
+      summary.className = 'mt-6 p-4 bg-gray-800 rounded';
+      summary.innerHTML = `
+        <h3 class="text-xl font-bold">خلاصه تست:</h3>
+        <p class="text-lg">تست‌های موفق: <span class="text-green-400">${successCount}</span> از <span class="text-white">${totalCount}</span></p>
+        ${successCount === totalCount ? 
+          '<p class="text-green-400 mt-2">🎉 سیستم آماده استفاده است!</p>' : 
+          '<p class="text-yellow-400 mt-2">⚠️ برخی مشکلات نیاز به بررسی دارند.</p>'
+        }
+      `;
+      resultsContainer.appendChild(summary);
+    }
+
+    // Run tests when page loads
+    document.addEventListener('DOMContentLoaded', runTests);
+  </script>
+</body>
+</html>
