@@ -23,7 +23,8 @@ class BlogManager {
 
   async loadArticles() {
     try {
-      const response = await fetch('articles.json');
+      // اضافه کردن timestamp برای جلوگیری از کش شدن فایل توسط گیت‌هاب
+          const response = await fetch(`articles.json?v=${new Date().getTime()}`);  
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -70,7 +71,7 @@ class BlogManager {
     this.container.innerHTML = articlesHTML;
     
     // Initialize fade-in animations
-    this.initAnimations();
+    this.initAnimations();  
   }
 
   createArticleHTML(article) {
@@ -82,7 +83,7 @@ class BlogManager {
 
     return `
       <article class="card-link fade-in">
-        <a href="${article.url || '#'}" class="card block group">
+        <a href="article.html?id=${article.id}" class="card block group">
           <div class="flex flex-col h-full">
             <div class="mb-4">
               <div class="flex items-center gap-3 mb-3">
