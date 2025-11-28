@@ -61,6 +61,7 @@
       <a href="#skills" class="hover:text-white transition">مهارت‌ها</a>
       <a href="#projects" class="hover:text-white transition">پروژه‌ها</a>
       <a href="blog.html" class="hover:text-white transition">بلاگ</a>
+      <a href="library.html" class="hover:text-white transition">کتابخانه</a>
       <a href="#contact" class="hover:text-white transition">تماس</a>
       <a href="#cv" class="cta ml-4"><span class="mono">دانلود رزومه</span></a>
     </nav>
@@ -143,117 +144,278 @@
   </main>
 
 
-  <!-- Project Environment Showcase -->
-  <section class="mb-16">
-    <div class="container-max text-center mb-8">
-      <h2 class="text-2xl font-bold text-white mb-2">محیط پروژه‌ها</h2>
-      <p class="text-neutral-400 text-sm">نگاهی به فضای کاری و محیط توسعه پروژه‌های مختلف</p>
+  <!-- Project Categories -->
+  <section id="projects" class="mb-16"></section>
+  <div class="container-max text-center mb-12">
+    <h2 class="text-3xl font-bold text-white mb-4">پروژه‌ها</h2>
+    <p class="text-neutral-400 max-w-2xl mx-auto">مجموعه‌ای از پروژه‌های کاربردی و آزمایشی در حوزه‌های مختلف هوش مصنوعی
+      و بینایی ماشین</p>
+  </div>
+
+  <!-- Applied Projects -->
+  <div class="container-max mb-16">
+    <div class="flex items-center gap-4 mb-8">
+      <h3 class="text-2xl font-bold text-red-400">پروژه‌های کاربردی</h3>
+      <div class="h-1 flex-grow bg-gradient-to-l from-transparent via-red-500/20 to-transparent"></div>
     </div>
 
-    <!-- Horizontal Scrolling Marquee -->
-    <div class="relative overflow-hidden h-64">
-      <div id="marqueeContainer" class="flex gap-6 cursor-grab active:cursor-grabbing select-none"
-        style="transform: translateX(0px);">
-
-        <!-- First Set of Cards -->
-        <div class="flex gap-6 flex-shrink-0" id="cardSet1"></div>
-
-        <!-- Card 1 -->
-        <div class="flex-shrink-0 w-80 group">
-          <div
-            class="relative overflow-hidden rounded-xl bg-gradient-to-br from-neutral-800/80 to-neutral-900/60 border border-neutral-700/50 hover:border-red-500/30 transition-all duration-300 h-56">
-            <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=250&fit=crop"
-              alt="داشبورد کنترل سیستم"
-              class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
-              draggable="false">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-4">
-              <h3 class="text-white font-semibold mb-1">داشبورد کنترل</h3>
-              <p class="text-neutral-300 text-sm">رابط مدیریت سیستم‌های هوشمند</p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Telecom Management -->
+      <a href="project-telecom-management.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-1.621-.621A3 3 0 0 1 14.25 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h4.5M12 3v12m0 0-3.75-3.75M12 15l3.75-3.75" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white">مدیریت مخابرات</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">CRM</span><span class="tag">Project Management</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">سیستم یکپارچه مدیریت پروژه‌های فیبر نوری</p>
             </div>
           </div>
-        </div>
+        </article>
+      </a>
 
-        <!-- Card 2 -->
-        <div class="flex-shrink-0 w-80 group">
-          <div
-            class="relative overflow-hidden rounded-xl bg-gradient-to-br from-neutral-800/80 to-neutral-900/60 border border-neutral-700/50 hover:border-red-500/30 transition-all duration-300 h-56">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop"
-              alt="تحلیل داده‌ها"
-              class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
-              draggable="false">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-4">
-              <h3 class="text-white font-semibold mb-1">تحلیل داده‌ها</h3>
-              <p class="text-neutral-300 text-sm">نمودارها و گزارشات آماری</p>
+      <!-- Person Counting -->
+      <a href="project-person-counting.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white">شمارش افراد</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">YOLO</span><span class="tag">Real-time</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">شمارش دقیق افراد در محیط‌های مختلف</p>
             </div>
           </div>
-        </div>
+        </article>
+      </a>
 
-        <!-- Card 3 -->
-        <div class="flex-shrink-0 w-80 group">
-          <div
-            class="relative overflow-hidden rounded-xl bg-gradient-to-br from-neutral-800/80 to-neutral-900/60 border border-neutral-700/50 hover:border-red-500/30 transition-all duration-300 h-56">
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=250&fit=crop" alt="کیفیت کد"
-              class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
-              draggable="false">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-4">
-              <h3 class="text-white font-semibold mb-1">کیفیت کد</h3>
-              <p class="text-neutral-300 text-sm">معماری و استانداردهای توسعه</p>
+      <!-- Hospital System -->
+      <a href="project-smart-hospital-system.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white">سیستم بیمارستانی</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">Raspberry Pi</span><span class="tag">Voice Control</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">مانیتورینگ هوشمند بیماران</p>
             </div>
           </div>
-        </div>
+        </article>
+      </a>
 
-        <!-- Card 4 -->
-        <div class="flex-shrink-0 w-80 group">
-          <div
-            class="relative overflow-hidden rounded-xl bg-gradient-to-br from-neutral-800/80 to-neutral-900/60 border border-neutral-700/50 hover:border-red-500/30 transition-all duration-300 h-56">
-            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=250&fit=crop" alt="تست سیستم"
-              class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
-              draggable="false">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-4">
-              <h3 class="text-white font-semibold mb-1">تست سیستم</h3>
-              <p class="text-neutral-300 text-sm">آزمایش در محیط واقعی</p>
+      <!-- Library Access -->
+      <a href="project-library-access.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white">کتابخانه هوشمند</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">Biometric</span><span class="tag">Access Control</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">ورود با اثر انگشت و مدیریت تردد</p>
             </div>
           </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="flex-shrink-0 w-80 group">
-          <div
-            class="relative overflow-hidden rounded-xl bg-gradient-to-br from-neutral-800/80 to-neutral-900/60 border border-neutral-700/50 hover:border-red-500/30 transition-all duration-300 h-56">
-            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=250&fit=crop" alt="مانیتورینگ"
-              class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
-              draggable="false">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-4">
-              <h3 class="text-white font-semibold mb-1">مانیتورینگ</h3>
-              <p class="text-neutral-300 text-sm">نظارت بر عملکرد سیستم</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="flex-shrink-0 w-80 group">
-          <div
-            class="relative overflow-hidden rounded-xl bg-gradient-to-br from-neutral-800/80 to-neutral-900/60 border border-neutral-700/50 hover:border-red-500/30 transition-all duration-300 h-56">
-            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop" alt="تیم توسعه"
-              class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
-              draggable="false">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-4">
-              <h3 class="text-white font-semibold mb-1">تیم توسعه</h3>
-              <p class="text-neutral-300 text-sm">همکاری و مدیریت پروژه</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
+        </article>
+      </a>
     </div>
+  </div>
+
+  <!-- Experimental Projects -->
+  <div class="container-max">
+    <div class="flex items-center gap-4 mb-8">
+      <h3 class="text-2xl font-bold text-blue-400">پروژه‌های آزمایشی (پروتوتایپ)</h3>
+      <div class="h-1 flex-grow bg-gradient-to-l from-transparent via-blue-500/20 to-transparent"></div>
     </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- University Platform -->
+      <a href="project-university-ai.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white">پلتفرم دانشگاه</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">Face Recognition</span><span class="tag">Attendance</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">سیستم حضور و غیاب هوشمند</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- Traffic Control -->
+      <a href="project-traffic-control.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-5.571 3m0 0L12 15l-5.571-3m11.142 0L12 15m-5.571-3 5.571-3L12 15m6.75-3-5.571 3-5.571-3M12 21.75l-5.571-3 5.571-3 5.571 3-5.571 3Z" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white">کنترل تردد</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">LPR</span><span class="tag">PyQt6</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">شناسایی پلاک و مدیریت پارکینگ</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- Smart Coach -->
+      <a href="project-smart-coach.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.63 2.25a14.98 14.98 0 0 0-5.84 7.38m5.84 2.58a14.98 14.98 0 0 1 7.48 2.25m-7.48-2.25a14.98 14.98 0 0 0-7.48 2.25M12 19.5a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v12a3 3 0 0 1-3 3Z" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white">مربی ورزشی</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">AI Coach</span><span class="tag">Pose Estimation</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">تحلیل حرکات ورزشی هوشمند</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- AI Farming -->
+      <a href="project-ai-farming.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21.75 9.75a4.5 4.5 0 0 1-4.5 4.5H8.25a4.5 4.5 0 0 1-4.5-4.5V5.25A2.25 2.25 0 0 1 6 3h12a2.25 2.25 0 0 1 2.25 2.25v4.5Z" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8.25 9.75 9 11.25l-2.625 2.625c-.828.828-1.223 1.938-1.06 3.038.162 1.1.896 2.057 1.843 2.625c.947.568 2.083.748 3.18.517l2.83-1.09a1.5 1.5 0 0 0 .963-.517l2.625-2.625m-8.25-4.5 2.625 2.625m0 0L12 15.75m-1.125-1.125L9.75 12.375" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white">دامداری هوشمند</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">AI Monitoring</span><span class="tag">Animal Health</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">مانیتورینگ سلامت دام‌ها</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- Smart Villa -->
+      <a href="project-smart-villa.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m-3-1L11.25 3l-1.5.545m9.454 5.454L12 11.25l-1.5-1.5m3 3-3-3m-3 3-3-3m-3 3h18" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white">ویلای هوشمند</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">Drone</span><span class="tag">IoT</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">سیستم امنیت با پهپاد</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- Smart Location -->
+      <a href="project-smart-location.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white">مکان‌یابی هوشمند</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">GPS</span><span class="tag">Location</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">سیستم ردیابی و مکان‌یابی</p>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- Management App -->
+      <a href="project-management-app.html" class="card-link">
+        <article class="card">
+          <div class="flex items-start gap-4">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-white">اپ مدیریت</div>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="tag">Flutter</span><span class="tag">Mobile</span>
+              </div>
+              <p class="text-neutral-400 mt-3 text-sm">اپلیکیشن مدیریت پروژه</p>
+            </div>
+          </div>
+        </article>
+      </a>
+    </div>
+  </div>
   </section>
 
   <!-- stats/achievements section -->
@@ -366,189 +528,7 @@
     </div>
   </section>
 
-  <!-- projects -->
-  <section id="projects" class="container-max mb-16">
-    <div class="flex items-center justify-between mb-6">
-      <h3 class="text-xl font-bold text-white">پروژه‌های منتخب</h3>
-      <a href="projects-overview.html" class="text-sm text-red-400 hover:text-red-300 transition">مشاهده همه پروژه‌ها
-        →</a>
-    </div>
-    <div class="grid md:grid-cols-3 gap-6">
 
-      <!-- پروژه ۱: پلتفرم دانشگاه -->
-      <a href="project-university-ai.html" class="card-link">
-        <article class="card">
-          <div class="flex items-start gap-4">
-            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
-              </svg></div>
-            <div>
-              <div class="font-semibold text-white">پلتفرم هوشمند دانشگاه</div>
-              <div class="flex flex-wrap gap-2 mt-2">
-                <span class="tag">Face Recognition</span><span class="tag">Attendance System</span>
-              </div>
-              <p class="text-neutral-400 mt-3 text-sm">سیستم حضور و غیاب هوشمند و مدیریت کلاس‌ها با تشخیص چهره.</p>
-            </div>
-          </div>
-        </article>
-      </a>
-
-      <!-- پروژه ۲: سیستم تردد -->
-      <a href="project-traffic-control.html" class="card-link">
-        <article class="card">
-          <div class="flex items-start gap-4">
-            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-5.571 3m0 0L12 15l-5.571-3m11.142 0L12 15m-5.571-3 5.571-3L12 15m6.75-3-5.571 3-5.571-3M12 21.75l-5.571-3 5.571-3 5.571 3-5.571 3Z" />
-              </svg></div>
-            <div>
-              <div class="font-semibold text-white">کنترل هوشمند تردد</div>
-              <div class="flex flex-wrap gap-2 mt-2">
-                <span class="tag">LPR</span><span class="tag">PyQt6</span><span class="tag">Real-time</span>
-              </div>
-              <p class="text-neutral-400 mt-3 text-sm">شناسایی و ثبت پلاک خودروها برای مدیریت پارکینگ و کنترل دسترسی.
-              </p>
-            </div>
-          </div>
-        </article>
-      </a>
-
-      <!-- پروژه ۳: مربی هوشمند ورزشی -->
-      <a href="project-smart-coach.html" class="card-link">
-        <article class="card">
-          <div class="flex items-start gap-4">
-            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.63 2.25a14.98 14.98 0 0 0-5.84 7.38m5.84 2.58a14.98 14.98 0 0 1 7.48 2.25m-7.48-2.25a14.98 14.98 0 0 0-7.48 2.25M12 19.5a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v12a3 3 0 0 1-3 3Z" />
-              </svg></div>
-            <div>
-              <div class="font-semibold text-white">مربی هوشمند ورزشی</div>
-              <div class="flex flex-wrap gap-2 mt-2">
-                <span class="tag">AI Coach</span><span class="tag">Pose Estimation</span>
-              </div>
-              <p class="text-neutral-400 mt-3 text-sm">تحلیل آنی حرکات ورزشی، ارائه بازخورد صوتی و شمارش هوشمند.</p>
-            </div>
-          </div>
-        </article>
-      </a>
-
-      <!-- پروژه ۴: سیستم هوشمند بیمارستانی -->
-      <a href="project-smart-hospital-system.html" class="card-link">
-        <article class="card">
-          <div class="flex items-start gap-4">
-            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
-              </svg></div>
-            <div>
-              <div class="font-semibold text-white">سیستم هوشمند بیمارستانی</div>
-              <div class="flex flex-wrap gap-2 mt-2">
-                <span class="tag">Raspberry Pi</span><span class="tag">Voice Control</span>
-              </div>
-              <p class="text-neutral-400 mt-3 text-sm">مانیتورینگ جامع بیماران و مدیریت هوشمند فرآیندهای درمانی.</p>
-            </div>
-          </div>
-        </article>
-      </a>
-
-      <!-- پروژه ۵: کتابخانه هوشمند -->
-      <a href="project-library-access.html" class="card-link">
-        <article class="card">
-          <div class="flex items-start gap-4">
-            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-              </svg></div>
-            <div>
-              <div class="font-semibold text-white">ورود و خروج با اثر انگشت</div>
-              <div class="flex flex-wrap gap-2 mt-2">
-                <span class="tag">Biometric</span><span class="tag">Access Control</span>
-              </div>
-              <p class="text-neutral-400 mt-3 text-sm">مدیریت تردد در کتابخانه با استفاده از سنسور اثر انگشت و رابط
-                کاربری PyQt6.</p>
-            </div>
-          </div>
-        </article>
-      </a>
-
-
-
-
-
-      <!-- پروژه جدید: نرم‌افزار مدیریت مخابرات -->
-      <a href="project-telecom-management.html" class="card-link">
-        <article class="card">
-          <div class="flex items-start gap-4">
-            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-1.621-.621A3 3 0 0 1 14.25 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h4.5M12 3v12m0 0-3.75-3.75M12 15l3.75-3.75" />
-              </svg></div>
-            <div>
-              <div class="font-semibold text-white">نرم‌افزار یکپارچه مخابرات</div>
-              <div class="flex flex-wrap gap-2 mt-2">
-                <span class="tag">CRM</span><span class="tag">Project Management</span>
-              </div>
-              <p class="text-neutral-400 mt-3 text-sm">مدیریت کامل پروژه‌های فیبر نوری از بازاریابی تا اجرا با اپلیکیشن
-                موبایل.</p>
-            </div>
-          </div>
-        </article>
-      </a>
-
-      <!-- پروژه ۱۰: دامداری هوشمند -->
-      <a href="project-ai-farming.html" class="card-link">
-        <article class="card">
-          <div class="flex items-start gap-4">
-            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M21.75 9.75a4.5 4.5 0 0 1-4.5 4.5H8.25a4.5 4.5 0 0 1-4.5-4.5V5.25A2.25 2.25 0 0 1 6 3h12a2.25 2.25 0 0 1 2.25 2.25v4.5Z" />
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M8.25 9.75 9 11.25l-2.625 2.625c-.828.828-1.223 1.938-1.06 3.038.162 1.1.896 2.057 1.843 2.625c.947.568 2.083.748 3.18.517l2.83-1.09a1.5 1.5 0 0 0 .963-.517l2.625-2.625m-8.25-4.5 2.625 2.625m0 0L12 15.75m-1.125-1.125L9.75 12.375" />
-              </svg></div>
-            <div>
-              <div class="font-semibold text-white">هوشمندسازی دامداری</div>
-              <div class="flex flex-wrap gap-2 mt-2">
-                <span class="tag">AI Monitoring</span><span class="tag">Animal Health</span>
-              </div>
-              <p class="text-neutral-400 mt-3 text-sm">بررسی تغذیه، سلامت و رفتار دام‌ها با دوربین‌های مجهز به هوش
-                مصنوعی.</p>
-            </div>
-          </div>
-        </article>
-      </a>
-
-      <!-- پروژه ۱۱: ویلای هوشمند -->
-      <a href="project-smart-villa.html" class="card-link">
-        <article class="card">
-          <div class="flex items-start gap-4">
-            <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m-3-1L11.25 3l-1.5.545m9.454 5.454L12 11.25l-1.5-1.5m3 3-3-3m-3 3-3-3m-3 3h18" />
-              </svg></div>
-            <div>
-              <div class="font-semibold text-white">سیستم امنیت هوشمند ویلا</div>
-              <div class="flex flex-wrap gap-2 mt-2">
-                <span class="tag">Drone Surveillance</span><span class="tag">IoT</span><span class="tag">Smart
-                  Home</span>
-              </div>
-              <p class="text-neutral-400 mt-3 text-sm">نظارت کامل بر ویلا با استفاده از پهپاد شناسایی و سنسورهای هوشمند،
-                بدون نیاز به نگهبان.</p>
-            </div>
-          </div>
-        </article>
-      </a>
-
-    </div>
-  </section>
 
   <!-- contact -->
   <section id="contact" class="container-max mb-20">
@@ -674,9 +654,9 @@
   <div id="mobileMenu" class="fixed inset-x-4 bottom-6 z-50 md:hidden hidden">
     <div class="bg-neutral-900/80 border border-neutral-800 rounded-xl p-4 flex justify-around">
       <a href="#skills" class="text-sm text-neutral-200">مهارت‌ها</a>
-      <a href="#skills" class="text-sm text-neutral-200">مهارت‌ها</a>
       <a href="#projects" class="text-sm text-neutral-200">پروژه‌ها</a>
       <a href="blog.html" class="text-sm text-neutral-200">بلاگ</a>
+      <a href="library.html" class="text-sm text-neutral-200">کتابخانه</a>
       <a href="#contact" class="text-sm text-neutral-200">تماس</a>
     </div>
   </div>
